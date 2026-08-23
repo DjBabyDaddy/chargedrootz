@@ -1,0 +1,1341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charged Rootz — Assisted Stretch &amp; Botanical Bar</title>
+<meta name="description" content="One-on-one assisted stretch sessions and a cold-pressed botanical bar. Charged Rootz: rooted, nourished, elevated. Book a session or read the juice, shot and add-on menu.">
+<meta name="theme-color" content="#F7F4EE">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Charged Rootz — Assisted Stretch &amp; Botanical Bar">
+<meta property="og:description" content="One-on-one assisted stretching, plus cold-pressed juices, wellness shots and add-ons made with intention.">
+<meta property="og:image" content="../assets/img/lineup-1200.jpg">
+<meta property="og:site_name" content="Charged Rootz">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Charged Rootz — Assisted Stretch &amp; Botanical Bar">
+<meta name="twitter:description" content="One-on-one assisted stretching, plus cold-pressed juices, wellness shots and add-ons made with intention.">
+<meta name="twitter:image" content="../assets/img/lineup-1200.jpg">
+
+<link rel="icon" href="../assets/img/logo-128.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400;1,6..72,600&family=Karla:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CHARGED ROOTZ — CONCEPT 2 "APOTHECARY"
+   Warm daylight paper. Hairlines carry the structure.
+   Display: Newsreader · Body: Karla · Micro: Space Mono
+   Her brand fire appears only as: the printed seal, section
+   rules, one primary CTA, and category spines.
+   ============================================================ */
+
+:root{
+  /* paper */
+  --canvas:#F7F4EE;
+  --surface:#FFFDF9;
+  --sunk:#F2EEE6;
+  --rule:#E3DCD1;
+  --rule-soft:#EDE7DD;
+  --ink:#1A1512;
+  --ink-2:#786A5E;
+
+  /* brand fire — sparing */
+  --gold:#E8C21A;
+  --amber:#D98A1C;
+  --flame:#DA3E1B;
+  --crimson:#E11417;
+  --ember:#8C1A0D;
+  --fire:linear-gradient(180deg,#E8C21A,#D98A1C 28%,#DA3E1B 62%,#E11417);
+
+  /* category spines (from her printed menu) */
+  --cat-green:#8CC152;
+  --cat-purple:#9B59B6;
+  --cat-blue:#2E7FD4;
+  --cat-crimson:#D62828;
+  --cat-gold:#D98A1C;
+  --cat-flame:#DA3E1B;
+
+  /* muted chips */
+  --chip-green:#EDF3EC;
+  --chip-gold:#FBF3DB;
+  --chip-crimson:#FDEBEC;
+  --chip-blue:#E1F3FE;
+  --chip-purple:#F3ECF7;
+
+  --shadow:0 2px 8px rgba(26,21,18,.05);
+  --r:10px;
+  --pad:clamp(1.25rem,3vw,2rem);
+  --gutter:clamp(1.25rem,5vw,3rem);
+  --ribbon:34px;
+
+  --f-display:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-body:"Karla",-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Space Mono","SFMono-Regular",Consolas,monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;padding-top:var(--ribbon);
+  background:var(--canvas);color:var(--ink);
+  font-family:var(--f-body);font-size:1.0625rem;line-height:1.65;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;font-family:var(--f-display);font-weight:400;letter-spacing:-.025em;line-height:1.05}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--flame);outline-offset:3px;border-radius:3px}
+::selection{background:#FBF3DB;color:var(--ink)}
+
+/* ---------- primitives ---------- */
+.wrap{width:100%;max-width:1200px;margin-inline:auto;padding-inline:var(--gutter)}
+.micro{font-family:var(--f-mono);font-size:.6875rem;line-height:1.5;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+@media(min-width:768px){.micro{font-size:.75rem}}
+.lede{max-width:52ch;color:var(--ink-2);font-size:1.0625rem;line-height:1.7}
+@media(min-width:768px){.lede{font-size:1.1875rem}}
+.prose{max-width:62ch;line-height:1.6}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+.tbd{
+  border-bottom:1px dotted var(--flame);
+  cursor:help;text-decoration:none;
+  padding-bottom:1px;
+}
+
+/* the printed seal — her logo, stamped */
+.seal{
+  width:var(--s,56px);height:var(--s,56px);
+  border-radius:50%;
+  opacity:.92;
+  transform:rotate(-4deg);
+  flex:none;
+}
+
+/* section scaffolding */
+.section{padding-block:clamp(6rem,11vw,8.5rem);border-top:1px solid var(--rule)}
+.section--flat{border-top:0}
+.opener{margin-bottom:clamp(2.5rem,5vw,4rem)}
+.opener__rule{width:44px;height:3px;background:var(--fire);border-radius:2px;margin-bottom:1.25rem}
+.opener__eyebrow{margin-bottom:1rem}
+.opener h2{font-size:clamp(2rem,4.6vw,3.15rem);max-width:18ch}
+.opener h2 em{font-style:italic;color:var(--ember)}
+.opener__sub{margin-top:1.25rem}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:.7rem;
+  min-height:48px;padding:.85rem 1.4rem .85rem 1.15rem;
+  font-family:var(--f-body);font-size:.9375rem;font-weight:700;letter-spacing:.01em;
+  border:1px solid var(--ink);border-radius:var(--r);
+  background:var(--ink);color:#FDFBF6;
+  text-decoration:none;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s ease;
+}
+.btn::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--fire)}
+.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn--quiet{
+  background:transparent;color:var(--ink);border-color:var(--rule);
+  font-weight:500;padding-inline:1.15rem;
+}
+.btn--quiet::before{display:none}
+.btn--quiet:hover{border-color:var(--ink-2);background:var(--surface)}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:.375rem}
+.chip{
+  font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:.3rem .5rem;border-radius:6px;background:var(--sunk);color:var(--ink);white-space:nowrap;
+}
+.cat-green   .chip,.chip--green  {background:var(--chip-green)}
+.cat-gold    .chip,.chip--gold   {background:var(--chip-gold)}
+.cat-crimson .chip,.chip--crimson{background:var(--chip-crimson)}
+.cat-blue    .chip,.chip--blue   {background:var(--chip-blue)}
+.cat-purple  .chip,.chip--purple {background:var(--chip-purple)}
+.cat-flame   .chip{background:var(--chip-crimson)}
+
+/* photo frames — tight crop + light warm wash so busy gym
+   backgrounds sit calmly on the paper */
+.frame{
+  position:relative;background:var(--surface);
+  border:1px solid var(--rule);border-radius:var(--r);
+  padding:8px;
+}
+.frame__in{position:relative;overflow:hidden;border-radius:4px;background:var(--sunk)}
+.frame__in img{width:100%;height:100%;object-fit:cover;filter:sepia(.13) saturate(.94) contrast(1.02) brightness(1.02)}
+.frame__in::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(232,194,26,.09),rgba(218,62,27,.05) 60%,rgba(247,244,238,.16));
+}
+.frame figcaption{padding:.85rem .35rem .2rem;display:flex;gap:.75rem;align-items:baseline;justify-content:space-between}
+
+/* ============ ribbon ============ */
+.ribbon{
+  position:fixed;inset:0 0 auto 0;z-index:60;height:var(--ribbon);
+  display:flex;align-items:center;justify-content:center;gap:.6rem;
+  background:var(--ink);color:#EFE7DA;
+  border-bottom:1px solid #000;
+}
+.ribbon a{
+  font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;
+  color:#EFE7DA;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;
+  padding:.4rem .6rem;
+}
+.ribbon a:hover{color:#fff}
+.ribbon .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none}
+.ribbon .back{border-bottom:1px solid rgba(239,231,218,.4)}
+@media(max-width:640px){.ribbon a{font-size:.625rem;letter-spacing:.04em;gap:.45rem}.ribbon .back{display:none}}
+
+/* skip link */
+.skip{
+  position:absolute;left:50%;top:calc(var(--ribbon) + 6px);transform:translate(-50%,-200%);
+  z-index:70;background:var(--surface);border:1px solid var(--ink);border-radius:var(--r);
+  padding:.6rem 1rem;font-weight:700;font-size:.875rem;text-decoration:none;
+  transition:transform .18s ease;
+}
+.skip:focus{transform:translate(-50%,0)}
+
+/* ============ nav ============ */
+.nav{position:sticky;top:calc(var(--ribbon) + 10px);z-index:50;padding-top:14px}
+.nav__pill{
+  display:flex;align-items:center;gap:.5rem;
+  padding:.4rem .5rem .4rem .75rem;
+  background:rgba(255,253,249,.78);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border:1px solid var(--rule);border-radius:var(--r);
+  box-shadow:var(--shadow);
+}
+.nav__brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;margin-right:auto;min-width:0}
+.nav__brand .seal{--s:30px;transform:rotate(-6deg)}
+.nav__brand b{font-family:var(--f-display);font-size:1.0625rem;font-weight:600;letter-spacing:-.02em;white-space:nowrap}
+.nav__links{display:none;gap:.15rem}
+@media(min-width:860px){.nav__links{display:flex}}
+.nav__links a{
+  font-size:.875rem;font-weight:500;text-decoration:none;color:var(--ink-2);
+  padding:.55rem .7rem;border-radius:7px;
+}
+.nav__links a:hover{color:var(--ink);background:var(--sunk)}
+.nav__cta{
+  min-height:38px;padding:.45rem .85rem;font-size:.8125rem;font-weight:700;
+  border:1px solid var(--ink);border-radius:8px;background:var(--ink);color:#FDFBF6;
+  text-decoration:none;display:inline-flex;align-items:center;white-space:nowrap;
+}
+.nav__cta:hover{background:#2A221C}
+
+/* ============ hero ============ */
+.hero{padding-block:clamp(3.5rem,8vw,6rem) clamp(5rem,9vw,7.5rem)}
+.hero__grid{display:grid;gap:clamp(2.5rem,5vw,4rem);align-items:end}
+@media(min-width:960px){.hero__grid{grid-template-columns:1.15fr .85fr}}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:var(--surface);border:1px solid var(--rule);border-radius:999px;
+  padding:.4rem .8rem;margin-bottom:1.75rem;
+}
+.eyebrow .spark{width:6px;height:14px;border-radius:3px;background:var(--fire);flex:none}
+.hero h1{
+  font-size:clamp(2.9rem,8.2vw,5.4rem);
+  max-width:13ch;margin-bottom:1.6rem;
+}
+.hero h1 em{font-style:italic;color:var(--ember)}
+.hero__actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.hero__facts{
+  display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;
+  margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--rule);
+  max-width:52ch;
+}
+.hero__facts b{font-family:var(--f-body);font-weight:700;color:var(--ink);letter-spacing:0;text-transform:none;font-size:.9375rem}
+.hero__fact{display:flex;flex-direction:column;gap:.15rem}
+.hero__photo{position:relative}
+.hero__photo .frame__in{aspect-ratio:4/5}
+.hero__photo .seal{
+  --s:76px;position:absolute;left:-14px;bottom:34px;
+  filter:drop-shadow(0 2px 8px rgba(26,21,18,.05));
+}
+@media(max-width:959px){.hero__photo .seal{--s:60px;left:auto;right:-8px;bottom:auto;top:-18px}}
+.hero__tag{
+  position:absolute;right:16px;top:16px;
+  background:rgba(255,253,249,.92);border:1px solid var(--rule);border-radius:7px;
+  padding:.35rem .6rem;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+}
+
+/* ============ practice bento ============ */
+.bento{
+  display:grid;gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:12px;overflow:hidden;
+}
+.bento>*{background:var(--surface);padding:var(--pad)}
+@media(min-width:900px){
+  .bento{grid-template-columns:repeat(12,1fr)}
+  .b-quote{grid-column:1/6;grid-row:1/3;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(1.75rem,2.6vw,2.5rem)}
+  .b-1{grid-column:6/13;grid-row:1/2;padding-block:clamp(2rem,3.4vw,3.1rem)}
+  .b-2{grid-column:6/10;grid-row:2/3}
+  .b-3{grid-column:10/13;grid-row:2/3}
+  .b-4{grid-column:1/13;grid-row:3/4;padding:0}
+}
+.step__mark{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem}
+.step__ord{
+  font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.1em;
+  color:var(--ink-2);border:1px solid var(--rule);border-radius:5px;padding:.15rem .4rem;
+}
+.step__key{font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ember)}
+.step h3{font-size:1.375rem;margin-bottom:.6rem;letter-spacing:-.02em}
+.step p{color:var(--ink-2);font-size:.9375rem;line-height:1.6;max-width:46ch}
+.b-1 h3{font-size:clamp(1.5rem,2.6vw,1.9rem)}
+.b-quote blockquote{margin:0;font-family:var(--f-display);font-style:italic;font-size:clamp(1.3rem,2.4vw,1.7rem);line-height:1.32;letter-spacing:-.02em}
+.b-quote .sig{display:flex;align-items:center;gap:.75rem;margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--rule)}
+.b-quote .seal{--s:38px}
+.b-4__in{display:grid;gap:1px;background:var(--rule)}
+@media(min-width:760px){.b-4__in{grid-template-columns:1fr .8fr;align-items:stretch}}
+.b-4 .step{background:var(--surface);padding:var(--pad)}
+.b-4__img{background:var(--surface);position:relative;overflow:hidden;min-height:190px}
+.b-4__img img{width:100%;height:100%;object-fit:cover;filter:sepia(.1) saturate(.95)}
+.b-4__img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,253,249,.55),rgba(255,253,249,0) 42%)}
+
+/* contrast block — no card, border-top only */
+.notice{margin-top:clamp(2.5rem,5vw,3.5rem);padding-top:1.75rem;border-top:1px solid var(--rule);display:grid;gap:1.25rem}
+@media(min-width:820px){.notice{grid-template-columns:.42fr .58fr;gap:2.5rem}}
+.notice h3{font-size:1.25rem;letter-spacing:-.02em}
+.notice p{color:var(--ink-2);font-size:.9375rem;max-width:58ch}
+
+/* ============ sessions ============ */
+.sessions{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+@media(min-width:900px){.sessions{grid-template-columns:repeat(12,1fr)}}
+.card{background:var(--surface);padding:clamp(1.5rem,2.6vw,2.25rem);display:flex;flex-direction:column;gap:1.1rem}
+@media(min-width:900px){
+  .card--feature{grid-column:1/7;grid-row:1/3}
+  .card--a{grid-column:7/13;grid-row:1/2}
+  .card--b{grid-column:7/13;grid-row:2/3}
+}
+.card__top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.card h3{font-size:clamp(1.5rem,2.4vw,1.95rem)}
+.card--feature h3{font-size:clamp(1.9rem,3.4vw,2.6rem)}
+.card__price{text-align:right;flex:none}
+.card__price .amt{font-family:var(--f-display);font-size:1.5rem;letter-spacing:-.02em;display:block}
+.card--feature .card__price .amt{font-size:2rem}
+.card__desc{color:var(--ink-2);font-size:.9375rem;max-width:44ch}
+.card__inc{display:grid;gap:.55rem;margin-top:auto;padding-top:1.1rem;border-top:1px solid var(--rule-soft)}
+.card__inc li{display:flex;gap:.65rem;font-size:.875rem;color:var(--ink-2);align-items:baseline}
+.card__inc li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--rule);flex:none;transform:translateY(-2px)}
+.card--feature .card__inc li::before{background:var(--flame)}
+.card--feature{border-top:3px solid transparent;border-image:var(--fire) 1;border-left:0;border-right:0;border-bottom:0}
+.card__badge{display:flex;align-items:center;gap:.6rem;margin-bottom:-.35rem}
+.card__badge .seal{--s:34px}
+.sessions__foot{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
+
+/* ============ botanical bar ============ */
+.bar__band{margin-bottom:clamp(2.5rem,5vw,3.5rem)}
+.bar__band .frame__in{aspect-ratio:2000/1055;max-height:340px}
+.bar__intro{display:grid;gap:1.5rem;margin-bottom:2.5rem}
+@media(min-width:900px){.bar__intro{grid-template-columns:1fr .8fr;gap:3rem;align-items:end}}
+.bar__stats{display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+@media(min-width:520px){.bar__stats{flex-direction:row}}
+.bar__stats div{background:var(--surface);padding:.9rem 1rem;flex:1}
+.bar__stats .n{font-family:var(--f-display);font-size:1.5rem;letter-spacing:-.02em;display:block;line-height:1.1}
+
+.toolbar{
+  position:sticky;top:calc(var(--ribbon) + 74px);z-index:20;
+  display:grid;gap:.75rem;margin-bottom:1.75rem;padding:.75rem;
+  background:rgba(255,253,249,.86);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border:1px solid var(--rule);border-radius:var(--r);
+}
+@media(min-width:760px){.toolbar{grid-template-columns:auto 1fr;align-items:center}}
+.filters{display:flex;flex-wrap:wrap;gap:.3rem}
+.filters button{
+  font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.09em;text-transform:uppercase;
+  min-height:36px;padding:.4rem .75rem;cursor:pointer;
+  background:transparent;border:1px solid var(--rule);border-radius:7px;color:var(--ink-2);
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.filters button:hover{color:var(--ink);border-color:var(--ink-2)}
+.filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#FDFBF6}
+.filters button .ct{opacity:.6;margin-left:.4rem}
+.search{position:relative;display:flex;align-items:center}
+.search input{
+  width:100%;min-height:40px;padding:.5rem .85rem .5rem 2.1rem;
+  font-family:var(--f-body);font-size:.9375rem;color:var(--ink);
+  background:var(--canvas);border:1px solid var(--rule);border-radius:7px;
+  -webkit-appearance:none;appearance:none;
+}
+.search input::placeholder{color:var(--ink-2)}
+.search input:focus-visible{border-color:var(--ink-2)}
+.search .ico{position:absolute;left:.7rem;width:13px;height:13px;border:1.5px solid var(--ink-2);border-radius:50%;pointer-events:none}
+.search .ico::after{content:"";position:absolute;right:-5px;bottom:-3px;width:6px;height:1.5px;background:var(--ink-2);transform:rotate(45deg)}
+.bar__status{margin-bottom:1rem}
+
+.catalog{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:12px;overflow:hidden;grid-template-columns:1fr}
+@media(min-width:640px){.catalog{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.catalog{grid-template-columns:repeat(3,1fr)}}
+.label{
+  background:var(--surface);padding:1.35rem 1.35rem 1.2rem;
+  display:flex;flex-direction:column;gap:.7rem;position:relative;
+  border-left:3px solid var(--cat,var(--rule));
+  transition:background .18s ease;
+}
+.label:hover{background:#FFFCF5}
+.cat-green{--cat:var(--cat-green)}
+.cat-gold{--cat:var(--cat-gold)}
+.cat-crimson{--cat:var(--cat-crimson)}
+.cat-blue{--cat:var(--cat-blue)}
+.cat-purple{--cat:var(--cat-purple)}
+.cat-flame{--cat:var(--cat-flame)}
+.label__kind{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
+.label__name{font-size:1.1875rem;letter-spacing:-.02em;line-height:1.15}
+.label__ing{font-family:var(--f-display);font-style:italic;font-size:.9375rem;line-height:1.45;color:var(--ink-2)}
+.label__foot{margin-top:auto;padding-top:.85rem;border-top:1px solid var(--rule-soft);display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.label__price{font-family:var(--f-display);font-size:1.25rem;letter-spacing:-.02em}
+.label--hero{border-left-width:3px}
+@media(min-width:640px){.label--hero{grid-column:span 2}}
+.label--hero .label__name{font-size:clamp(1.4rem,2.6vw,1.85rem)}
+.label--hero .label__ing{font-size:1.0625rem;max-width:48ch}
+.catalog__empty{background:var(--surface);padding:3rem 1.5rem;text-align:center;grid-column:1/-1}
+.catalog__empty p{color:var(--ink-2);font-size:.9375rem}
+.bar__note{margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;justify-content:space-between}
+
+/* ============ printed menus ============ */
+.artefacts{display:grid;gap:clamp(1.5rem,3vw,2.5rem)}
+@media(min-width:820px){.artefacts{grid-template-columns:1.06fr .94fr;align-items:start}}
+.artefacts .frame__in{aspect-ratio:1206/1822}
+@media(min-width:820px){.artefacts>figure:last-child{margin-top:3.5rem}}
+.artefacts figcaption p:first-child{font-family:var(--f-display);font-size:1.0625rem;letter-spacing:-.02em}
+
+/* ============ booking ============ */
+.book{display:grid;gap:clamp(2rem,4vw,3.5rem)}
+@media(min-width:940px){.book{grid-template-columns:1.25fr .75fr;align-items:start}}
+.form{
+  background:var(--surface);border:1px solid var(--rule);border-radius:12px;
+  padding:clamp(1.35rem,3vw,2.25rem);
+}
+.field{margin-bottom:1.35rem}
+.field:last-of-type{margin-bottom:0}
+.field label{display:block;font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-bottom:.5rem}
+.field .req{color:var(--ember)}
+.field input,.field select,.field textarea{
+  width:100%;min-height:46px;padding:.7rem .85rem;
+  font-family:var(--f-body);font-size:1rem;color:var(--ink);
+  background:var(--canvas);border:1px solid var(--rule);border-radius:8px;
+  -webkit-appearance:none;appearance:none;
+}
+.field textarea{min-height:110px;resize:vertical;line-height:1.55}
+.field select{background-image:linear-gradient(45deg,transparent 50%,var(--ink-2) 50%),linear-gradient(135deg,var(--ink-2) 50%,transparent 50%);background-position:calc(100% - 18px) 21px,calc(100% - 13px) 21px;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:2.5rem}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{border-color:var(--ink-2)}
+.field [aria-invalid="true"]{border-color:var(--ember);background:#FDF6F4}
+.err{display:none;margin-top:.45rem;font-size:.8125rem;color:var(--ember);font-weight:500}
+.err.on{display:block}
+.field-row{display:grid;gap:1.35rem}
+@media(min-width:620px){.field-row{grid-template-columns:1fr 1fr}}
+.days{display:flex;flex-wrap:wrap;gap:.4rem}
+.days label{
+  display:inline-flex;align-items:center;gap:.45rem;margin:0;
+  min-height:40px;padding:.4rem .7rem;cursor:pointer;
+  border:1px solid var(--rule);border-radius:7px;background:var(--canvas);
+  font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.08em;color:var(--ink);
+}
+.days label:hover{border-color:var(--ink-2)}
+.days input{width:14px;height:14px;min-height:0;accent-color:var(--flame);margin:0}
+.days label:has(input:checked){background:var(--sunk);border-color:var(--ink)}
+.form__foot{margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
+.form__status{margin-top:1rem;font-size:.9375rem}
+.form__status.on{padding:.9rem 1rem;background:var(--chip-green);border-radius:8px;color:var(--ink)}
+.aside{display:grid;gap:1.5rem}
+.aside .frame__in{aspect-ratio:4/5}
+.aside__box{border:1px solid var(--rule);border-radius:12px;background:var(--surface);padding:var(--pad)}
+.aside__box h3{font-size:1.1875rem;margin-bottom:.85rem}
+.aside__list{display:grid;gap:.65rem}
+.aside__list li{font-size:.9375rem;color:var(--ink-2);display:flex;gap:.65rem}
+.aside__list li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--flame);flex:none;transform:translateY(8px)}
+.aside__box dl{display:grid;gap:.5rem;margin:0}
+.aside__box .row{display:flex;justify-content:space-between;gap:1rem;padding-block:.4rem;border-bottom:1px solid var(--rule-soft)}
+.aside__box .row:last-child{border-bottom:0}
+.aside__box dd{margin:0;font-size:.9375rem;font-weight:500;text-align:right}
+.aside__box a{color:var(--ember);text-underline-offset:3px}
+
+/* ============ footer ============ */
+.foot{border-top:1px solid var(--rule);padding-block:clamp(3.5rem,7vw,5rem) 2.5rem}
+.foot__grid{display:grid;gap:2.5rem}
+@media(min-width:900px){.foot__grid{grid-template-columns:1.1fr 1fr 1fr}}
+.foot__brand{display:flex;gap:1rem;align-items:flex-start}
+.foot__brand .seal{--s:64px}
+.foot h2{font-family:var(--f-display);font-size:1.5rem;letter-spacing:-.025em;margin-bottom:.4rem}
+.foot__tag{font-family:var(--f-display);font-style:italic;font-size:1.0625rem;color:var(--ink-2)}
+.foot__block{display:grid;gap:.55rem;align-content:start}
+.foot__block h3{font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:.35rem;font-weight:400}
+.foot__block a,.foot__block span{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.04em;color:var(--ink);text-decoration:none;display:block}
+.foot__block a:hover{color:var(--ember);text-decoration:underline;text-underline-offset:3px}
+.foot__block .k{color:var(--ink-2);letter-spacing:.1em;text-transform:uppercase;font-size:.6875rem;margin-top:.35rem}
+.foot__promise{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:.5rem}
+.foot__promise li{font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.06em;color:var(--ink-2);border:1px solid var(--rule);border-radius:7px;padding:.35rem .6rem;background:var(--surface)}
+.foot__legal{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;justify-content:space-between}
+
+/* ============ tbd legend ============ */
+.legend{background:var(--sunk);border-top:1px solid var(--rule)}
+.legend__grid{display:grid;gap:clamp(2rem,4vw,3rem)}
+@media(min-width:900px){.legend__grid{grid-template-columns:.9fr 1.1fr}}
+.legend__box{background:var(--surface);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+.legend__box h3{font-size:1.1875rem;padding:1.15rem var(--pad);border-bottom:1px solid var(--rule)}
+.legend__items{display:grid}
+.legend__items li{padding:.9rem var(--pad);border-bottom:1px solid var(--rule-soft);display:flex;justify-content:space-between;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.legend__items li:last-child{border-bottom:0}
+.legend__items .k{font-family:var(--f-mono);font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.legend__items .v{font-size:.9375rem}
+.legend__q li{padding:1rem var(--pad);border-bottom:1px solid var(--rule-soft);display:flex;gap:.9rem;align-items:baseline}
+.legend__q li:last-child{border-bottom:0}
+.legend__q .n{font-family:var(--f-mono);font-size:.6875rem;color:var(--ember);flex:none;letter-spacing:.06em}
+.legend__q p{font-size:.9375rem;line-height:1.55}
+
+/* ============ motion ============ */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--index,0) * 80ms)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+
+/* ============ print — the bar menu on paper ============ */
+@media print{
+  @page{margin:14mm}
+  :root{--canvas:#fff;--surface:#fff;--ink:#000;--ink-2:#333;--rule:#999;--rule-soft:#ccc}
+  body{padding-top:0;background:#fff;color:#000;font-size:10.5pt}
+  .ribbon,.skip,.nav,.hero,#practice,#sessions,#menus,#book,.legend,.toolbar,.bar__band,.bar__status,.bar__note,.btn{display:none!important}
+  .print-head{display:block!important}
+  .section{border-top:0;padding-block:0}
+  .reveal{opacity:1!important;transform:none!important}
+  .opener__rule{background:#000;height:2px}
+  .opener h2 em{color:#000}
+  .catalog{grid-template-columns:repeat(2,1fr)!important;gap:0;border:1px solid #999;border-radius:0}
+  .label{border:0;border-bottom:1px solid #ccc;border-left:3px solid #000;padding:8pt 10pt;break-inside:avoid}
+  .label[hidden]{display:flex!important}
+  .label--hero{grid-column:span 2!important}
+  .chip{background:transparent!important;border:1px solid #bbb;color:#000}
+  .catalog__empty{display:none!important}
+  .foot{page-break-before:avoid}
+  a[href]::after{content:""}
+}
+.print-head{display:none}
+.print-head__in{display:flex;gap:14pt;align-items:center;border-bottom:2px solid #000;padding-bottom:8pt;margin-bottom:12pt}
+.print-head h2{font-family:var(--f-display);font-size:20pt;letter-spacing:-.02em}
+</style>
+</head>
+<body>
+
+<div class="ribbon">
+  <a href="../index.html">
+    <span class="dot" aria-hidden="true"></span>
+    <span>Mockup — Concept 2 of 3 · dotted values need your input</span>
+    <span class="back">All concepts</span>
+  </a>
+</div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="nav__pill">
+      <a class="nav__brand" href="#top">
+        <img class="seal" src="../assets/img/logo-320.png" alt="" width="320" height="320" decoding="async">
+        <b>Charged Rootz</b>
+      </a>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="#practice">The practice</a>
+        <a href="#sessions">Sessions</a>
+        <a href="#bar">Botanical bar</a>
+        <a href="#menus">Printed menus</a>
+      </nav>
+      <a class="nav__cta" href="#book">Request a session</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- print-only masthead so the bar menu prints as a real menu -->
+  <div class="print-head wrap">
+    <div class="print-head__in">
+      <img src="../assets/img/logo-320.png" alt="Charged Rootz" width="320" height="320" style="width:54pt;height:54pt">
+      <div>
+        <h2>Charged Rootz — Botanical Bar</h2>
+        <p class="micro" id="printMeta"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero wrap section--flat" id="top">
+    <div class="hero__grid">
+      <div class="reveal" style="--index:0">
+        <p class="eyebrow micro"><span class="spark" aria-hidden="true"></span> Est. 2021 · Assisted stretch &amp; botanical bar</p>
+        <h1>I move you through what your body <em>stopped reaching</em> for.</h1>
+        <p class="lede">One-on-one assisted stretching, then a cold-pressed juice or wellness shot from my own bar. You lie down and stay passive. I do the work.</p>
+        <div class="hero__actions">
+          <a class="btn" href="#book">Request a session</a>
+          <a class="btn btn--quiet" href="#bar">Read the bar menu</a>
+        </div>
+        <div class="hero__facts micro">
+          <span class="hero__fact"><b>Rooted. Nourished. Elevated.</b> The whole idea</span>
+          <span class="hero__fact"><b id="heroCity" class="tbd" title="Placeholder — confirm with client">Your city</b> Where I stretch</span>
+          <span class="hero__fact"><b>16 oz · $9</b> Cold-pressed juices</span>
+        </div>
+      </div>
+
+      <figure class="frame hero__photo reveal" style="--index:1;margin:0">
+        <div class="frame__in">
+          <img src="../assets/img/stretch-1-1100.jpg"
+               srcset="../assets/img/stretch-1-640.jpg 640w, ../assets/img/stretch-1-1100.jpg 1100w"
+               sizes="(max-width:959px) 92vw, 40vw"
+               width="1100" height="1375" decoding="async"
+               alt="Guiding a client through an assisted leg stretch on the table">
+        </div>
+        <p class="hero__tag micro">Assisted stretch · in session</p>
+        <img class="seal" src="../assets/img/logo-320.png" alt="" width="320" height="320" decoding="async" aria-hidden="true">
+        <figcaption class="micro"><span>A real session, not a stock photo</span><span>01</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= THE PRACTICE ================= -->
+  <section class="section" id="practice">
+    <div class="wrap">
+      <div class="opener reveal">
+        <div class="opener__rule" aria-hidden="true"></div>
+        <p class="opener__eyebrow micro">The practice</p>
+        <h2>What actually happens on <em>the table</em></h2>
+        <p class="opener__sub lede">Four steps, start to finish. Nothing about it is a mystery.</p>
+      </div>
+
+      <div class="bento" id="bento"></div>
+
+      <div class="notice reveal">
+        <h3>What this is not</h3>
+        <p>It is not a massage, and it is not a workout. You are not asked to hold a pose or push through anything. I take the joint through its range, hold where it needs holding, and you breathe. If something hurts in a way that is not the good kind, we stop and move on.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SESSIONS ================= -->
+  <section class="section" id="sessions">
+    <div class="wrap">
+      <div class="opener reveal">
+        <div class="opener__rule" aria-hidden="true"></div>
+        <p class="opener__eyebrow micro"><span class="tbd" title="Placeholder — confirm with client">Charged Rootz Stretch</span> · Sessions</p>
+        <h2>Three ways to <em>book time</em> with me</h2>
+        <p class="opener__sub lede">Lengths and prices below are placeholders until you confirm them. Everything with a dotted line is a question for you, not a decision I made.</p>
+      </div>
+
+      <div class="sessions" id="sessions-grid"></div>
+
+      <div class="sessions__foot">
+        <p class="micro">Dotted values are placeholders · see the legend at the foot of the page</p>
+        <a class="btn btn--quiet" href="#book">Request a session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BOTANICAL BAR ================= -->
+  <section class="section" id="bar">
+    <div class="wrap">
+      <figure class="frame bar__band reveal" style="margin:0">
+        <div class="frame__in">
+          <img src="../assets/img/lineup-1200.jpg"
+               srcset="../assets/img/lineup-700.jpg 700w, ../assets/img/lineup-1200.jpg 1200w, ../assets/img/lineup-2000.jpg 2000w"
+               sizes="(max-width:1200px) 92vw, 1140px"
+               width="2000" height="1055" loading="lazy" decoding="async"
+               alt="Cold-pressed juices in glass bottles beside the produce they are made from">
+        </div>
+      </figure>
+
+      <div class="opener reveal">
+        <div class="opener__rule" aria-hidden="true"></div>
+        <p class="opener__eyebrow micro">The botanical bar</p>
+        <h2>Craft elevated botanical beverages <em>at home</em></h2>
+      </div>
+
+      <div class="bar__intro reveal">
+        <p class="lede">Everything is cold-pressed to order from whole produce — no concentrate, no added sugar, nothing artificial. Search the list or filter it, and print this page if you want the menu on paper.</p>
+        <div class="bar__stats micro">
+          <div><span class="n">11</span> Juices · 16 oz · $9</div>
+          <div><span class="n">6</span> Shots · 2 oz · $3</div>
+          <div><span class="n">4</span> Add-ons · from $2</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="filters" role="toolbar" aria-label="Filter the menu by category" aria-controls="catalog" id="filters"></div>
+        <div class="search">
+          <span class="ico" aria-hidden="true"></span>
+          <label class="sr" for="barSearch">Search the botanical bar menu</label>
+          <input id="barSearch" type="search" autocomplete="off" spellcheck="false" placeholder="Search a name, an ingredient, a benefit…" aria-controls="catalog">
+        </div>
+      </div>
+
+      <p class="bar__status micro" id="barStatus" role="status" aria-live="polite"></p>
+
+      <div class="catalog" id="catalog"></div>
+
+      <div class="bar__note">
+        <p class="micro">Prices on this section are her real prices, taken from the printed menu</p>
+        <p class="micro">Tip: use your browser&rsquo;s print command to get a clean paper menu</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRINTED MENUS ================= -->
+  <section class="section" id="menus">
+    <div class="wrap">
+      <div class="opener reveal">
+        <div class="opener__rule" aria-hidden="true"></div>
+        <p class="opener__eyebrow micro">Artefacts</p>
+        <h2>Her own <em>printed menus</em></h2>
+        <p class="opener__sub lede">These two are the source for everything above. They are her design and her wording — photographed as they are, not redrawn.</p>
+      </div>
+
+      <div class="artefacts">
+        <figure class="frame reveal" style="--index:0;margin:0">
+          <div class="frame__in">
+            <img src="../assets/img/menu-juice-1206.jpg"
+                 srcset="../assets/img/menu-juice-700.jpg 700w, ../assets/img/menu-juice-1206.jpg 1206w"
+                 sizes="(max-width:819px) 92vw, 48vw"
+                 width="1206" height="1822" loading="lazy" decoding="async"
+                 alt="The printed Charged Rootz juice and wellness shot menu">
+          </div>
+          <figcaption>
+            <p>Juice &amp; wellness shot menu</p>
+            <p class="micro">Client artwork</p>
+          </figcaption>
+        </figure>
+
+        <figure class="frame reveal" style="--index:1;margin:0">
+          <div class="frame__in">
+            <img src="../assets/img/menu-food-1206.jpg"
+                 srcset="../assets/img/menu-food-700.jpg 700w, ../assets/img/menu-food-1206.jpg 1206w"
+                 sizes="(max-width:819px) 92vw, 44vw"
+                 width="1206" height="1828" loading="lazy" decoding="async"
+                 alt="The printed Charged Rootz food plan menu">
+          </div>
+          <figcaption>
+            <p>Food plan menu</p>
+            <p class="micro">Client artwork</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BOOKING ================= -->
+  <section class="section" id="book">
+    <div class="wrap">
+      <div class="opener reveal">
+        <div class="opener__rule" aria-hidden="true"></div>
+        <p class="opener__eyebrow micro">Booking request</p>
+        <h2>Tell me <em>what hurts</em></h2>
+        <p class="opener__sub lede">Send this and I reply to set a time. Nothing is charged here — it is a request, not a confirmed slot.</p>
+      </div>
+
+      <div class="book">
+        <form class="form reveal" id="bookForm" action="mailto:contact@chargedrootz.com" method="post" enctype="text/plain" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+              <p class="err" id="e-name">Add the name I should call you.</p>
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
+              <p class="err" id="e-email">Add an email I can reply to.</p>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" aria-describedby="e-phone">
+              <p class="err" id="e-phone">Use digits only, at least 10 of them.</p>
+            </div>
+            <div class="field">
+              <label for="f-type">Session type <span class="req" aria-hidden="true">*</span></label>
+              <select id="f-type" name="session" required aria-describedby="e-type">
+                <option value="">Choose one</option>
+              </select>
+              <p class="err" id="e-type">Pick the session you want.</p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-what">What hurts, and what do you want back? <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="f-what" name="notes" required aria-describedby="e-what h-what" placeholder="Tight hips since I started running again. I want to sit cross-legged without my back locking up."></textarea>
+            <p class="micro" id="h-what" style="margin-top:.45rem">Plain words are fine. No medical terms needed.</p>
+            <p class="err" id="e-what">Tell me a sentence or two so I can plan the session.</p>
+          </div>
+
+          <fieldset class="field" style="border:0;padding:0;margin-inline:0">
+            <legend class="micro" style="padding:0;margin-bottom:.5rem">Preferred days</legend>
+            <div class="days" id="days"></div>
+          </fieldset>
+
+          <div class="form__foot">
+            <button class="btn" type="submit">Send the request</button>
+            <p class="micro">Mockup only · the real build emails this straight to you</p>
+          </div>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="aside">
+          <div class="aside__box reveal" style="--index:1">
+            <h3>Before you send</h3>
+            <ul class="aside__list">
+              <li>Wear something you can move in. No warm-up needed.</li>
+              <li>Say if you are pregnant, post-surgery, or working around an injury.</li>
+              <li>Booking days and lead time are <span class="tbd" title="Placeholder — confirm with client">still to confirm</span>.</li>
+            </ul>
+          </div>
+
+          <div class="aside__box reveal" style="--index:2">
+            <h3>Reach me directly</h3>
+            <dl>
+              <div class="row"><dt class="micro">Email</dt><dd><a href="mailto:contact@chargedrootz.com">contact@chargedrootz.com</a></dd></div>
+              <div class="row"><dt class="micro">Phone</dt><dd><a href="tel:+13145665749">314-566-5749</a></dd></div>
+              <div class="row"><dt class="micro">Cash App</dt><dd>$ChargedRootz</dd></div>
+            </dl>
+          </div>
+
+          <figure class="frame reveal" style="--index:3;margin:0">
+            <div class="frame__in">
+              <img src="../assets/img/infusions-800.jpg"
+                   srcset="../assets/img/infusions-800.jpg 800w, ../assets/img/infusions-1400.jpg 1400w"
+                   sizes="(max-width:939px) 92vw, 28vw"
+                   width="1400" height="1867" loading="lazy" decoding="async"
+                   alt="Three Charged Rootz herbal infusions with mint and citrus, labels facing out">
+            </div>
+            <figcaption class="micro"><span>Stretch + Tonic ends here</span><span>02</span></figcaption>
+          </figure>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <img class="seal" src="../assets/img/logo-320.png" alt="" width="320" height="320" loading="lazy" decoding="async">
+        <div>
+          <h2>Charged Rootz</h2>
+          <p class="foot__tag">Rooted in nature. Backed by intention. Made for you.</p>
+        </div>
+      </div>
+
+      <div class="foot__block">
+        <h3>Contact</h3>
+        <span class="k">Email</span>
+        <a href="mailto:contact@chargedrootz.com">contact@chargedrootz.com</a>
+        <span class="k">Phone</span>
+        <a href="tel:+13145665749">314-566-5749</a>
+        <span class="k">Located in</span>
+        <span class="tbd" title="Placeholder — confirm with client">Your city</span>
+      </div>
+
+      <div class="foot__block">
+        <h3>Payment</h3>
+        <span class="k">Cash App</span><span>$ChargedRootz</span>
+        <span class="k">PayPal</span><a href="https://paypal.me/ChargedRootz" rel="noopener">paypal.me/ChargedRootz</a>
+        <span class="k">Apple Pay</span><span>314-566-5749</span>
+      </div>
+    </div>
+
+    <ul class="foot__promise" id="promise" aria-label="What she promises"></ul>
+
+    <div class="foot__legal micro">
+      <span>Charged Rootz · Est. 2021 · Rooted. Nourished. Elevated.</span>
+      <span>Concept 2 — Apothecary · mockup for review</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= TBD LEGEND ================= -->
+<section class="section legend" id="legend" aria-labelledby="legend-h">
+  <div class="wrap">
+    <div class="opener reveal">
+      <div class="opener__rule" aria-hidden="true"></div>
+      <p class="opener__eyebrow micro">Needs your input</p>
+      <h2 id="legend-h">Every dotted value, in <em>one place</em></h2>
+      <p class="opener__sub lede">Nothing here was invented quietly. Each item below is a placeholder waiting on your answer — reply with the real ones and they go straight in.</p>
+    </div>
+
+    <div class="legend__grid">
+      <div class="legend__box reveal" style="--index:0">
+        <h3>Placeholder values</h3>
+        <ul class="legend__items" id="legendItems"></ul>
+      </div>
+      <div class="legend__box reveal" style="--index:1">
+        <h3>Questions for you</h3>
+        <ol class="legend__q" id="legendQs"></ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="../assets/data/content.js"></script>
+<script>
+(function () {
+  "use strict";
+  var CR = window.CR;
+  if (!CR) { return; }
+
+  /* content.js paths are root-relative; this page lives one level down. */
+  function A(p) { return "../" + p; }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function $(sel) { return document.querySelector(sel); }
+  function val(f) { return f && typeof f === "object" ? f.value : f; }
+  function tbdSpan(f) {
+    if (f && typeof f === "object" && f.tbd) {
+      return '<span class="tbd" title="Placeholder — confirm with client">' + esc(f.value) + "</span>";
+    }
+    return esc(val(f));
+  }
+  function store(key, fallback) {
+    try { var v = localStorage.getItem(key); return v === null ? fallback : v; }
+    catch (e) { return fallback; }
+  }
+  function save(key, v) { try { localStorage.setItem(key, v); } catch (e) {} }
+
+  /* ---------------------------------------------------------
+     1. THE PRACTICE — uneven bento, 1px dividers
+     --------------------------------------------------------- */
+  (function practice() {
+    var host = $("#bento");
+    if (!host) { return; }
+    var s = CR.stretch.steps;
+    var html = "";
+
+    html +=
+      '<div class="b-quote reveal" style="--index:0">' +
+        "<blockquote>" + esc(CR.stretch.blurb) + "</blockquote>" +
+        '<div class="sig">' +
+          '<img class="seal" src="' + A(CR.img.logoSm) + '" alt="" width="320" height="320" loading="lazy" decoding="async">' +
+          '<p class="micro">In her words · ' + esc(CR.stretch.lead) + "</p>" +
+        "</div>" +
+      "</div>";
+
+    function step(item, i, cls) {
+      return (
+        '<div class="step ' + cls + ' reveal" style="--index:' + (i + 1) + '">' +
+          '<p class="step__mark"><span class="step__ord">0' + (i + 1) + '</span>' +
+            '<span class="step__key">' + esc(item.k) + "</span></p>" +
+          "<h3>" + esc(item.t) + "</h3>" +
+          "<p>" + esc(item.d) + "</p>" +
+        "</div>"
+      );
+    }
+
+    html += step(s[0], 0, "b-1");
+    html += step(s[1], 1, "b-2");
+    html += step(s[2], 2, "b-3");
+
+    html +=
+      '<div class="b-4 reveal" style="--index:4">' +
+        '<div class="b-4__in">' +
+          step(s[3], 3, "") +
+          '<div class="b-4__img">' +
+            '<img src="' + A(CR.img.shots.src) + '" srcset="' + A(CR.img.shots.sm) + " 700w, " + A(CR.img.shots.src) + ' 2000w"' +
+            ' sizes="(max-width:759px) 92vw, 42vw" width="2000" height="1055" loading="lazy" decoding="async" alt="' + esc(CR.img.shots.alt) + '">' +
+          "</div>" +
+        "</div>" +
+      "</div>";
+
+    host.innerHTML = html;
+  }());
+
+  /* ---------------------------------------------------------
+     2. SESSIONS — apothecary labels; featured wears the seal
+     --------------------------------------------------------- */
+  (function sessions() {
+    var host = $("#sessions-grid");
+    var sel = $("#f-type");
+    if (!host) { return; }
+    var order = ["card--a", "card--b"];
+    var oi = 0;
+
+    host.innerHTML = CR.stretch.sessions.map(function (s, i) {
+      var cls = s.featured ? "card--feature" : order[oi++];
+      return (
+        '<article class="card ' + cls + ' reveal" style="--index:' + i + '">' +
+          '<div class="card__top">' +
+            "<div><h3>" + esc(s.name) + "</h3>" +
+            '<p class="micro" style="margin-top:.5rem">' + tbdSpan(s.dur) + "</p></div>" +
+            '<p class="card__price"><span class="amt">' + tbdSpan(s.price) + "</span>" +
+            '<span class="micro">per session</span></p>' +
+          "</div>" +
+          '<p class="card__desc">' + esc(s.desc) + "</p>" +
+          '<ul class="card__inc">' + s.includes.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>" +
+        "</article>"
+      );
+    }).join("");
+
+    if (sel) {
+      CR.stretch.sessions.forEach(function (s) {
+        var o = document.createElement("option");
+        o.value = s.name;
+        o.textContent = s.name + " — " + val(s.dur) + ", " + val(s.price) + " (to confirm)";
+        sel.appendChild(o);
+      });
+      var other = document.createElement("option");
+      other.value = "Not sure yet";
+      other.textContent = "Not sure yet — help me choose";
+      sel.appendChild(other);
+    }
+  }());
+
+  /* ---------------------------------------------------------
+     3. THE BOTANICAL BAR — filterable catalog
+     --------------------------------------------------------- */
+  var catalog = (function bar() {
+    var host = $("#catalog");
+    var filtersHost = $("#filters");
+    var input = $("#barSearch");
+    var status = $("#barStatus");
+    if (!host) { return null; }
+
+    var items = [];
+    var b = CR.bar;
+
+    items.push({
+      cat: "juices", hero: true, c: "purple",
+      kind: "Signature blend · smoothie",
+      n: b.smoothie.n, i: b.smoothie.i, b: b.smoothie.b, p: b.smoothie.p
+    });
+    b.juices.items.forEach(function (j) {
+      items.push({ cat: "juices", c: j.c, kind: b.juices.unit + " · cold-pressed", n: j.n, i: j.i, b: j.b, p: b.juices.price });
+    });
+    b.shots.items.forEach(function (s) {
+      items.push({ cat: "shots", c: s.c, kind: b.shots.unit + " · wellness shot", n: s.n, i: s.i, b: [], p: b.shots.price });
+    });
+    b.addons.forEach(function (a) {
+      items.push({ cat: "addons", c: "flame", kind: (a.u ? a.u + " · " : "") + "add to any order", n: a.n, i: "", b: [], p: a.p });
+    });
+
+    var counts = { all: items.length, juices: 0, shots: 0, addons: 0 };
+    items.forEach(function (it) { counts[it.cat] += 1; });
+
+    host.innerHTML = items.map(function (it, i) {
+      var hay = (it.n + " " + it.i + " " + it.b.join(" ") + " " + it.kind).toLowerCase();
+      return (
+        '<article class="label cat-' + it.c + (it.hero ? " label--hero" : "") + '"' +
+          ' data-cat="' + it.cat + '" data-hay="' + esc(hay) + '" style="--index:' + Math.min(i, 8) + '">' +
+          '<p class="label__kind micro"><span>' + esc(it.kind) + "</span></p>" +
+          '<h3 class="label__name">' + esc(it.n) + "</h3>" +
+          (it.i ? '<p class="label__ing">' + esc(it.i) + "</p>" : "") +
+          (it.b.length ? '<ul class="chips">' + it.b.map(function (x) { return '<li class="chip">' + esc(x) + "</li>"; }).join("") + "</ul>" : "") +
+          '<div class="label__foot"><span class="label__price">' + esc(it.p) + "</span>" +
+          '<span class="micro">' + esc(it.cat === "addons" ? "Add-on" : it.cat === "shots" ? "Shot" : "Juice") + "</span></div>" +
+        "</article>"
+      );
+    }).join("") +
+      '<div class="catalog__empty" id="catalogEmpty" hidden><p>Nothing on the menu matches that. Clear the search to see all ' + items.length + " items.</p></div>";
+
+    var cards = Array.prototype.slice.call(host.querySelectorAll(".label"));
+    var empty = $("#catalogEmpty");
+
+    var cats = [
+      { id: "all", label: "All", n: counts.all },
+      { id: "juices", label: "Juices", n: counts.juices },
+      { id: "shots", label: "Shots", n: counts.shots },
+      { id: "addons", label: "Add-ons", n: counts.addons }
+    ];
+
+    filtersHost.innerHTML = cats.map(function (c) {
+      return '<button type="button" data-cat="' + c.id + '" aria-pressed="false" tabindex="-1">' +
+        esc(c.label) + '<span class="ct" aria-hidden="true">' + c.n + "</span></button>";
+    }).join("");
+    var btns = Array.prototype.slice.call(filtersHost.querySelectorAll("button"));
+
+    var state = { cat: store("cr2.bar.cat", "all"), q: store("cr2.bar.q", "") };
+    if (!cats.some(function (c) { return c.id === state.cat; })) { state.cat = "all"; }
+    if (input) { input.value = state.q; }
+
+    function apply() {
+      var q = state.q.trim().toLowerCase();
+      var shown = 0;
+      cards.forEach(function (el) {
+        var ok = (state.cat === "all" || el.dataset.cat === state.cat) &&
+                 (!q || el.dataset.hay.indexOf(q) !== -1);
+        el.hidden = !ok;
+        if (ok) { shown += 1; }
+      });
+      if (empty) { empty.hidden = shown !== 0; }
+
+      btns.forEach(function (btn) {
+        var on = btn.dataset.cat === state.cat;
+        btn.setAttribute("aria-pressed", on ? "true" : "false");
+        btn.tabIndex = on ? 0 : -1;
+      });
+
+      var label = state.cat === "all" ? "the full menu" : cats.filter(function (c) { return c.id === state.cat; })[0].label.toLowerCase();
+      status.textContent = shown === 0
+        ? "No matches in " + label + (q ? " for “" + state.q.trim() + "”" : "") + "."
+        : "Showing " + shown + (shown === 1 ? " item" : " items") + " from " + label +
+          (q ? " matching “" + state.q.trim() + "”" : "") + ".";
+
+      save("cr2.bar.cat", state.cat);
+      save("cr2.bar.q", state.q);
+    }
+
+    filtersHost.addEventListener("click", function (e) {
+      var btn = e.target.closest("button[data-cat]");
+      if (!btn) { return; }
+      state.cat = btn.dataset.cat;
+      apply();
+    });
+
+    filtersHost.addEventListener("keydown", function (e) {
+      var i = btns.indexOf(document.activeElement);
+      if (i === -1) { return; }
+      var next = null;
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") { next = (i + 1) % btns.length; }
+      else if (e.key === "ArrowLeft" || e.key === "ArrowUp") { next = (i - 1 + btns.length) % btns.length; }
+      else if (e.key === "Home") { next = 0; }
+      else if (e.key === "End") { next = btns.length - 1; }
+      if (next === null) { return; }
+      e.preventDefault();
+      btns[next].tabIndex = 0;
+      btns[next].focus();
+    });
+
+    if (input) {
+      input.addEventListener("input", function () { state.q = input.value; apply(); });
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && input.value) { input.value = ""; state.q = ""; apply(); }
+      });
+    }
+
+    apply();
+    return { count: items.length };
+  }());
+
+  /* ---------------------------------------------------------
+     4. BOOKING FORM — inline validation, live status
+     --------------------------------------------------------- */
+  (function booking() {
+    var form = $("#bookForm");
+    var daysHost = $("#days");
+    var status = $("#formStatus");
+    if (!form) { return; }
+
+    ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].forEach(function (d, i) {
+      daysHost.insertAdjacentHTML("beforeend",
+        '<label><input type="checkbox" name="days" value="' + d + '" id="d-' + i + '">' + d + "</label>");
+    });
+
+    var rules = [
+      { id: "f-name", err: "e-name", test: function (v) { return v.trim().length > 1; } },
+      { id: "f-email", err: "e-email", test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); } },
+      { id: "f-phone", err: "e-phone", test: function (v) { return v.trim() === "" || v.replace(/\D/g, "").length >= 10; } },
+      { id: "f-type", err: "e-type", test: function (v) { return v !== ""; } },
+      { id: "f-what", err: "e-what", test: function (v) { return v.trim().length > 9; } }
+    ];
+
+    function check(rule, live) {
+      var el = document.getElementById(rule.id);
+      var msg = document.getElementById(rule.err);
+      var ok = rule.test(el.value);
+      if (ok || !live) {
+        el.setAttribute("aria-invalid", ok ? "false" : "true");
+        msg.classList.toggle("on", !ok);
+      }
+      return ok;
+    }
+
+    rules.forEach(function (rule) {
+      var el = document.getElementById(rule.id);
+      el.addEventListener("blur", function () { check(rule, false); });
+      el.addEventListener("input", function () {
+        if (el.getAttribute("aria-invalid") === "true") { check(rule, false); }
+      });
+      el.addEventListener("change", function () { check(rule, false); });
+    });
+
+    form.addEventListener("submit", function (e) {
+      var bad = rules.filter(function (r) { return !check(r, false); });
+      if (bad.length) {
+        e.preventDefault();
+        status.className = "form__status";
+        status.textContent = bad.length === 1
+          ? "One field still needs you — see the note under it."
+          : bad.length + " fields still need you — see the notes under them.";
+        document.getElementById(bad[0].id).focus();
+        return;
+      }
+      e.preventDefault();
+      status.className = "form__status on";
+      var name = document.getElementById("f-name").value.trim().split(/\s+/)[0];
+      status.textContent = "Thanks " + name + " — this is the mockup, so nothing was sent. On the live site this request lands in " +
+        CR.brand.email + " within seconds, and she replies to set a time.";
+    });
+  }());
+
+  /* ---------------------------------------------------------
+     5. FOOTER PROMISE + TBD LEGEND
+     --------------------------------------------------------- */
+  (function tail() {
+    var promise = $("#promise");
+    if (promise) {
+      promise.innerHTML = CR.bar.promise.map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("");
+    }
+
+    var rows = [
+      { k: "City / service area", v: CR.brand.city.value, where: "Hero, footer" },
+      { k: "Stretch practice name", v: CR.brand.stretchName.value, where: "Sessions opener" }
+    ];
+    CR.stretch.sessions.forEach(function (s) {
+      rows.push({ k: s.name + " — length", v: val(s.dur), where: "Sessions" });
+      rows.push({ k: s.name + " — price", v: val(s.price), where: "Sessions" });
+    });
+    rows.push({ k: "Booking days & lead time", v: "Not set", where: "Booking aside" });
+
+    var host = $("#legendItems");
+    if (host) {
+      host.innerHTML = rows.map(function (r) {
+        return "<li><span class=\"k\">" + esc(r.k) + "</span>" +
+          '<span class="v"><span class="tbd" title="Placeholder — confirm with client">' + esc(r.v) + "</span> " +
+          '<span class="micro" style="display:inline">· ' + esc(r.where) + "</span></span></li>";
+      }).join("");
+    }
+
+    var qs = $("#legendQs");
+    if (qs) {
+      qs.innerHTML = CR.questions.map(function (q, i) {
+        return '<li><span class="n">Q' + (i + 1) + "</span><p>" + esc(q) + "</p></li>";
+      }).join("");
+    }
+
+    var pm = $("#printMeta");
+    if (pm) {
+      pm.textContent = CR.brand.tagline + " · " + CR.brand.phone + " · " + CR.brand.email +
+        " · Cash App " + CR.brand.pay.cashapp;
+    }
+  }());
+
+  /* ---------------------------------------------------------
+     6. REVEALS — transform + opacity only
+     --------------------------------------------------------- */
+  (function reveals() {
+    var els = document.querySelectorAll(".reveal");
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || !("IntersectionObserver" in window)) {
+      Array.prototype.forEach.call(els, function (el) { el.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+    Array.prototype.forEach.call(els, function (el) { io.observe(el); });
+  }());
+}());
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://chargedrootz.com/#business",
+      "name": "Charged Rootz",
+      "slogan": "Rooted. Nourished. Elevated.",
+      "description": "One-on-one assisted stretch sessions and a cold-pressed botanical bar of juices, wellness shots and add-ons.",
+      "email": "contact@chargedrootz.com",
+      "telephone": "+1-314-566-5749",
+      "foundingDate": "2021",
+      "image": "https://chargedrootz.com/assets/img/lineup-1200.jpg",
+      "logo": "https://chargedrootz.com/assets/img/logo-768.png",
+      "priceRange": "$",
+      "paymentAccepted": "Cash App, PayPal, Apple Pay",
+      "hasMenu": { "@id": "https://chargedrootz.com/#menu" },
+      "makesOffer": { "@id": "https://chargedrootz.com/#stretch" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://chargedrootz.com/#stretch",
+      "serviceType": "Assisted stretch session",
+      "name": "Assisted stretch sessions",
+      "description": "One-on-one assisted stretching. You lie down and stay passive while each joint is taken through the ranges it has stopped reaching on its own.",
+      "provider": { "@id": "https://chargedrootz.com/#business" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Session types",
+        "itemListElement": [
+          { "@type": "Offer", "name": "First Visit", "description": "Movement check-in, assisted stretch, and something to work on at home." },
+          { "@type": "Offer", "name": "Full Session", "description": "Full-body assisted stretch with breath pacing and a take-home stretch." },
+          { "@type": "Offer", "name": "Stretch + Tonic", "description": "Full session plus a wellness shot or 16 oz juice chosen for the work done." }
+        ]
+      }
+    },
+    {
+      "@type": "Menu",
+      "@id": "https://chargedrootz.com/#menu",
+      "name": "Charged Rootz Botanical Bar",
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Cold-pressed juices",
+          "description": "16 oz, pressed to order",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Green Vitality", "description": "Green Apple, Celery, Cucumber, Lemon, Ginger", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Watermelon Flush", "description": "Watermelon, Lemon, Lime", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Rooted Glow", "description": "Beet, Pineapple, Carrot", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Golden Metabolic", "description": "Pineapple, Ginger, Lemon, Turmeric", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Purple Rootz", "description": "Purple Cabbage, Apple, Lemon", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Electric Green Grape", "description": "Green Grapes, Cucumber, Lime", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Strawberry Hibiscus Lemonade", "description": "Strawberry, Hibiscus, Fresh Lemon", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Pineapple Ginger Lemonade", "description": "Pineapple, Ginger, Fresh Lemon", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Blue Spirulina Lemonade", "description": "Fresh Lemon, Blue Spirulina", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Peach Lemonade", "description": "Peach, Fresh Lemon", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Pineapple Carrot", "description": "Pineapple, Carrot", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Charged Rootz Smoothie", "description": "Blueberry, Mango, Banana, Spinach, Coconut Milk, Lemon, Blackstrap Molasses", "offers": { "@type": "Offer", "price": "11.00", "priceCurrency": "USD" } }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Wellness shots",
+          "description": "2 oz",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Energy Shot", "description": "Natural energy boost without the crash.", "offers": { "@type": "Offer", "price": "3.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Circulation Shot", "description": "Supports healthy circulation and blood flow.", "offers": { "@type": "Offer", "price": "3.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Joint Support Shot", "description": "Anti-inflammatory support for joints and muscles.", "offers": { "@type": "Offer", "price": "3.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Apple + Burdock Shot", "description": "Detoxifying roots to support liver and skin health.", "offers": { "@type": "Offer", "price": "3.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Ginger Turmeric Shot", "description": "Lemon, Ginger, Turmeric, Pineapple", "offers": { "@type": "Offer", "price": "3.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Green Iron Shot", "description": "Lemon, Spinach, Blackstrap Molasses", "offers": { "@type": "Offer", "price": "3.00", "priceCurrency": "USD" } }
+          ]
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Add-ons",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Sea Moss Gel", "description": "2 oz", "offers": { "@type": "Offer", "price": "5.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Energy Syrup", "description": "1 oz", "offers": { "@type": "Offer", "price": "4.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Electrolyte Boost", "offers": { "@type": "Offer", "price": "2.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Chlorophyll", "description": "1 oz", "offers": { "@type": "Offer", "price": "2.00", "priceCurrency": "USD" } }
+          ]
+        }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charged Rootz — Assisted Stretch &amp; Botanical Bar | Concept 3</title>
+<meta name="description" content="One-on-one assisted stretch sessions and a cold-pressed juice and herbal bar. Book a session, read the full menu, and see what a visit involves. Rooted. Nourished. Elevated.">
+<meta name="theme-color" content="#F4F1EA">
+<link rel="icon" href="../assets/img/logo-128.png" type="image/png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Charged Rootz — Assisted Stretch &amp; Botanical Bar">
+<meta property="og:description" content="One-on-one assisted stretching, plus cold-pressed juices and wellness shots. Rooted. Nourished. Elevated.">
+<meta property="og:image" content="../assets/img/logo-768.png">
+<meta property="og:image:width" content="768">
+<meta property="og:image:height" content="768">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Charged Rootz — Assisted Stretch &amp; Botanical Bar">
+<meta name="twitter:description" content="One-on-one assisted stretching, plus cold-pressed juices and wellness shots.">
+<meta name="twitter:image" content="../assets/img/logo-768.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CHARGED ROOTZ — CONCEPT 3 "BROADSHEET"
+   Swiss industrial print. A hand-printed studio programme.
+   Substrate newsprint. Carbon ink. One accent: ember #DA3E1B.
+   Display: Archivo Black. Micro: JetBrains Mono. Body: Archivo.
+   Geometry: 90 degrees only. No radius, no shadow, no gradient.
+   (The only gradient on this page lives inside her logo artwork,
+    which is hers and is never altered.)
+   ============================================================ */
+
+:root{
+  --paper:#F4F1EA;
+  --ink:#0A0908;
+  --ember:#DA3E1B;
+
+  --display:"Archivo Black","Arial Black","Helvetica Neue",Helvetica,sans-serif;
+  --body:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:"JetBrains Mono","IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+
+  --d1:clamp(3.5rem,10vw,11rem);
+  --d2:clamp(2rem,5.5vw,4.25rem);
+  --d3:clamp(1.25rem,2.6vw,2rem);
+  --micro:12px;
+
+  --sheet:1200px;
+  --pad:clamp(1rem,4vw,3rem);
+  --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2.5rem; --s5:4rem; --s6:6rem;
+
+  --hatch:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"><path d="M-4 4L4 -4M0 14L14 0M10 18L18 10" stroke="%23DA3E1B" stroke-width="1"/></svg>');
+}
+
+*,*::before,*::after{box-sizing:border-box;border-radius:0}
+html{overflow-x:clip;-webkit-text-size-adjust:100%}
+body{
+  margin:0;padding-top:34px;
+  background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-weight:400;font-size:1rem;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:clip;
+}
+img{display:block;max-width:100%;height:auto}
+hr{border:0;border-top:1px solid var(--ink);margin:0}
+p{margin:0 0 1em}
+ul,ol{margin:0;padding:0;list-style:none}
+
+/* ---------- shared type roles ---------- */
+.mono{
+  font-family:var(--mono);font-size:var(--micro);font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;line-height:1.5;
+  font-variant-numeric:tabular-nums;
+}
+.mono-sm{font-size:11px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.d2,.d3{
+  font-family:var(--display);font-weight:400;text-transform:uppercase;
+  letter-spacing:-.04em;line-height:.88;margin:0;
+}
+.d2{font-size:var(--d2)}
+.d3{font-size:var(--d3);letter-spacing:-.02em;line-height:1}
+.copy{max-width:62ch}
+.lede{font-size:clamp(1.05rem,1.8vw,1.3rem);line-height:1.5;font-weight:500;max-width:44ch}
+
+/* ---------- sheet ---------- */
+.sheet{max-width:var(--sheet);margin:0 auto;padding:0 var(--pad)}
+.section{padding:var(--s5) 0;border-top:1px solid var(--ink)}
+.section:first-of-type{border-top:0}
+
+/* ---------- fixed mockup ribbon ---------- */
+.ribbon{
+  position:fixed;inset:0 0 auto 0;z-index:60;
+  background:var(--ink);color:var(--paper);
+  border-bottom:2px solid var(--ember);
+  display:flex;gap:var(--s2);align-items:center;justify-content:space-between;
+  padding:8px var(--pad);min-height:34px;
+}
+.ribbon a{color:var(--paper);text-decoration:none;border-bottom:2px solid var(--ember);padding:2px 0;white-space:nowrap;min-height:24px;display:inline-flex;align-items:center}
+.ribbon a:hover{background:var(--paper);color:var(--ink)}
+.ribbon span{min-width:0;line-height:1.4}
+@media (max-width:720px){
+  body{padding-top:88px}
+  .ribbon{align-items:flex-start;flex-direction:column;gap:2px;font-size:10px}
+  .ribbon a{font-size:10px}
+  .skip:focus{top:88px}
+}
+
+/* ---------- skip link ---------- */
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:80;
+  background:var(--ink);color:var(--paper);padding:12px 18px;
+  font-family:var(--mono);font-size:var(--micro);letter-spacing:.1em;text-transform:uppercase;
+}
+.skip:focus{left:0;top:34px}
+
+/* ---------- top register strip ---------- */
+.register{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin-top:0}
+.register-in{
+  max-width:var(--sheet);margin:0 auto;padding:0 var(--pad);
+  display:grid;grid-template-columns:minmax(0,1fr);align-items:center;
+}
+.register-row{display:flex;align-items:center;gap:var(--s2);padding:9px 0;flex-wrap:wrap;min-width:0}
+.register-row + .register-row{border-top:1px solid var(--ink)}
+.register-brand{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.register-sep{color:var(--ember);font-family:var(--mono);font-size:var(--micro)}
+.ticker{
+  position:relative;overflow:hidden;flex:1 1 220px;min-width:0;
+  border-left:1px solid var(--ink);border-right:1px solid var(--ink);
+  padding-left:var(--s2);
+}
+.ticker-track{display:flex;width:max-content;animation:slide 34s linear infinite}
+.ticker-track > span{padding-right:2rem;white-space:nowrap}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker[data-paused="true"] .ticker-track{animation-play-state:paused}
+.tickerbtn{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--paper);color:var(--ink);border:1px solid var(--ink);
+  padding:5px 8px;min-height:24px;min-width:72px;cursor:pointer;
+}
+.tickerbtn:hover{background:var(--ink);color:var(--paper)}
+
+/* ---------- ascii ornament ---------- */
+.folio{
+  font-family:var(--mono);font-size:var(--micro);font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;margin:0 0 var(--s3);
+}
+.folio b{font-weight:700;border-bottom:2px solid var(--ember);padding-bottom:1px}
+.slashes{
+  font-family:var(--mono);font-size:13px;letter-spacing:.24em;color:var(--ember);
+  overflow:hidden;white-space:nowrap;padding:var(--s2) 0;
+  border-top:1px solid var(--ink);
+}
+
+/* ---------- 1px rule grid ---------- */
+.rg{display:grid;gap:1px;background:var(--ink);border:1px solid var(--ink)}
+.rg > *{background:var(--paper)}
+.cell{padding:var(--s3)}
+.cell-tight{padding:.7rem var(--s2)}
+
+/* ---------- hero ---------- */
+.hero{padding:var(--s4) 0;overflow:hidden}
+.hero-grid{display:grid;gap:1px;background:var(--ink);border:1px solid var(--ink)}
+.hero-grid > *{background:var(--paper)}
+.hero-main{padding:var(--s3) var(--s3) var(--s4);overflow:hidden}
+.hero-h1{margin:0}
+.hero-eyebrow{
+  display:block;font-family:var(--mono);font-size:var(--micro);font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;margin-bottom:var(--s2);
+}
+.hero-word{
+  display:block;font-family:var(--display);font-size:var(--d1);
+  text-transform:uppercase;letter-spacing:-.04em;line-height:.88;margin-left:-.045em;
+}
+.hero-sub{
+  display:block;font-family:var(--display);font-size:clamp(1.15rem,3.2vw,2.4rem);
+  text-transform:uppercase;letter-spacing:-.02em;line-height:1;
+  margin-top:var(--s2);padding-top:var(--s2);border-top:3px solid var(--ember);
+}
+.bleedword{
+  font-family:var(--display);font-size:clamp(4.5rem,18vw,16rem);line-height:.88;letter-spacing:-.04em;
+  text-transform:uppercase;white-space:nowrap;color:transparent;
+  -webkit-text-stroke:2px var(--ink);margin-left:-.045em;
+}
+.hero-meta{display:grid;gap:1px;background:var(--ink)}
+.hero-meta > *{background:var(--paper)}
+.metablock dt{
+  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:6px;
+}
+.metablock dd{margin:0;font-size:.95rem;line-height:1.45}
+.metablock dd + dt{margin-top:var(--s2);padding-top:var(--s2);border-top:1px solid var(--ink)}
+.seal{padding:var(--s3);display:flex;gap:var(--s3);align-items:center}
+.seal-frame{border:2px solid var(--ink);padding:6px;flex:0 0 auto}
+.seal-frame img{width:104px;height:104px}
+.seal-cap{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;line-height:1.6}
+.seal-cap b{display:block;font-weight:700;border-bottom:2px solid var(--ember);padding-bottom:4px;margin-bottom:4px}
+
+@media (min-width:900px){
+  .hero-grid{grid-template-columns:1.55fr 1fr}
+  .hero-main{padding:var(--s4)}
+}
+
+/* ---------- section head ---------- */
+.shead{margin-bottom:var(--s4)}
+.shead .deck{margin-top:var(--s3);font-size:1.05rem;max-width:56ch}
+@media (min-width:900px){
+  .shead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s4);align-items:end}
+  .shead .folio{grid-column:1/-1}
+  .shead .deck{margin-top:0}
+}
+
+/* ---------- manifest ---------- */
+.thesis{display:grid;gap:var(--s2);padding:var(--s3) 0}
+.thesis-n{
+  font-family:var(--display);font-size:clamp(2.5rem,7vw,5rem);line-height:.85;
+  letter-spacing:-.05em;color:var(--ember);
+}
+.thesis-k{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.thesis-t{font-family:var(--display);font-size:var(--d3);text-transform:uppercase;letter-spacing:-.02em;line-height:1;margin:0}
+.thesis-d{margin:0;max-width:52ch}
+@media (min-width:768px){
+  .thesis{grid-template-columns:120px minmax(0,1fr) minmax(0,1.2fr);gap:var(--s3);align-items:start}
+  .thesis-n{grid-row:span 2}
+}
+
+/* ---------- press photos ---------- */
+.press{filter:grayscale(.4) contrast(1.22) saturate(.68) brightness(1.02)}
+.plate figcaption{
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  padding:.6rem var(--s2);border-top:1px solid var(--ink);
+}
+.plate{margin:0}
+.photogrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:900px){.photogrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.practice-grid{display:grid;gap:var(--s4)}
+@media (min-width:900px){.practice-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:var(--s5);align-items:start}}
+.pullquote{
+  font-family:var(--display);font-size:clamp(1.4rem,3vw,2.1rem);text-transform:uppercase;
+  letter-spacing:-.02em;line-height:1.02;margin:0 0 var(--s3);
+  border-left:6px solid var(--ember);padding-left:var(--s2);
+}
+
+/* ---------- sessions register ---------- */
+.reg-head{display:none}
+@media (min-width:900px){
+  .sessions{grid-template-columns:minmax(0,1.1fr) 110px 110px minmax(0,1.5fr)}
+  .reg-head{display:block}
+}
+.reg-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:6px}
+@media (min-width:900px){.reg-body .reg-label{display:none}}
+.reg-h{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.7rem var(--s2)}
+.sess-name{font-family:var(--display);font-size:1.15rem;text-transform:uppercase;letter-spacing:-.02em;line-height:1;margin:0 0 .5rem}
+.sess-desc{font-size:.9rem;line-height:1.5;margin:0}
+.sess-price{font-family:var(--mono);font-size:1.05rem;font-weight:700;font-variant-numeric:tabular-nums}
+.sess-inc li{font-size:.85rem;line-height:1.5;padding-left:1.1rem;position:relative}
+.sess-inc li::before{content:"—";position:absolute;left:0;color:var(--ember)}
+.flag{
+  display:inline-block;font-family:var(--mono);font-size:10px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  border-bottom:2px solid var(--ember);margin-bottom:.5rem;
+}
+
+/* ---------- tbd ---------- */
+.tbd{border-bottom:2px dotted var(--ember);cursor:help;text-decoration:none}
+
+/* ---------- the bar index ---------- */
+.barhead{
+  display:flex;flex-wrap:wrap;gap:var(--s2);align-items:baseline;justify-content:space-between;
+  border-bottom:2px solid var(--ink);padding-bottom:.6rem;margin:var(--s4) 0 0;
+}
+.barhead h3{font-family:var(--display);font-size:var(--d3);text-transform:uppercase;letter-spacing:-.02em;margin:0}
+.barhead .mono{white-space:nowrap}
+.index{margin-top:1px}
+.idx-row{display:grid;gap:1px;background:var(--ink)}
+.idx-row > *{background:var(--paper)}
+@media (min-width:760px){
+  .idx-row{grid-template-columns:minmax(0,1.05fr) minmax(0,1.35fr) minmax(0,1fr) 92px}
+}
+.idx-n{font-weight:600;font-size:1rem;line-height:1.3}
+.idx-i{font-size:.88rem;line-height:1.45}
+.idx-p{font-family:var(--mono);font-size:.95rem;font-weight:700;font-variant-numeric:tabular-nums}
+@media (min-width:760px){.idx-p{text-align:right}}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.chip{
+  font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;border-bottom:2px solid var(--ember);padding-bottom:2px;
+}
+.promise{display:flex;flex-wrap:wrap;gap:0 1.2rem;margin-top:var(--s3)}
+.promise li{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:.35rem 0}
+.promise li::before{content:">>> ";color:var(--ember)}
+.plates{margin-top:var(--s4);grid-template-columns:minmax(0,1fr)}
+@media (min-width:760px){.plates{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- specimen ---------- */
+.spec-row{padding:var(--s3);overflow:hidden}
+.spec-a{font-family:var(--display);font-size:clamp(3rem,12vw,9rem);line-height:.82;letter-spacing:-.05em;text-transform:uppercase;white-space:nowrap}
+.spec-b{font-family:var(--display);font-size:clamp(1.6rem,5vw,3.2rem);line-height:.95;letter-spacing:-.03em;text-transform:uppercase}
+.spec-c{font-family:var(--display);font-size:clamp(1rem,2.2vw,1.35rem);line-height:1.1;letter-spacing:.02em;text-transform:uppercase}
+.spec-meta{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-top:.7rem;padding-top:.6rem;border-top:1px solid var(--ink)}
+
+/* ---------- booking docket ---------- */
+.docket{border:2px solid var(--ink);margin-top:var(--s4)}
+.docket-top{
+  background:var(--ink);color:var(--paper);padding:.7rem var(--s2);
+  display:flex;flex-wrap:wrap;gap:var(--s2);justify-content:space-between;
+}
+.docket-body{padding:var(--s3);display:grid;gap:var(--s3)}
+@media (min-width:760px){.docket-body{grid-template-columns:repeat(2,minmax(0,1fr))}.f-wide{grid-column:1/-1}}
+.field label,.legend-t{
+  display:block;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;margin-bottom:.5rem;
+}
+.req{color:var(--ember)}
+.field input,.field select,.field textarea{
+  width:100%;font-family:var(--body);font-size:1rem;color:var(--ink);
+  background:var(--paper);border:2px solid var(--ink);padding:.7rem .8rem;min-height:48px;
+}
+.field textarea{min-height:110px;resize:vertical;line-height:1.5}
+.field select{appearance:none;font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.err{
+  display:none;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  border-left:3px solid var(--ember);padding:.35rem .6rem;margin-top:.5rem;
+}
+.field[data-invalid="true"] .err{display:block}
+.field[data-invalid="true"] input,
+.field[data-invalid="true"] select,
+.field[data-invalid="true"] textarea,
+.field[data-invalid="true"] .days{outline:2px solid var(--ember);outline-offset:2px}
+.days{display:flex;flex-wrap:wrap;gap:1px;background:var(--ink);border:1px solid var(--ink)}
+.day{background:var(--paper);flex:1 1 auto}
+.day input{position:absolute;opacity:0;width:1px;height:1px}
+.day span{
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.7rem .5rem;min-height:44px;min-width:48px;cursor:pointer;
+}
+.day input:checked + span{background:var(--ink);color:var(--paper)}
+.day input:focus-visible + span{outline:3px solid var(--ember);outline-offset:-3px}
+.docket-foot{border-top:2px solid var(--ink);padding:var(--s3);display:grid;gap:var(--s2)}
+@media (min-width:760px){.docket-foot{grid-template-columns:auto minmax(0,1fr);align-items:center}}
+.submit{
+  font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  background:var(--ink);color:var(--paper);border:2px solid var(--ink);
+  padding:1rem 1.6rem;min-height:52px;cursor:pointer;transition:background 100ms linear,color 100ms linear;
+}
+.submit:hover{background:var(--paper);color:var(--ink)}
+#formStatus{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;line-height:1.6;margin:0}
+#formStatus:not(:empty){border-left:3px solid var(--ember);padding-left:.7rem}
+
+/* ---------- phase 2 blueprint ---------- */
+.phase2{position:relative;border:2px solid var(--ember);margin-top:var(--s4);overflow:hidden}
+.phase2-bar{
+  background:var(--ember);color:var(--paper);padding:.85rem var(--s2);
+  font-family:var(--display);font-size:clamp(1.1rem,3.4vw,1.75rem);
+  text-transform:uppercase;letter-spacing:-.01em;line-height:1;
+}
+.phase2-plate{background-image:var(--hatch);position:relative;padding:var(--s3)}
+.lanes{display:grid;gap:1px;background:var(--ink);border:1px solid var(--ink)}
+@media (min-width:820px){.lanes{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.lane{padding:var(--s3);position:relative}
+.lane-n{font-family:var(--display);font-size:2.5rem;line-height:.85;letter-spacing:-.05em;color:var(--ember)}
+.lane-t{font-family:var(--display);font-size:1.1rem;text-transform:uppercase;letter-spacing:-.01em;margin:.6rem 0 .5rem}
+.lane-d{font-size:.88rem;line-height:1.5;margin:0 0 .9rem}
+.lane-s{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-top:2px solid var(--ink);padding-top:.5rem;display:block}
+.lane[data-built="no"]{background-image:var(--hatch)}
+.lane[data-built="no"] .lane-s{border-top-color:var(--ember)}
+.lane[data-built="no"] .lane-inner{background:var(--paper);padding:var(--s2);border:1px solid var(--ink)}
+.stamp{
+  display:inline-block;transform:rotate(-6deg);transform-origin:left center;
+  border:3px solid var(--ember);color:var(--ember);
+  font-family:var(--display);font-size:clamp(1.3rem,4.6vw,2.4rem);
+  text-transform:uppercase;letter-spacing:.02em;line-height:1;
+  padding:.5rem .9rem;margin:var(--s3) 0 var(--s2);background:var(--paper);
+}
+.regmark{position:absolute;width:22px;height:22px;pointer-events:none}
+.ledger{display:grid;gap:1px;background:var(--ink);border-top:2px solid var(--ember)}
+@media (min-width:820px){.ledger{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ledger > div{background:var(--paper);padding:var(--s3)}
+.ledger h4{font-family:var(--display);font-size:1.05rem;text-transform:uppercase;letter-spacing:-.01em;margin:0 0 var(--s2);padding-bottom:.5rem;border-bottom:2px solid var(--ink)}
+.ledger li{font-size:.9rem;line-height:1.5;padding:.4rem 0 .4rem 1.4rem;position:relative;border-bottom:1px solid rgba(10,9,8,.18)}
+.ledger li:last-child{border-bottom:0}
+.ledger li::before{position:absolute;left:0;font-family:var(--mono);font-size:11px;font-weight:700}
+.ledger .in li::before{content:"[x]"}
+.ledger .out li::before{content:"[ ]";color:var(--ember)}
+.scopenote{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;line-height:1.7;
+  border-top:2px solid var(--ember);padding:var(--s2);margin:0;
+}
+
+/* ---------- colophon ---------- */
+.colophon{background:var(--ink);color:var(--paper);margin-top:var(--s5)}
+.colophon-in{max-width:var(--sheet);margin:0 auto;padding:var(--s5) var(--pad)}
+.colo-grid{display:grid;gap:1px;background:var(--paper);border:1px solid var(--paper);margin-top:var(--s4)}
+@media (min-width:760px){.colo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.colo-grid > div{background:var(--ink);padding:var(--s3)}
+.colo-grid dt{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.5rem;opacity:.8}
+.colo-grid dd{margin:0 0 var(--s2);font-family:var(--mono);font-size:12px;letter-spacing:.06em;line-height:1.6;word-break:break-word}
+.colo-grid dd:last-child{margin-bottom:0}
+.colophon a{color:var(--paper);text-decoration:none;border-bottom:2px solid var(--ember)}
+.colophon a:hover{background:var(--ember)}
+.colo-word{font-family:var(--display);font-size:var(--d2);text-transform:uppercase;letter-spacing:-.04em;line-height:.88;margin:0 0 var(--s2)}
+.colo-foot{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--paper)}
+
+/* ---------- tbd legend ---------- */
+.legend{border-top:1px solid var(--ink)}
+.legend-grid{grid-template-columns:minmax(0,1fr)}
+@media (min-width:760px){.legend-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.leg-item{padding:var(--s2)}
+.leg-item .k{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:.35rem}
+.leg-item .v{font-size:.95rem}
+.qs li{padding:.6rem 0;border-bottom:1px solid rgba(10,9,8,.18);font-size:.95rem;line-height:1.5;padding-left:2.4rem;position:relative;counter-increment:q}
+.qs{counter-reset:q}
+.qs li::before{content:"Q" counter(q,decimal-leading-zero);position:absolute;left:0;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--ember)}
+.qs li:last-child{border-bottom:0}
+
+/* ---------- links / focus / active ---------- */
+a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--ember)}
+a:hover{background:var(--ink);color:var(--paper);border-bottom-color:var(--ink)}
+a:active,button:active{background:var(--ink);color:var(--paper);transition:none}
+.colophon a:active{background:var(--paper);color:var(--ink)}
+a:focus-visible,button:focus-visible,summary:focus-visible{
+  background:var(--ink);color:var(--paper);outline:2px solid var(--ember);outline-offset:2px;
+}
+input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid var(--ember);outline-offset:0;
+}
+::selection{background:var(--ink);color:var(--paper)}
+
+/* ---------- mechanical reveal ---------- */
+.rev{opacity:0;transition:opacity 120ms linear}
+.rev.on{opacity:1}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@media (prefers-reduced-motion:reduce){
+  .ticker-track{animation:none !important;transform:none !important}
+  .rev{opacity:1 !important;transition:none !important}
+  *{transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to main content</a>
+
+<div class="ribbon mono" role="note">
+  <span>Mockup — Concept 3 of 3 · dotted values need your input</span>
+  <a href="../index.html">[ All three concepts ]</a>
+</div>
+
+<!-- ============ 00 · TOP REGISTER STRIP ============ -->
+<header class="register">
+  <div class="register-in">
+    <div class="register-row">
+      <span class="register-brand" id="regBrand">Charged Rootz</span>
+      <span class="register-sep" aria-hidden="true">///</span>
+      <span class="mono mono-sm" id="regEst">EST. 2021</span>
+      <span class="register-sep" aria-hidden="true">///</span>
+      <span class="mono mono-sm">Concept 03 — Broadsheet</span>
+    </div>
+    <div class="register-row">
+      <div class="ticker" id="ticker" data-paused="false">
+        <div class="ticker-track mono" id="tickerTrack" aria-hidden="true"></div>
+        <span class="sr" id="tickerText"></span>
+      </div>
+      <button class="tickerbtn" id="tickerBtn" type="button" aria-pressed="false">[ Pause ]</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ 01 · HERO ============ -->
+  <section class="hero sheet" aria-labelledby="heroTitle">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <h1 class="hero-h1" id="heroTitle">
+          <span class="hero-eyebrow">Charged Rootz — one-on-one</span>
+          <span class="hero-word">Stretch</span>
+          <span class="hero-sub">+ Botanical Bar</span>
+        </h1>
+        <p class="bleedword" aria-hidden="true">Rootz</p>
+      </div>
+
+      <div class="hero-meta">
+        <div class="seal">
+          <div class="seal-frame">
+            <img src="../assets/img/logo-320.png"
+                 srcset="../assets/img/logo-320.png 320w, ../assets/img/logo-768.png 768w"
+                 sizes="104px" width="320" height="320"
+                 decoding="async"
+                 alt="The Charged Rootz mark: a sun-crowned figure rooted in the earth">
+          </div>
+          <p class="seal-cap"><b>Charged Rootz &reg;</b>Studio seal<br>Est. <span class="num">2021</span></p>
+        </div>
+        <div class="cell">
+          <dl class="metablock" id="heroMeta"></dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sheet"><div class="slashes" aria-hidden="true">/// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// /// ///</div></div>
+
+  <!-- ============ 02 · MANIFEST ============ -->
+  <section class="section sheet rev" id="manifest" aria-labelledby="manifestTitle">
+    <div class="shead">
+      <p class="folio">[ <b>01</b> / Manifest ]</p>
+      <h2 class="d2" id="manifestTitle">How a<br>visit runs</h2>
+      <p class="deck">Four steps, in order. Nothing here is a package or a tier — it is simply what happens, from the message you send to the drink you leave with.</p>
+    </div>
+    <div id="manifestBody"></div>
+  </section>
+
+  <!-- ============ 03 · THE PRACTICE ============ -->
+  <section class="section sheet rev" id="practice" aria-labelledby="practiceTitle">
+    <div class="shead">
+      <p class="folio">[ <b>02</b> / The practice ]</p>
+      <h2 class="d2" id="practiceTitle">I move<br>you</h2>
+      <p class="deck">Assisted stretching is not a class and not a massage. You stay still. The work is mine.</p>
+    </div>
+
+    <div class="practice-grid">
+      <div>
+        <p class="pullquote" id="practiceQuote"></p>
+        <div class="copy" id="practiceCopy"></div>
+      </div>
+      <div>
+        <div class="rg photogrid" id="practicePhotos"></div>
+        <p class="mono" style="margin-top:.8rem">&gt;&gt;&gt; Photographed on location. Her own sessions, her own clients.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 · SESSIONS REGISTER ============ -->
+  <section class="section sheet rev" id="sessions" aria-labelledby="sessionsTitle">
+    <div class="shead">
+      <p class="folio">[ <b>03</b> / Sessions ]</p>
+      <h2 class="d2" id="sessionsTitle">Sessions<br>register</h2>
+      <p class="deck">Durations and prices are placeholders until she confirms them. Every dotted value on this page is a question, not a claim.</p>
+    </div>
+    <div class="rg sessions" id="sessionsBody"></div>
+  </section>
+
+  <div class="sheet"><div class="slashes" aria-hidden="true">&gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt; &gt;&gt;&gt;</div></div>
+
+  <!-- ============ 05 · THE BAR — INDEX ============ -->
+  <section class="section sheet rev" id="bar" aria-labelledby="barTitle">
+    <div class="shead">
+      <p class="folio">[ <b>04</b> / The bar — index ]</p>
+      <h2 class="d2" id="barTitle">Botanical<br>bar</h2>
+      <p class="deck" id="barDeck"></p>
+    </div>
+    <div id="barBody"></div>
+    <div class="rg plates" id="barPlates"></div>
+  </section>
+
+  <!-- ============ 06 · SPECIMEN ============ -->
+  <section class="section sheet rev" id="specimen" aria-labelledby="specimenTitle">
+    <div class="shead">
+      <p class="folio">[ <b>05</b> / Specimen ]</p>
+      <h2 class="d2" id="specimenTitle">Type<br>specimen</h2>
+      <p class="deck">Three scales of the display family, plus the two working faces that carry the rest of the sheet.</p>
+    </div>
+    <div class="rg">
+      <div class="spec-row">
+        <p class="spec-a">Rootz</p>
+        <p class="spec-meta">Archivo Black · Display 01 · clamp(3.5rem, 10vw, 11rem) · tracking &minus;0.04em · leading 0.88</p>
+      </div>
+      <div class="spec-row">
+        <p class="spec-b">Rooted. Nourished. Elevated.</p>
+        <p class="spec-meta">Archivo Black · Display 02 · clamp(2rem, 5.5vw, 4.25rem) · tracking &minus;0.03em</p>
+      </div>
+      <div class="spec-row">
+        <p class="spec-c">Assisted stretch &amp; cold-pressed juice</p>
+        <p class="spec-meta">Archivo Black · Display 03 · 1rem&ndash;1.35rem · tracking +0.02em</p>
+      </div>
+      <div class="spec-row">
+        <p class="mono" style="font-size:13px;margin:0">JetBrains Mono &middot; Micro &middot; 11&ndash;13px &middot; tracking 0.1em &middot; <span class="num">0123456789</span> tabular</p>
+        <p style="margin:.9rem 0 0;font-size:1rem;line-height:1.6">Archivo 400/500 sets the body. Measure is capped at 62 characters so the column stays readable at every width.</p>
+        <p class="spec-meta">Working faces &middot; Micro + body</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 07 · BOOKING DOCKET ============ -->
+  <section class="section sheet rev" id="booking" aria-labelledby="bookingTitle">
+    <div class="shead">
+      <p class="folio">[ <b>06</b> / Booking ]</p>
+      <h2 class="d2" id="bookingTitle">Request<br>a session</h2>
+      <p class="deck">Tell her what hurts and when you are free. She replies to set a time.</p>
+    </div>
+
+    <form class="docket" id="bookForm" action="mailto:contact@chargedrootz.com" method="post" enctype="text/plain" novalidate>
+      <div class="docket-top mono">
+        <span>Booking docket &mdash; no. <span class="num">001</span></span>
+        <span>Charged Rootz &middot; Est. <span class="num">2021</span></span>
+      </div>
+
+      <div class="docket-body">
+        <div class="field" id="f-name">
+          <label for="i-name">Name <span class="req" aria-hidden="true">*</span></label>
+          <input id="i-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+          <p class="err" id="e-name">Enter the name she should reply to.</p>
+        </div>
+
+        <div class="field" id="f-email">
+          <label for="i-email">Email <span class="req" aria-hidden="true">*</span></label>
+          <input id="i-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email">
+          <p class="err" id="e-email">Enter an email address she can reach you at.</p>
+        </div>
+
+        <div class="field" id="f-phone">
+          <label for="i-phone">Phone <span class="mono" style="letter-spacing:.1em">(optional)</span></label>
+          <input id="i-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+        </div>
+
+        <div class="field" id="f-session">
+          <label for="i-session">Session type <span class="req" aria-hidden="true">*</span></label>
+          <select id="i-session" name="session" required aria-describedby="e-session"></select>
+          <p class="err" id="e-session">Pick a session, or choose &ldquo;Not sure yet&rdquo;.</p>
+        </div>
+
+        <div class="field f-wide" id="f-hurts">
+          <label for="i-hurts">What hurts <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="i-hurts" name="what_hurts" required aria-describedby="e-hurts"
+            placeholder="Hips lock up after driving. Left shoulder will not go overhead."></textarea>
+          <p class="err" id="e-hurts">Say what is bothering you, even roughly.</p>
+        </div>
+
+        <div class="field f-wide" id="f-days">
+          <fieldset style="border:0;padding:0;margin:0">
+            <legend class="legend-t">Preferred days <span class="req" aria-hidden="true">*</span></legend>
+            <div class="days" id="daysBox"></div>
+            <p class="err" id="e-days">Choose at least one day that works.</p>
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="docket-foot">
+        <button class="submit" type="submit">&gt;&gt;&gt; Send request</button>
+        <p id="formStatus" role="status" aria-live="polite"></p>
+      </div>
+      <p class="scopenote" style="border-top:1px solid var(--ink)">
+        Mockup behaviour: this docket opens your mail app addressed to contact@chargedrootz.com.
+        In the real build it posts straight to her inbox, no mail app involved.
+      </p>
+    </form>
+  </section>
+
+  <!-- ============ 08 · PHASE 2 — NOT IN THIS BUILD ============ -->
+  <section class="section sheet rev" id="phase2" aria-labelledby="phase2Title">
+    <div class="shead">
+      <p class="folio">[ <b>07</b> / Phase two ]</p>
+      <h2 class="d2" id="phase2Title">Not in<br>this build</h2>
+      <p class="deck">A sketch of where this could go later, drawn so it cannot be confused with what you are buying now. Everything inside the ember frame is unbuilt.</p>
+    </div>
+
+    <div class="phase2">
+      <svg class="regmark" style="top:6px;left:6px" viewBox="0 0 22 22" aria-hidden="true" focusable="false"><path d="M11 0v22M0 11h22" stroke="#DA3E1B" stroke-width="1"/><circle cx="11" cy="11" r="6" fill="none" stroke="#DA3E1B" stroke-width="1"/></svg>
+      <svg class="regmark" style="bottom:6px;right:6px" viewBox="0 0 22 22" aria-hidden="true" focusable="false"><path d="M11 0v22M0 11h22" stroke="#DA3E1B" stroke-width="1"/><circle cx="11" cy="11" r="6" fill="none" stroke="#DA3E1B" stroke-width="1"/></svg>
+
+      <p class="phase2-bar">Phase 2 — not in this build</p>
+
+      <div class="phase2-plate">
+        <p class="mono" style="margin-bottom:1rem">Unprinted plate &mdash; multi-lane hub, quoted separately</p>
+        <div class="lanes" id="lanes"></div>
+        <p class="stamp">Not included</p>
+        <p class="mono" style="max-width:60ch;margin:0">
+          &gt;&gt;&gt; Lane 01 is the site you are buying. Lanes 02 and 03 are drawn here only so you can see the shape of a bigger build. They do not exist on this site and are not part of this price.
+        </p>
+      </div>
+
+      <div class="ledger">
+        <div>
+          <h4>In this build &mdash; <span class="num" id="scopePrice"></span></h4>
+          <ul class="in" id="scopeIn"></ul>
+        </div>
+        <div>
+          <h4>Not in this build</h4>
+          <ul class="out" id="scopeOut"></ul>
+        </div>
+      </div>
+
+      <p class="scopenote" id="scopeNote"></p>
+    </div>
+  </section>
+
+  <!-- ============ 09 · TBD LEGEND ============ -->
+  <section class="section sheet rev legend" id="legend" aria-labelledby="legendTitle">
+    <div class="shead">
+      <p class="folio">[ <b>08</b> / Open questions ]</p>
+      <h2 class="d2" id="legendTitle">Needs<br>your input</h2>
+      <p class="deck">Every dotted value on this page is listed here. Nothing was invented quietly &mdash; correct these and the site is done.</p>
+    </div>
+
+    <h3 class="mono" style="font-size:13px;font-weight:700;margin:0 0 .8rem">[ Placeholder values ]</h3>
+    <div class="rg legend-grid" id="legendGrid"></div>
+
+    <h3 class="mono" style="font-size:13px;font-weight:700;margin:2.5rem 0 .8rem">[ Questions for you ]</h3>
+    <ol class="qs" id="legendQs"></ol>
+  </section>
+
+</main>
+
+<!-- ============ 10 · COLOPHON ============ -->
+<footer class="colophon">
+  <div class="colophon-in">
+    <p class="mono" style="margin:0 0 1rem">[ <span style="color:#DA3E1B">09</span> / Colophon ]</p>
+    <p class="colo-word" id="coloWord">Charged<br>Rootz</p>
+    <p class="mono" style="max-width:52ch;margin:0" id="coloTag"></p>
+
+    <div class="colo-grid">
+      <div>
+        <dl>
+          <dt>Contact</dt>
+          <dd><a href="mailto:contact@chargedrootz.com">contact@chargedrootz.com</a></dd>
+          <dt>Phone</dt>
+          <dd id="coloPhone"></dd>
+        </dl>
+      </div>
+      <div>
+        <dl>
+          <dt>Payment accepted</dt>
+          <dd id="coloPay"></dd>
+        </dl>
+      </div>
+      <div>
+        <dl>
+          <dt>Set in</dt>
+          <dd>Archivo Black &mdash; display<br>Archivo &mdash; body<br>JetBrains Mono &mdash; micro</dd>
+          <dt>Edition</dt>
+          <dd>Concept 03 of 03 &mdash; Broadsheet</dd>
+        </dl>
+      </div>
+    </div>
+
+    <p class="colo-foot" id="coloFoot"></p>
+  </div>
+</footer>
+
+<script src="../assets/data/content.js"></script>
+<script>
+(function(){
+  "use strict";
+  var D = window.CR;
+  if(!D){ return; }
+
+  /* ---------- helpers ---------- */
+  function esc(s){
+    return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")
+      .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  }
+  function A(p){ return "../" + p; }
+  function widthOf(p){ var m = /-(\d+)\.(?:jpg|png)$/.exec(p); return m ? m[1] : "800"; }
+  function isTbd(v){ return v && typeof v === "object" && v.tbd === true; }
+  function val(v){
+    if(isTbd(v)) return '<span class="tbd" title="Placeholder — confirm with client">' + esc(v.value) + '</span>';
+    return esc(v);
+  }
+  function plain(v){ return isTbd(v) ? v.value : String(v); }
+  function set(id, html){ var el = document.getElementById(id); if(el) el.innerHTML = html; }
+  function pic(o, w, h, sizes, cls){
+    var big = A(o.src), small = A(o.sm);
+    return '<img class="' + (cls || "") + '" src="' + small + '"'
+      + ' srcset="' + small + " " + widthOf(o.sm) + "w, " + big + " " + widthOf(o.src) + 'w"'
+      + ' sizes="' + sizes + '" width="' + w + '" height="' + h + '"'
+      + ' loading="lazy" decoding="async" alt="' + esc(o.alt) + '">';
+  }
+
+  /* ---------- register strip + ticker ---------- */
+  set("regBrand", esc(D.brand.name));
+  set("regEst", "Est. " + esc(D.brand.est));
+  var tag = D.brand.tagline.toUpperCase();
+  var unit = '<span>' + esc(tag) + '</span><span style="color:#DA3E1B">///</span>';
+  set("tickerTrack", new Array(13).join(unit) || unit);
+  set("tickerText", esc(D.brand.tagline));
+
+  var ticker = document.getElementById("ticker");
+  var tbtn = document.getElementById("tickerBtn");
+  if(tbtn && ticker){
+    tbtn.addEventListener("click", function(){
+      var paused = ticker.getAttribute("data-paused") === "true";
+      ticker.setAttribute("data-paused", paused ? "false" : "true");
+      tbtn.setAttribute("aria-pressed", paused ? "false" : "true");
+      tbtn.textContent = paused ? "[ Pause ]" : "[ Play ]";
+    });
+  }
+
+  /* ---------- hero metadata blocks ---------- */
+  set("heroMeta",
+    "<dt>What she does</dt>"
+    + "<dd>" + esc(D.stretch.lead) + ". Plus a cold-pressed juice and herbal bar, run from the same room.</dd>"
+    + "<dt>Where</dt>"
+    + "<dd>" + val(D.brand.city) + " &mdash; trading as " + val(D.brand.stretchName) + ".</dd>"
+    + "<dt>How to book</dt>"
+    + '<dd><a href="#booking">Send the docket</a> with what hurts and the days you are free. She replies to set a time.</dd>'
+  );
+
+  /* ---------- manifest ---------- */
+  (function(){
+    var out = "";
+    D.stretch.steps.forEach(function(s, i){
+      if(i > 0) out += "<hr>";
+      var n = (i + 1) < 10 ? "0" + (i + 1) : String(i + 1);
+      out += '<div class="thesis">'
+        + '<p class="thesis-n num">' + n + ".</p>"
+        + "<div><p class=\"thesis-k\">" + esc(s.k) + "</p>"
+        + '<h3 class="thesis-t">' + esc(s.t) + "</h3></div>"
+        + '<p class="thesis-d">' + esc(s.d) + "</p>"
+        + "</div>";
+    });
+    set("manifestBody", out);
+  })();
+
+  /* ---------- the practice ---------- */
+  (function(){
+    var b = D.stretch.blurb;
+    var cut = b.indexOf(". ") + 1;
+    var head = b.slice(0, cut).trim();
+    var rest = b.slice(cut).trim();
+    set("practiceQuote", esc(head));
+    set("practiceCopy",
+      "<p>" + esc(rest) + "</p>"
+      + "<p>Nothing is rushed and nothing is guessed. We start where you actually are, and I hold each position long enough for it to change.</p>"
+    );
+    var photos = "";
+    D.img.stretch.forEach(function(p, i){
+      photos += '<figure class="plate">'
+        + pic(p, 640, 800, "(min-width:900px) 22vw, 45vw", "press")
+        + '<figcaption>Plate ' + (i + 1) + " / 4</figcaption></figure>";
+    });
+    set("practicePhotos", photos);
+  })();
+
+  /* ---------- sessions register ---------- */
+  (function(){
+    var out = ""
+      + '<div class="reg-head reg-h">Session</div>'
+      + '<div class="reg-head reg-h">Duration</div>'
+      + '<div class="reg-head reg-h">Price</div>'
+      + '<div class="reg-head reg-h">Includes</div>';
+    D.stretch.sessions.forEach(function(s){
+      out += '<div class="cell reg-body">'
+        + '<h3 class="sess-name">' + esc(s.name) + "</h3>"
+        + '<p class="sess-desc">' + esc(s.desc) + "</p></div>";
+      out += '<div class="cell reg-body"><span class="reg-label">Duration</span>'
+        + '<span class="sess-price">' + val(s.dur) + "</span></div>";
+      out += '<div class="cell reg-body"><span class="reg-label">Price</span>'
+        + '<span class="sess-price">' + val(s.price) + "</span></div>";
+      out += '<div class="cell reg-body"><span class="reg-label">Includes</span><ul class="sess-inc">';
+      s.includes.forEach(function(x){ out += "<li>" + esc(x) + "</li>"; });
+      out += "</ul></div>";
+    });
+    set("sessionsBody", out);
+  })();
+
+  /* ---------- the bar index ---------- */
+  (function(){
+    set("barDeck", esc(D.brand.lines.bar) + " Everything below is her own menu, at her own prices.");
+
+    function row(name, ing, chips, price){
+      var c = "";
+      if(chips && chips.length){
+        c = '<div class="chips">';
+        chips.forEach(function(x){ c += '<span class="chip">' + esc(x) + "</span>"; });
+        c += "</div>";
+      }
+      return '<div class="idx-row">'
+        + '<div class="cell-tight idx-n">' + esc(name) + "</div>"
+        + '<div class="cell-tight idx-i">' + esc(ing) + "</div>"
+        + '<div class="cell-tight">' + c + "</div>"
+        + '<div class="cell-tight idx-p">' + esc(price) + "</div>"
+        + "</div>";
+    }
+    function head(title, meta){
+      return '<div class="barhead"><h3>' + esc(title) + '</h3><p class="mono" style="margin:0">' + meta + "</p></div>";
+    }
+
+    var j = D.bar.juices, s = D.bar.shots, out = "";
+
+    out += head("Cold-pressed juices", "[ " + esc(j.items.length) + " listed ] &middot; " + esc(j.unit) + ' &middot; <span class="num">' + esc(j.price) + "</span>");
+    out += '<div class="index">';
+    j.items.forEach(function(x){ out += row(x.n, x.i, x.b, j.price); });
+    out += "</div>";
+
+    out += head("Wellness shots", "[ " + esc(s.items.length) + " listed ] &middot; " + esc(s.unit) + ' &middot; <span class="num">' + esc(s.price) + "</span>");
+    out += '<div class="index">';
+    s.items.forEach(function(x){ out += row(x.n, x.i, null, s.price); });
+    out += "</div>";
+
+    out += head("Add-ons", "[ " + esc(D.bar.addons.length) + " listed ] &middot; priced individually");
+    out += '<div class="index">';
+    D.bar.addons.forEach(function(x){ out += row(x.n, x.u ? x.u + " serve" : "Single serve", null, x.p); });
+    out += "</div>";
+
+    var sm = D.bar.smoothie;
+    out += head("Blended", "[ 1 listed ] &middot; house smoothie");
+    out += '<div class="index">' + row(sm.n, sm.i, sm.b, sm.p) + "</div>";
+
+    out += '<ul class="promise">';
+    D.bar.promise.forEach(function(p){ out += "<li>" + esc(p) + "</li>"; });
+    out += "</ul>";
+
+    set("barBody", out);
+
+    set("barPlates",
+      '<figure class="plate">' + pic(D.img.menuJuice, 700, 1058, "(min-width:760px) 45vw, 92vw", "press")
+        + "<figcaption>Press plate A &mdash; juice &amp; shot menu</figcaption></figure>"
+      + '<figure class="plate">' + pic(D.img.menuFood, 700, 1061, "(min-width:760px) 45vw, 92vw", "press")
+        + "<figcaption>Press plate B &mdash; food plan menu</figcaption></figure>"
+    );
+  })();
+
+  /* ---------- booking form ---------- */
+  (function(){
+    var sel = document.getElementById("i-session");
+    if(sel){
+      var opts = '<option value="">— Select —</option>';
+      D.stretch.sessions.forEach(function(s){
+        opts += '<option value="' + esc(s.name) + '">' + esc(s.name) + " — " + esc(plain(s.dur)) + "</option>";
+      });
+      opts += '<option value="Not sure yet">Not sure yet</option>';
+      sel.innerHTML = opts;
+    }
+
+    var days = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], dOut = "";
+    days.forEach(function(d){
+      dOut += '<label class="day"><input type="checkbox" name="days" value="' + d + '"><span>' + d + "</span></label>";
+    });
+    set("daysBox", dOut);
+
+    var form = document.getElementById("bookForm");
+    var status = document.getElementById("formStatus");
+    if(!form) return;
+
+    function mark(id, bad){
+      var f = document.getElementById(id);
+      if(f) f.setAttribute("data-invalid", bad ? "true" : "false");
+      return bad;
+    }
+    function check(){
+      var bad = [];
+      var name = form.elements.namedItem("name");
+      var emailField = form.elements.namedItem("email");
+      var session = form.elements.namedItem("session");
+      var hurts = form.elements.namedItem("what_hurts");
+      if(mark("f-name", !name || !name.value.trim())) bad.push("name");
+      var email = emailField ? emailField.value.trim() : "";
+      if(mark("f-email", !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))) bad.push("email");
+      if(mark("f-session", !session || !session.value)) bad.push("session");
+      if(mark("f-hurts", !hurts || !hurts.value.trim())) bad.push("what hurts");
+      var picked = form.querySelectorAll('input[name="days"]:checked').length;
+      if(mark("f-days", picked === 0)) bad.push("preferred days");
+      return bad;
+    }
+
+    form.addEventListener("submit", function(e){
+      var bad = check();
+      if(bad.length){
+        e.preventDefault();
+        status.textContent = "Incomplete — " + bad.length + " field" + (bad.length > 1 ? "s" : "") + " need attention: " + bad.join(", ") + ".";
+        var first = form.querySelector('[data-invalid="true"] input, [data-invalid="true"] select, [data-invalid="true"] textarea');
+        if(first) first.focus();
+        return;
+      }
+      status.textContent = "Docket complete. Opening your mail app — in the real build this posts straight to her inbox.";
+    });
+
+    ["input","change"].forEach(function(evt){
+      form.addEventListener(evt, function(e){
+        var f = e.target.closest ? e.target.closest(".field") : null;
+        if(f && f.getAttribute("data-invalid") === "true") check();
+      });
+    });
+  })();
+
+  /* ---------- phase 2 ---------- */
+  (function(){
+    var lanes = [
+      { n:"01", t:"Stretch", d:"Her practice, her sessions, and a booking request that lands in her inbox.", s:"Live — built in this round", built:"yes" },
+      { n:"02", t:"Botanical bar ordering", d:"Live cart, card checkout, pickup slots and stock control for juices and shots.", s:"Sketch only — not built", built:"no" },
+      { n:"03", t:"Weekend events", d:"Ticketed workshops and retreats, with capacity limits and attendee lists.", s:"Sketch only — not built", built:"no" }
+    ];
+    var out = "";
+    lanes.forEach(function(l){
+      out += '<div class="lane" data-built="' + l.built + '"><div class="lane-inner">'
+        + '<p class="lane-n num">' + l.n + "</p>"
+        + '<h3 class="lane-t">' + esc(l.t) + "</h3>"
+        + '<p class="lane-d">' + esc(l.d) + "</p>"
+        + '<span class="lane-s">' + esc(l.s) + "</span>"
+        + "</div></div>";
+    });
+    set("lanes", out);
+
+    set("scopePrice", esc(D.scope.price));
+    var inc = "";
+    D.scope.included.forEach(function(x){ inc += "<li>" + esc(x) + "</li>"; });
+    set("scopeIn", inc);
+    var exc = "";
+    D.scope.notIncluded.forEach(function(x){ exc += "<li>" + esc(x) + "</li>"; });
+    set("scopeOut", exc);
+    set("scopeNote", "/// " + esc(D.scope.note) + " /// " + esc(D.scope.hosting) + ".");
+  })();
+
+  /* ---------- colophon ---------- */
+  (function(){
+    set("coloWord", esc(D.brand.name).replace(" ", "<br>"));
+    set("coloTag", esc(D.brand.tagline) + " &mdash; " + esc(D.brand.lines.food));
+    set("coloPhone", '<a href="tel:' + esc(D.brand.phone.replace(/[^0-9+]/g, "")) + '">' + esc(D.brand.phone) + "</a>");
+    set("coloPay",
+      "Cash App &middot; " + esc(D.brand.pay.cashapp) + "<br>"
+      + 'PayPal &middot; <a href="https://' + esc(D.brand.pay.paypal) + '">' + esc(D.brand.pay.paypal) + "</a><br>"
+      + "Apple Pay &middot; " + esc(D.brand.pay.applepay)
+    );
+    set("coloFoot", "/// " + esc(D.brand.lines.foot) + " /// Set in Archivo Black + JetBrains Mono. Built for " + esc(D.brand.name) + ".");
+  })();
+
+  /* ---------- tbd legend ---------- */
+  (function(){
+    var items = [
+      { k: "Brand — city / service area", v: D.brand.city },
+      { k: "Brand — name of the stretch practice", v: D.brand.stretchName }
+    ];
+    D.stretch.sessions.forEach(function(s){
+      items.push({ k: s.name + " — duration", v: s.dur });
+      items.push({ k: s.name + " — price", v: s.price });
+    });
+    var out = "";
+    items.forEach(function(it){
+      out += '<div class="leg-item"><span class="k">' + esc(it.k) + "</span>"
+        + '<span class="v"><span class="tbd" title="Placeholder — confirm with client">'
+        + esc(plain(it.v)) + "</span> &mdash; placeholder</span></div>";
+    });
+    set("legendGrid", out);
+
+    var qs = "";
+    D.questions.forEach(function(q){ qs += "<li>" + esc(q) + "</li>"; });
+    set("legendQs", qs);
+  })();
+
+  /* ---------- mechanical reveal ---------- */
+  (function(){
+    var nodes = document.querySelectorAll(".rev");
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(reduce || !("IntersectionObserver" in window)){
+      Array.prototype.forEach.call(nodes, function(n){ n.classList.add("on"); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("on"); io.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.02 });
+    Array.prototype.forEach.call(nodes, function(n){ io.observe(n); });
+  })();
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "#chargedrootz",
+      "name": "Charged Rootz",
+      "slogan": "Rooted. Nourished. Elevated.",
+      "description": "One-on-one assisted stretch sessions plus a cold-pressed juice and herbal botanical bar.",
+      "email": "contact@chargedrootz.com",
+      "telephone": "+1-314-566-5749",
+      "foundingDate": "2021",
+      "image": "../assets/img/logo-768.png",
+      "logo": "../assets/img/logo-768.png",
+      "priceRange": "$$",
+      "paymentAccepted": "Cash App, PayPal, Apple Pay",
+      "knowsAbout": ["Assisted stretching", "Cold-pressed juice", "Herbal wellness shots"]
+    },
+    {
+      "@type": "Service",
+      "name": "Assisted stretch session",
+      "serviceType": "Assisted stretching",
+      "provider": { "@id": "#chargedrootz" },
+      "description": "One-on-one assisted stretching. You lie down and stay passive while each joint is taken through the ranges it has stopped reaching on its own.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Session types",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "First Visit" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full Session" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stretch + Tonic" } }
+        ]
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>

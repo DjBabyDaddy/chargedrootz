@@ -2,3 +2,6 @@ Thumbs.db
 .DS_Store
 _source/
 *.log
+.claude/
+AGENTS.md
+CLAUDE.md
