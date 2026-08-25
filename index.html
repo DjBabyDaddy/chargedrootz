@@ -72,7 +72,7 @@
       "name": "Stretch by Charged Rootz",
       "serviceType": "Stretch therapy",
       "provider": { "@id": "#chargedrootz" },
-      "description": "Concierge stretch therapy delivered in the client's own home by a therapist certified through CNU Stretch. Every new client begins with a 12-point full-body assessment.",
+      "description": "Concierge stretch therapy delivered at the customer's own location by a therapist certified through CNU Stretch. Every new client begins with a 12-point full-body assessment.",
       "areaServed": { "@type": "City", "name": "Your city" },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -790,7 +790,7 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
 
       <div class="menus-link">
         <p id="foodLine"></p>
-        <a class="btn btn--ghost" id="menuTrigger" href="assets/img/menu-juice-1206.jpg" target="_blank" rel="noopener">View her printed menus</a>
+        <a class="btn btn--ghost" id="menuTrigger" href="assets/img/menu-juice-1206.jpg" target="_blank" rel="noopener">View the printed menus</a>
       </div>
     </div>
   </section>
@@ -871,11 +871,11 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
     <h2 class="sr-only" id="foot-h">Contact and payment</h2>
     <div class="foot__grid">
       <section aria-labelledby="foot-reach">
-        <h3 id="foot-reach">Reach her</h3>
+        <h3 id="foot-reach">Get in touch</h3>
         <ul class="foot__list" id="footContact"></ul>
       </section>
       <section aria-labelledby="foot-pay">
-        <h3 id="foot-pay">Pay her</h3>
+        <h3 id="foot-pay">Payment</h3>
         <ul class="foot__list" id="footPay"></ul>
       </section>
       <section aria-labelledby="foot-promise">
@@ -912,7 +912,7 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
 <!-- ===================== PRINTED MENUS DIALOG ===================== -->
 <dialog class="sheet" id="menuSheet" aria-labelledby="sheet-title">
   <div class="sheet__head">
-    <h2 class="sheet__title" id="sheet-title">Her printed menus</h2>
+    <h2 class="sheet__title" id="sheet-title">The printed menus</h2>
     <button class="sheet__close" type="button" id="sheetClose">Close</button>
   </div>
   <div class="sheet__body">
@@ -1120,8 +1120,9 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
         label: "The twelve assessment zones",
         value: "standard full-body zones — send me your actual protocol"
       });
-      set("assessNote", "The count is hers. The twelve zone names are the standard full-body "
-        + "mobility checks and are marked as placeholders until she sends her own list.");
+      set("assessNote", "Note for you: the twelve zone names below are the standard full-body "
+        + "mobility checks, marked as placeholders until you send your own list. "
+        + "The count is yours and already correct.");
     }
 
     /* Static readout so the panel is never blank before scroll or without JS motion. */
