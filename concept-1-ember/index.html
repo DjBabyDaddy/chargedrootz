@@ -345,7 +345,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   background:radial-gradient(120% 90% at 22% 8%,rgba(232,194,26,.30),rgba(140,26,13,.55) 58%,rgba(6,5,5,.78));
   mix-blend-mode:multiply;
 }
-.frame::after{ /* warm relight, keeps her hands and the client readable */
+.frame::after{ /* warm relight for legibility */
   content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
   background:linear-gradient(200deg,rgba(232,194,26,.34),rgba(218,62,27,.20) 46%,rgba(6,5,5,.30));
   mix-blend-mode:soft-light;
@@ -988,7 +988,7 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
 
-  var TBD_TITLE = "Placeholder — confirm with client";
+  var TBD_TITLE = "Placeholder — send me the real one and I will swap it in";
   var tbdRegistry = [];
 
   /* Renders {tbd:true,value} as a dotted placeholder and logs it for the legend. */

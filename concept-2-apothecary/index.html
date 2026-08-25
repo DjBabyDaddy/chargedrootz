@@ -580,7 +580,7 @@ a{color:inherit}
         </div>
         <div class="hero__facts micro">
           <span class="hero__fact"><b>Rooted. Nourished. Elevated.</b> The whole idea</span>
-          <span class="hero__fact"><b id="heroCity" class="tbd" title="Placeholder — confirm with client">Your city</b> Where I stretch</span>
+          <span class="hero__fact"><b id="heroCity" class="tbd" title="Placeholder — send me the real one and I will swap it in">Your city</b> Where I stretch</span>
           <span class="hero__fact"><b>16 oz · $9</b> Cold-pressed juices</span>
         </div>
       </div>
@@ -624,7 +624,7 @@ a{color:inherit}
     <div class="wrap">
       <div class="opener reveal">
         <div class="opener__rule" aria-hidden="true"></div>
-        <p class="opener__eyebrow micro"><span class="tbd" title="Placeholder — confirm with client">Charged Rootz Stretch</span> · Sessions</p>
+        <p class="opener__eyebrow micro"><span class="tbd" title="Placeholder — send me the real one and I will swap it in">Charged Rootz Stretch</span> · Sessions</p>
         <h2>Three ways to <em>book time</em> with me</h2>
         <p class="opener__sub lede">Lengths and prices below are placeholders until you confirm them. Everything with a dotted line is a question for you, not a decision I made.</p>
       </div>
@@ -793,7 +793,7 @@ a{color:inherit}
             <ul class="aside__list">
               <li>Wear something you can move in. No warm-up needed.</li>
               <li>Say if you are pregnant, post-surgery, or working around an injury.</li>
-              <li>Booking days and lead time are <span class="tbd" title="Placeholder — confirm with client">still to confirm</span>.</li>
+              <li>Booking days and lead time are <span class="tbd" title="Placeholder — send me the real one and I will swap it in">still to confirm</span>.</li>
             </ul>
           </div>
 
@@ -841,7 +841,7 @@ a{color:inherit}
         <span class="k">Phone</span>
         <a href="tel:+13145665749">314-566-5749</a>
         <span class="k">Located in</span>
-        <span class="tbd" title="Placeholder — confirm with client">Your city</span>
+        <span class="tbd" title="Placeholder — send me the real one and I will swap it in">Your city</span>
       </div>
 
       <div class="foot__block">
@@ -902,7 +902,7 @@ a{color:inherit}
   function val(f) { return f && typeof f === "object" ? f.value : f; }
   function tbdSpan(f) {
     if (f && typeof f === "object" && f.tbd) {
-      return '<span class="tbd" title="Placeholder — confirm with client">' + esc(f.value) + "</span>";
+      return '<span class="tbd" title="Placeholder — send me the real one and I will swap it in">' + esc(f.value) + "</span>";
     }
     return esc(val(f));
   }
@@ -1209,7 +1209,7 @@ a{color:inherit}
     if (host) {
       host.innerHTML = rows.map(function (r) {
         return "<li><span class=\"k\">" + esc(r.k) + "</span>" +
-          '<span class="v"><span class="tbd" title="Placeholder — confirm with client">' + esc(r.v) + "</span> " +
+          '<span class="v"><span class="tbd" title="Placeholder — send me the real one and I will swap it in">' + esc(r.v) + "</span> " +
           '<span class="micro" style="display:inline">· ' + esc(r.where) + "</span></span></li>";
       }).join("");
     }

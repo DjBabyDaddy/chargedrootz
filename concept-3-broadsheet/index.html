@@ -361,7 +361,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .phase2-plate{background-image:var(--hatch);position:relative;padding:var(--s3)}
 .lanes{display:grid;gap:1px;background:var(--ink);border:1px solid var(--ink)}
 @media (min-width:820px){.lanes{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.lane{padding:var(--s3);position:relative}
+.lane{padding:var(--s3);position:relative;background:var(--paper)}
 .lane-n{font-family:var(--display);font-size:2.5rem;line-height:.85;letter-spacing:-.05em;color:var(--ember)}
 .lane-t{font-family:var(--display);font-size:1.1rem;text-transform:uppercase;letter-spacing:-.01em;margin:.6rem 0 .5rem}
 .lane-d{font-size:.88rem;line-height:1.5;margin:0 0 .9rem}
@@ -540,7 +540,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
     <div class="shead">
       <p class="folio">[ <b>03</b> / Sessions ]</p>
       <h2 class="d2" id="sessionsTitle">Sessions<br>register</h2>
-      <p class="deck">Durations and prices are placeholders until she confirms them. Every dotted value on this page is a question, not a claim.</p>
+      <p class="deck">Durations and prices are placeholders until you confirm them. Every dotted value on this page is a question, not a claim.</p>
     </div>
     <div class="rg sessions" id="sessionsBody"></div>
   </section>
@@ -591,7 +591,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
     <div class="shead">
       <p class="folio">[ <b>06</b> / Booking ]</p>
       <h2 class="d2" id="bookingTitle">Request<br>a session</h2>
-      <p class="deck">Tell her what hurts and when you are free. She replies to set a time.</p>
+      <p class="deck">Tell me what hurts and when you are free. I reply to set a time.</p>
     </div>
 
     <form class="docket" id="bookForm" action="mailto:contact@chargedrootz.com" method="post" enctype="text/plain" novalidate>
@@ -604,13 +604,13 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
         <div class="field" id="f-name">
           <label for="i-name">Name <span class="req" aria-hidden="true">*</span></label>
           <input id="i-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
-          <p class="err" id="e-name">Enter the name she should reply to.</p>
+          <p class="err" id="e-name">Enter the name I should reply to.</p>
         </div>
 
         <div class="field" id="f-email">
           <label for="i-email">Email <span class="req" aria-hidden="true">*</span></label>
           <input id="i-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email">
-          <p class="err" id="e-email">Enter an email address she can reach you at.</p>
+          <p class="err" id="e-email">Enter an email address I can reach you at.</p>
         </div>
 
         <div class="field" id="f-phone">
@@ -646,7 +646,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
       </div>
       <p class="scopenote" style="border-top:1px solid var(--ink)">
         Mockup behaviour: this docket opens your mail app addressed to contact@chargedrootz.com.
-        In the real build it posts straight to her inbox, no mail app involved.
+        In the real build it posts straight to your inbox, no mail app involved.
       </p>
     </form>
   </section>
@@ -758,7 +758,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
   function widthOf(p){ var m = /-(\d+)\.(?:jpg|png)$/.exec(p); return m ? m[1] : "800"; }
   function isTbd(v){ return v && typeof v === "object" && v.tbd === true; }
   function val(v){
-    if(isTbd(v)) return '<span class="tbd" title="Placeholder — confirm with client">' + esc(v.value) + '</span>';
+    if(isTbd(v)) return '<span class="tbd" title="Placeholder — send me the real one and I will swap it in">' + esc(v.value) + '</span>';
     return esc(v);
   }
   function plain(v){ return isTbd(v) ? v.value : String(v); }
@@ -792,12 +792,12 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
 
   /* ---------- hero metadata blocks ---------- */
   set("heroMeta",
-    "<dt>What she does</dt>"
+    "<dt>What I do</dt>"
     + "<dd>" + esc(D.stretch.lead) + ". Plus a cold-pressed juice and herbal bar, run from the same room.</dd>"
     + "<dt>Where</dt>"
     + "<dd>" + val(D.brand.city) + " &mdash; trading as " + val(D.brand.stretchName) + ".</dd>"
     + "<dt>How to book</dt>"
-    + '<dd><a href="#booking">Send the docket</a> with what hurts and the days you are free. She replies to set a time.</dd>'
+    + '<dd><a href="#booking">Send the docket</a> with what hurts and the days you are free. I reply to set a time.</dd>'
   );
 
   /* ---------- manifest ---------- */
@@ -967,7 +967,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
         if(first) first.focus();
         return;
       }
-      status.textContent = "Docket complete. Opening your mail app — in the real build this posts straight to her inbox.";
+      status.textContent = "Docket complete. Opening your mail app — in the real build this posts straight to your inbox.";
     });
 
     ["input","change"].forEach(function(evt){
@@ -981,7 +981,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
   /* ---------- phase 2 ---------- */
   (function(){
     var lanes = [
-      { n:"01", t:"Stretch", d:"Her practice, her sessions, and a booking request that lands in her inbox.", s:"Live — built in this round", built:"yes" },
+      { n:"01", t:"Stretch", d:"Your practice, your sessions, and a booking request that lands in your inbox.", s:"Live — built in this round", built:"yes" },
       { n:"02", t:"Botanical bar ordering", d:"Live cart, card checkout, pickup slots and stock control for juices and shots.", s:"Sketch only — not built", built:"no" },
       { n:"03", t:"Weekend events", d:"Ticketed workshops and retreats, with capacity limits and attendee lists.", s:"Sketch only — not built", built:"no" }
     ];
@@ -1032,7 +1032,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{
     var out = "";
     items.forEach(function(it){
       out += '<div class="leg-item"><span class="k">' + esc(it.k) + "</span>"
-        + '<span class="v"><span class="tbd" title="Placeholder — confirm with client">'
+        + '<span class="v"><span class="tbd" title="Placeholder — send me the real one and I will swap it in">'
         + esc(plain(it.v)) + "</span> &mdash; placeholder</span></div>";
     });
     set("legendGrid", out);
