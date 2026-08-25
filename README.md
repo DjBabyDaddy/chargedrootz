@@ -7,6 +7,16 @@ remain in git history at commit `29d4038` if they are ever needed again.
 Open `index.html` to view the site. No build step, no package manager. Works
 from disk (`file://`) or any static host.
 
+**Live review build** (noindex, safe to send to the client):
+
+| | |
+|---|---|
+| Primary | <https://chargedrootz.vercel.app> |
+| Mirror  | <https://djbabydaddy.github.io/chargedrootz/> |
+
+Both auto-deploy from `main`. Neither is the production site — see
+"Before it goes live" below.
+
 ---
 
 ## What the site is
