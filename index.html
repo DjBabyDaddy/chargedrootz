@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Charged Rootz — Concierge Stretch Therapy &amp; Botanical Bar</title>
-<meta name="description" content="Concierge stretch therapy. A certified stretch therapist comes to you and moves your body through targeted stretches for flexibility, mobility and recovery. Plus a cold-pressed juice and wellness shot bar.">
+<title>Charged Rootz — Concierge Stretch Therapy</title>
+<meta name="description" content="Concierge stretch therapy in your home or at the pop-up studio. A certified stretch therapist moves your body through targeted stretches for flexibility, mobility and recovery. Every new client starts with a 12-point assessment.">
 <meta name="theme-color" content="#060505">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Charged Rootz">
 <meta property="og:title" content="Charged Rootz — Concierge Stretch Therapy">
-<meta property="og:description" content="Stretch therapy that comes to you. Rooted. Nourished. Elevated.">
+<meta property="og:description" content="In your home or at our pop-up studio. Rooted. Nourished. Elevated.">
 <meta property="og:image" content="assets/img/logo-768.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Charged Rootz — Concierge Stretch Therapy">
-<meta name="twitter:description" content="Stretch therapy that comes to you. Rooted. Nourished. Elevated.">
+<meta name="twitter:description" content="In your home or at our pop-up studio. Rooted. Nourished. Elevated.">
 <meta name="twitter:image" content="assets/img/logo-768.png">
 
 <link rel="icon" href="assets/img/logo-128.png" type="image/png">
@@ -54,7 +54,7 @@
       "@id": "#chargedrootz",
       "name": "Charged Rootz",
       "slogan": "Rooted. Nourished. Elevated.",
-      "description": "Concierge stretch therapy delivered in your own home, plus a cold-pressed juice and wellness shot bar.",
+      "description": "Concierge stretch therapy, delivered in the customer's own home or at the pop-up studio.",
       "foundingDate": "2021",
       "email": "contact@chargedrootz.com",
       "telephone": "+1-314-566-5749",
@@ -249,90 +249,28 @@
   border-radius:50%;background:var(--flame);
 }
 
-/* ---------- botanical bar ---------- */
-.bar__banner{margin-top:var(--s-6);aspect-ratio:2000/1055}
-.band{
-  display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s-3) var(--s-5);
-  border-top:1px solid var(--hair-2);border-bottom:1px solid var(--hair);
-  padding-block:var(--s-4);margin-top:var(--s-8);
+/* ---------- acuity scheduler ---------- */
+.sched{display:grid;gap:var(--s-3)}
+.sched__frame{
+  position:relative;
+  border:1px solid var(--hair);border-radius:var(--radius);
+  background:var(--panel-2);overflow:hidden;min-height:320px;
 }
-.band__name{font-family:var(--f-display);font-weight:600;font-size:var(--t-h3);margin-right:auto}
-.band__unit{color:var(--muted)}
-.band__price{font-family:var(--f-display);font-weight:800;font-size:1.6rem;color:var(--gold);line-height:1}
-
-.menu{display:grid;gap:0;margin-top:var(--s-2)}
-@media (min-width:860px){ .menu{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--s-8)} }
-.menu li{padding-block:var(--s-4);border-bottom:1px solid var(--hair)}
-.menu__n{font-family:var(--f-display);font-weight:600;font-size:1.1rem;line-height:1.25}
-.menu__i{color:var(--muted);font-size:.9375rem;margin-top:.25rem;line-height:1.5}
-.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.6rem}
-.chip{
-  font-family:var(--f-micro);font-size:.625rem;letter-spacing:.09em;
-  text-transform:uppercase;padding:.22rem .5rem;border-radius:999px;
-  border:1px solid currentColor;opacity:.92;white-space:nowrap;
+.sched__frame iframe{display:block;width:100%;border:0;background:#fff}
+/* Acuity renders on a white ground; a hairline keeps it from floating on the void. */
+.sched__frame::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  border-radius:var(--radius);box-shadow:inset 0 0 0 1px rgba(242,233,220,.10);
 }
-.chip[data-c="green"]{color:var(--c-green-t)}
-.chip[data-c="purple"]{color:var(--c-purple-t)}
-.chip[data-c="blue"]{color:var(--c-blue-t)}
-.chip[data-c="crimson"]{color:var(--c-crimson-t)}
-.chip[data-c="gold"]{color:var(--c-gold-t)}
-.chip[data-c="flame"]{color:var(--c-flame-t)}
-.dot-accent{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:.5rem;vertical-align:middle}
-
-.bar__strip{margin-top:var(--s-6);aspect-ratio:2000/1055}
-.bar__lower{display:grid;gap:var(--s-6);margin-top:var(--s-8)}
-@media (min-width:860px){
-  .bar__lower{grid-template-columns:minmax(0,.62fr) minmax(0,1fr);gap:var(--s-7);align-items:start}
-}
-.bar__tall{aspect-ratio:3/4}
-.addons li{
-  display:flex;align-items:baseline;gap:var(--s-3);
-  padding-block:var(--s-3);border-bottom:1px solid var(--hair);
-}
-.addons__n{font-family:var(--f-display);font-weight:600;font-size:1.05rem}
-.addons__u{color:var(--muted);margin-right:auto}
-.addons__p{font-family:var(--f-micro);font-size:.875rem;color:var(--gold)}
-.smoothie{
-  margin-top:var(--s-6);background:var(--panel);border:1px solid var(--hair);
-  border-left:3px solid var(--flame);border-radius:var(--radius);padding:var(--s-5);
-  display:grid;gap:var(--s-3);
-}
-.smoothie__top{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s-3)}
-.smoothie__n{font-family:var(--f-display);font-weight:600;font-size:var(--t-h3);margin-right:auto}
-.smoothie__p{font-family:var(--f-display);font-weight:800;font-size:1.5rem;color:var(--gold);line-height:1}
-
-.menus-link{
-  display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-4);
-  margin-top:var(--s-7);padding-top:var(--s-5);border-top:1px solid var(--hair);
-}
-.menus-link p{color:var(--muted);margin-right:auto;max-width:44ch}
-
-/* ---------- dialog ---------- */
-dialog.sheet{
-  border:1px solid var(--hair-2);background:var(--panel);color:var(--bone);
-  border-radius:var(--radius);padding:0;max-width:min(920px,92vw);width:100%;
-  max-height:88vh;overflow:auto;
-}
-dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
-.sheet__head{
-  position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:var(--s-4);
-  padding:var(--s-4) var(--s-5);background:var(--panel);border-bottom:1px solid var(--hair);
-}
-.sheet__title{font-family:var(--f-display);font-weight:600;font-size:1.15rem;margin-right:auto}
-.sheet__close{
-  min-height:40px;min-width:40px;border-radius:999px;border:1px solid var(--hair-2);
-  background:transparent;color:var(--bone);cursor:pointer;font-family:var(--f-micro);
-  font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;padding-inline:.9rem;
-}
-.sheet__body{padding:var(--s-5);display:grid;gap:var(--s-6)}
-@media (min-width:768px){ .sheet__body{grid-template-columns:repeat(2,minmax(0,1fr))} }
-.sheet__body figcaption{color:var(--muted);margin-top:var(--s-3);font-size:.9375rem}
+.sched__fallback{display:grid;place-items:center;gap:var(--s-4);padding:var(--s-7);text-align:center}
+.sched__fallback p{color:var(--muted);max-width:34ch}
+.book__form{max-width:52rem}
 
 /* ---------- booking ---------- */
 .book{background:var(--panel);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
 .book__grid{display:grid;gap:var(--s-6)}
 @media (min-width:900px){
-  .book__grid{grid-template-columns:minmax(0,.72fr) minmax(0,1fr);gap:var(--s-8);align-items:start}
+  .book__grid{grid-template-columns:minmax(0,.62fr) minmax(0,1fr);gap:var(--s-8);align-items:start}
 }
 .book__aside{display:grid;gap:var(--s-4)}
 .book__aside p{color:var(--muted);max-width:38ch}
@@ -523,10 +461,6 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
 }
 
 /* ---------- interaction polish ---------- */
-.menu__row{transition:background-color .2s ease,padding-left .2s ease}
-@media (hover:hover){
-  .menu__row:hover{background:rgba(242,233,220,.035);padding-left:var(--s-3)}
-}
 .card{transition:transform .22s cubic-bezier(.22,.61,.36,1),border-color .22s ease}
 @media (hover:hover){
   .card:hover{transform:translateY(-3px);border-color:var(--hair-2)}
@@ -574,7 +508,6 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
         <a href="about.html">About</a>
         <a href="#assessment">The assessment</a>
         <a href="#sessions">Sessions</a>
-        <a href="#bar">Botanical bar</a>
       </nav>
       <a class="btn btn--wire" href="#book" data-book>Book a session</a>
     </div>
@@ -583,7 +516,6 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
       <a href="#practice">The practice</a>
       <a href="#assessment">The assessment</a>
       <a href="#sessions">Sessions</a>
-      <a href="#bar">Botanical bar</a>
       <a href="#book">Book</a>
     </nav>
   </div>
@@ -622,9 +554,9 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
            alt="Charged Rootz — a sun-crowned figure rooted in flame"
            width="768" height="768" fetchpriority="high" decoding="async">
       <p class="micro hero__tag" id="hero-tag">Rooted. Nourished. Elevated.</p>
-      <h1 class="hero__h1" id="hero-h1">You lie down.<br><em>I do the reaching.</em></h1>
-      <p class="hero__lede">Certified stretch therapy, one on one, in your own space. You need a couch or a mat and a pair of socks &mdash; I bring everything else.</p>
-      <p class="micro hero__concierge">You don&rsquo;t come to me. I come to you.</p>
+      <h1 class="hero__h1" id="hero-h1">Concierge<br><em>Stretch Therapy</em></h1>
+      <p class="micro hero__concierge">In Your Home or at Our Pop-Up Studio</p>
+      <p class="hero__lede">Certified stretch therapy, one on one. Come to the pop-up studio, or have me come to you. Socks on &mdash; I bring everything else.</p>
       <div class="hero__cta">
         <a class="btn btn--grad" href="#book" data-book>Book a session</a>
         <a class="btn btn--ghost" href="#assessment">See the 12-point assessment</a>
@@ -735,66 +667,6 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
     </div>
   </section>
 
-  <!-- ===================== BOTANICAL BAR ===================== -->
-  <section class="section" id="bar" aria-labelledby="bar-h">
-    <div class="wrap">
-      <p class="micro eyebrow">The botanical bar</p>
-      <h2 id="bar-h" style="font-size:var(--t-h2);margin-top:var(--s-4)">Cold-pressed, made to order</h2>
-      <p class="muted measure" style="margin-top:var(--s-4)" id="bar-line"></p>
-
-      <figure class="frame frame--product bar__banner" style="margin:0">
-        <img src="assets/img/lineup-2000.jpg"
-             srcset="assets/img/lineup-700.jpg 700w, assets/img/lineup-2000.jpg 2000w"
-             sizes="(min-width:1200px) 1136px, 92vw"
-             alt="Cold-pressed juices in glass bottles beside the produce they are made from"
-             width="2000" height="1055" loading="lazy" decoding="async">
-      </figure>
-
-      <h3 class="sr-only">Cold-pressed juices</h3>
-      <div class="band">
-        <span class="band__name">Cold-pressed juice</span>
-        <span class="micro band__unit" id="juiceUnit"></span>
-        <span class="band__price" id="juicePrice"></span>
-      </div>
-      <ul class="menu" id="juiceList"></ul>
-
-      <h3 class="sr-only">Wellness shots</h3>
-      <figure class="frame frame--product bar__strip" style="margin:0">
-        <img src="assets/img/shots-2000.jpg"
-             srcset="assets/img/shots-700.jpg 700w, assets/img/shots-2000.jpg 2000w"
-             sizes="(min-width:1200px) 1136px, 92vw"
-             alt="Charged Rootz wellness shots beside a pineapple, lemon and fresh ginger"
-             width="2000" height="1055" loading="lazy" decoding="async">
-      </figure>
-      <div class="band">
-        <span class="band__name">Wellness shots</span>
-        <span class="micro band__unit" id="shotUnit"></span>
-        <span class="band__price" id="shotPrice"></span>
-      </div>
-      <ul class="menu" id="shotList"></ul>
-
-      <div class="bar__lower">
-        <figure class="frame frame--product bar__tall" style="margin:0">
-          <img src="assets/img/infusions-1400.jpg"
-               srcset="assets/img/infusions-800.jpg 800w, assets/img/infusions-1400.jpg 1400w"
-               sizes="(min-width:860px) 40vw, 92vw"
-               alt="Three Charged Rootz herbal infusions with mint and citrus, labels facing out"
-               width="1400" height="1867" loading="lazy" decoding="async">
-        </figure>
-        <div>
-          <h3 style="font-size:var(--t-h3)">Add to anything</h3>
-          <ul class="addons" id="addonList" style="margin-top:var(--s-4)"></ul>
-          <div class="smoothie" id="smoothie"></div>
-        </div>
-      </div>
-
-      <div class="menus-link">
-        <p id="foodLine"></p>
-        <a class="btn btn--ghost" id="menuTrigger" href="assets/img/menu-juice-1206.jpg" target="_blank" rel="noopener">View the printed menus</a>
-      </div>
-    </div>
-  </section>
-
   <!-- ===================== BOOKING ===================== -->
   <section class="section book" id="book" aria-labelledby="book-h">
     <div class="wrap">
@@ -802,17 +674,28 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
         <div class="book__aside">
           <p class="micro eyebrow">Two ways in</p>
           <h2 id="book-h" style="font-size:var(--t-h2);text-wrap:balance">Ready to book?</h2>
-          <p>Pick a time for a one-on-one session, or tell me about a group and I&rsquo;ll quote a stretch party.</p>
-
-          <a class="btn btn--grad" href="#book" data-book style="margin-top:var(--s-2)">Book a session</a>
+          <p>Pick a time in the scheduler for a one-on-one session, in your home or at the pop-up studio.</p>
 
           <hr class="rule">
-          <p class="muted">Booking a stretch party, or not sure which session you need? Use the form &mdash; nothing is charged there, I just reply to confirm.</p>
+          <p class="muted">Booking a stretch party, or not sure which session you need? Use the request form below instead &mdash; nothing is charged there, I just reply to confirm.</p>
           <p class="micro muted">Questions first? <a href="mailto:contact@chargedrootz.com" style="color:var(--bone)">contact@chargedrootz.com</a></p>
         </div>
 
-        <div>
-        <h3 class="micro eyebrow" id="form-h" style="margin-bottom:var(--s-5)">Or send a request</h3>
+        <div class="sched">
+          <h3 class="micro eyebrow" id="sched-h" style="margin-bottom:var(--s-4)">Pick a time</h3>
+          <div class="sched__frame" id="acuityMount">
+            <noscript>
+              <p class="muted">Enable JavaScript to load the scheduler, or
+              <a href="https://app.acuityscheduling.com/schedule.php?owner=31437308" style="color:var(--gold)">book on Acuity directly</a>.</p>
+            </noscript>
+          </div>
+        </div>
+      </div>
+
+      <hr class="rule" style="margin-top:var(--s-8)">
+
+      <div class="book__form">
+        <h3 class="micro eyebrow" id="form-h" style="margin-block:var(--s-5)">Or send a request</h3>
         <form class="form" id="bookForm" aria-labelledby="form-h" action="mailto:contact@chargedrootz.com" method="post" enctype="text/plain" novalidate>
           <div class="row row--2">
             <div class="field">
@@ -860,7 +743,6 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
           </div>
         </form>
         </div>
-      </div>
     </div>
   </section>
 </main>
@@ -909,32 +791,6 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
   </div>
 </aside>
 
-<!-- ===================== PRINTED MENUS DIALOG ===================== -->
-<dialog class="sheet" id="menuSheet" aria-labelledby="sheet-title">
-  <div class="sheet__head">
-    <h2 class="sheet__title" id="sheet-title">The printed menus</h2>
-    <button class="sheet__close" type="button" id="sheetClose">Close</button>
-  </div>
-  <div class="sheet__body">
-    <figure class="frame frame--plain" style="margin:0">
-      <img src="assets/img/menu-juice-1206.jpg"
-           srcset="assets/img/menu-juice-700.jpg 700w, assets/img/menu-juice-1206.jpg 1206w"
-           sizes="(min-width:768px) 42vw, 84vw"
-           alt="The printed Charged Rootz juice and wellness shot menu"
-           width="1206" height="1822" loading="lazy" decoding="async">
-      <figcaption class="micro" style="padding:var(--s-3) 0">Juice and wellness shot menu</figcaption>
-    </figure>
-    <figure class="frame frame--plain" style="margin:0">
-      <img src="assets/img/menu-food-1206.jpg"
-           srcset="assets/img/menu-food-700.jpg 700w, assets/img/menu-food-1206.jpg 1206w"
-           sizes="(min-width:768px) 42vw, 84vw"
-           alt="The printed Charged Rootz food plan menu"
-           width="1206" height="1828" loading="lazy" decoding="async">
-      <figcaption class="micro" style="padding:var(--s-3) 0">Food plan menu</figcaption>
-    </figure>
-  </div>
-</dialog>
-
 <!-- ========== content ========== -->
 <script src="assets/data/content.js"></script>
 
@@ -972,13 +828,6 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
   function set(id, html) {
     var n = document.getElementById(id);
     if (n) { n.innerHTML = html; }
-  }
-
-  function chips(list, accent) {
-    if (!list || !list.length) { return ""; }
-    return '<ul class="chips">' + list.map(function (b) {
-      return '<li class="chip" data-c="' + esc(accent) + '">' + esc(b) + "</li>";
-    }).join("") + "</ul>";
   }
 
   /* ---------- hero corona ---------- */
@@ -1139,8 +988,8 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
   }());
 
   /* ---------- booking destinations ----------
-     Every [data-book] control points at Acuity once the URL is filled in
-     in content.js. Until then they fall back to the on-page request form. */
+     Every [data-book] control points at Acuity when the URL is present.
+     Without it they fall back to the on-page request form. */
   (function bookingLinks() {
     var url = CR.booking && CR.booking.acuity;
     if (!url) { return; }
@@ -1151,48 +1000,38 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
     });
   }());
 
-  /* ---------- botanical bar ---------- */
-  (function bar() {
-    var b = CR.bar;
-    set("bar-line", esc(CR.brand.lines.bar));
-    set("foodLine", esc(CR.brand.lines.food));
+  /* ---------- the Acuity scheduler ----------
+     Mounted from script so the third-party iframe and its embed script are never
+     in the initial HTML, and so a missing URL degrades to a plain link rather
+     than an empty box. */
+  (function scheduler() {
+    var mount = document.getElementById("acuityMount");
+    var b = CR.booking || {};
+    if (!mount) { return; }
 
-    set("juiceUnit", esc(b.juices.unit) + " · every juice");
-    set("juicePrice", esc(b.juices.price));
-    set("juiceList", b.juices.items.map(function (j) {
-      return "<li>" +
-        '<p class="menu__n">' + esc(j.n) + "</p>" +
-        '<p class="menu__i">' + esc(j.i) + "</p>" +
-        chips(j.b, j.c) +
-        "</li>";
-    }).join(""));
+    if (!b.acuityEmbed) {
+      mount.className = "sched__frame sched__fallback";
+      mount.innerHTML = '<p class="muted">The scheduler is not connected yet. '
+        + 'Use the request form below and I will reply to set a time.</p>';
+      return;
+    }
 
-    set("shotUnit", esc(b.shots.unit) + " · every shot");
-    set("shotPrice", esc(b.shots.price));
-    set("shotList", b.shots.items.map(function (s) {
-      return "<li>" +
-        '<p class="menu__n">' + esc(s.n) + "</p>" +
-        '<p class="menu__i">' + esc(s.i) + "</p>" +
-        "</li>";
-    }).join(""));
+    var f = document.createElement("iframe");
+    f.src = b.acuityEmbed;
+    f.title = "Schedule an appointment with Charged Rootz";
+    f.width = "100%";
+    f.height = "800";
+    f.frameBorder = "0";
+    f.loading = "lazy";                 /* it sits well below the fold */
+    f.setAttribute("allow", "payment");
+    mount.appendChild(f);
 
-    set("addonList", b.addons.map(function (a) {
-      return "<li>" +
-        '<span class="addons__n">' + esc(a.n) + "</span>" +
-        '<span class="micro addons__u">' + esc(a.u) + "</span>" +
-        '<span class="addons__p">' + esc(a.p) + "</span>" +
-        "</li>";
-    }).join(""));
-
-    var sm = b.smoothie;
-    set("smoothie",
-      '<div class="smoothie__top">' +
-        '<h4 class="smoothie__n">' + esc(sm.n) + "</h4>" +
-        '<span class="smoothie__p">' + esc(sm.p) + "</span>" +
-      "</div>" +
-      '<p class="muted">' + esc(sm.i) + "</p>" +
-      chips(sm.b, "flame")
-    );
+    if (b.acuityJs) {
+      var sc = document.createElement("script");
+      sc.src = b.acuityJs;
+      sc.async = true;
+      document.body.appendChild(sc);
+    }
   }());
 
   /* ---------- booking days ---------- */
@@ -1218,7 +1057,7 @@ dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
       '<li><b>PayPal</b><br><a href="https://' + esc(br.pay.paypal) + '" rel="noopener">' + esc(br.pay.paypal) + "</a></li>" +
       "<li><b>Apple Pay</b><br>" + esc(br.pay.applepay) + "</li>"
     );
-    set("footPromise", CR.bar.promise.map(function (p) {
+    set("footPromise", CR.stretch.promise.map(function (p) {
       return "<li>" + esc(p) + "</li>";
     }).join(""));
     set("footLine", esc(br.lines.foot));
@@ -1254,25 +1093,6 @@ window.addEventListener("DOMContentLoaded", function () {
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var hasGSAP = !!(window.gsap && window.ScrollTrigger);
-
-  /* ---------------- printed menus dialog (progressive enhancement) ---------------- */
-  (function menuDialog() {
-    var trigger = document.getElementById("menuTrigger");
-    var sheet = document.getElementById("menuSheet");
-    var close = document.getElementById("sheetClose");
-    if (!trigger || !sheet || typeof sheet.showModal !== "function") { return; }
-
-    trigger.addEventListener("click", function (e) {
-      e.preventDefault();
-      sheet.showModal();
-      close.focus();
-    });
-    close.addEventListener("click", function () { sheet.close(); });
-    sheet.addEventListener("close", function () { trigger.focus(); });
-    sheet.addEventListener("click", function (e) {
-      if (e.target === sheet) { sheet.close(); }
-    });
-  }());
 
   /* ---------------- booking form ---------------- */
   (function bookingForm() {

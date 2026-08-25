@@ -11,17 +11,19 @@ from disk (`file://`) or any static host.
 
 ## What the site is
 
-A concierge stretch-therapy practice — **the therapist travels to the client** —
-with the client's cold-pressed juice and wellness-shot bar on the same site.
+A concierge stretch-therapy practice: **in the client's home or at the pop-up
+studio.** Stretch only — the juice / botanical bar was removed on 2026-08-25 at
+the client's request. That content is recoverable at commit `a986dae`, and the
+product photography is still in `assets/img/` for a future `/bar` lane.
 
 ```
 index.html      the site — hero, practice, sequence, 12-point assessment,
-                sessions, prep, botanical bar, booking
+                sessions, prep, booking (live Acuity scheduler)
 about.html      "About Stretch by Charged Rootz" — long-form reading page
 assets/
   css/ember.css shared foundation: tokens, reset, chrome, buttons, photo
                 treatment, footer. Both pages load it.
-  data/content.js   all copy, menu items, prices, image manifest, booking URLs
+  data/content.js   all copy, session prices, image manifest, booking URLs
   img/              web-optimised imagery (provenance below)
   vendor/           gsap, ScrollTrigger, lenis (vendored, no CDN)
 ```
@@ -64,28 +66,43 @@ These came from her own written copy and are no longer placeholders:
 
 ---
 
+## Blocking conflict — needs a decision
+
+**The Acuity account does not match the site's pricing.** The embedded scheduler
+(owner `31437308`) currently offers:
+
+> *45 minute Consultation with Health Consultations — 45 minutes @ $100.00*
+
+The site advertises her written prices: **$120 / 50 min** and **$60 / 25 min**.
+Nothing was changed to paper over this. Either the Acuity services need
+rebuilding to match, or the site prices are out of date. Until it is resolved a
+visitor sees one price on the page and a different one in the scheduler.
+
+The Acuity listing also uses a stock red-lotus image that is off-brand against
+her own photography.
+
+## Copy conflict — minor
+
+Her About copy (emailed) says *"you don't come to me, I come to you."* Her later
+note says *"In Your Home or at Our Pop-Up Studio."* The positioning lines now use
+the newer version; **her About body copy was left in her own words** and still
+says home-visit only. She should confirm which is right.
+
 ## Still open
 
 Rendered live in the "Still needs your input" panel at the bottom of the site,
 and listed in `content.js` under `questions`.
 
-- **The Acuity booking URL.** `content.js` → `booking.acuity` is empty. Paste the
-  scheduling link there and every "Book a session" control on both pages
-  repoints to it automatically. Until then they fall back to the request form.
 - **The twelve assessment zones** — her actual list.
 - **City and travel radius.** Phone is 314 (St. Louis), gym wall shows an
   Arkansas flag. Not asserted anywhere in the build.
 - **Stretch party pricing** — per head or flat visit fee.
 - **Days and hours** she takes bookings.
-- The **rooted hero photo** for the About page. Drop it at
-  `assets/img/rooted-1600.jpg` and it replaces the labelled stand-in panel
-  automatically — no code change.
 
 ---
 
 ## Before it goes live
 
-- Fill in `booking.acuity` (above).
 - **Delete the `#legend` section** at the bottom of `index.html`. It is a
   client-review aid listing every placeholder — useful now, not for the public.
 - Confirm the mail path: the booking form validates, then opens the visitor's

@@ -8,8 +8,6 @@ window.CR = {
     est: "2021",
     tagline: "Rooted. Nourished. Elevated.",
     lines: {
-      bar:  "Craft elevated botanical beverages at home.",
-      food: "Whole foods. Real ingredients. Real healing.",
       foot: "Rooted in nature. Backed by intention. Made for you."
     },
     email: "contact@chargedrootz.com",
@@ -33,8 +31,12 @@ window.CR = {
      Until it is filled in, both buttons fall back to the inquiry form.
      ------------------------------------------------------------------ */
   booking: {
-    acuity: "",
-    party:  "#book"
+    /* From her Acuity embed code (owner 31437308). The iframe is embedded in the
+       booking section; this URL is the direct link every [data-book] control uses. */
+    acuity:      "https://app.acuityscheduling.com/schedule.php?owner=31437308",
+    acuityEmbed: "https://app.acuityscheduling.com/schedule.php?owner=31437308&ref=embedded_csp",
+    acuityJs:    "https://embed.acuityscheduling.com/js/embed.js",
+    party:       "#book"
   },
 
   stretch: {
@@ -93,54 +95,23 @@ window.CR = {
       { t: "What to wear",  d: "Comfortable, loose-fitting clothing you can move in. Sweatpants, leggings, gym clothes. Nothing restrictive." },
       { t: "Socks on",      d: "Socks must be worn for the whole session. This is for hygiene and safety during stretching." },
       { t: "What you need", d: "Just a comfortable space — a bed, couch, floor mat or yoga mat. I bring everything else." }
+    ],
+
+    /* Footer promise. Every line is lifted from her own copy — nothing added. */
+    promise: [
+      "Certified through CNU Stretch",
+      "In your home or at the pop-up studio",
+      "Every first visit starts with the 12-point assessment",
+      "Customised to what your body needs that day",
+      "We don't guess — we assess"
     ]
   },
 
-  bar: {
-    juices: { unit: "16 oz", price: "$9.00", items: [
-      { n: "Green Vitality",              i: "Green Apple, Celery, Cucumber, Lemon, Ginger", b: ["Hydration", "Digestion", "Vitality"],              c: "green"   },
-      { n: "Watermelon Flush",            i: "Watermelon, Lemon, Lime",                      b: ["Hydration", "Detox", "Refresh"],                   c: "crimson" },
-      { n: "Rooted Glow",                 i: "Beet, Pineapple, Carrot",                      b: ["Blood support", "Antioxidant", "Nutrient rich"],   c: "crimson" },
-      { n: "Golden Metabolic",            i: "Pineapple, Ginger, Lemon, Turmeric",           b: ["Digestion", "Metabolism", "Immunity"],             c: "gold"    },
-      { n: "Purple Rootz",                i: "Purple Cabbage, Apple, Lemon",                 b: ["Antioxidant", "Cell protection", "Inflammation"],  c: "purple"  },
-      { n: "Electric Green Grape",        i: "Green Grapes, Cucumber, Lime",                 b: ["Hydration", "Antioxidant", "Refresh"],             c: "green"   },
-      { n: "Strawberry Hibiscus Lemonade",i: "Strawberry, Hibiscus, Fresh Lemon",            b: ["Antioxidant", "Heart health", "Refresh"],          c: "crimson" },
-      { n: "Pineapple Ginger Lemonade",   i: "Pineapple, Ginger, Fresh Lemon",               b: ["Digestion", "Immunity", "Energy"],                 c: "gold"    },
-      { n: "Blue Spirulina Lemonade",     i: "Fresh Lemon, Blue Spirulina",                  b: ["Detox", "Alkalizing", "Immunity"],                 c: "blue"    },
-      { n: "Peach Lemonade",              i: "Peach, Fresh Lemon",                           b: ["Hydration", "Vitamin C", "Refresh"],               c: "gold"    },
-      { n: "Pineapple Carrot",            i: "Pineapple, Carrot",                            b: ["Eye health", "Immunity", "Energy"],                c: "gold"    }
-    ]},
-    shots: { unit: "2 oz", price: "$3.00", items: [
-      { n: "Energy Shot",          i: "Natural energy boost without the crash.",              c: "gold"    },
-      { n: "Circulation Shot",     i: "Supports healthy circulation and blood flow.",         c: "crimson" },
-      { n: "Joint Support Shot",   i: "Anti-inflammatory support for joints and muscles.",    c: "flame"   },
-      { n: "Apple + Burdock Shot", i: "Detoxifying roots to support liver and skin health.",  c: "green"   },
-      { n: "Ginger Turmeric Shot", i: "Lemon, Ginger, Turmeric, Pineapple",                   c: "gold"    },
-      { n: "Green Iron Shot",      i: "Lemon, Spinach, Blackstrap Molasses",                  c: "green"   }
-    ]},
-    addons: [
-      { n: "Sea Moss Gel",      u: "2 oz", p: "$5.00" },
-      { n: "Energy Syrup",      u: "1 oz", p: "$4.00" },
-      { n: "Electrolyte Boost", u: "",     p: "$2.00" },
-      { n: "Chlorophyll",       u: "1 oz", p: "$2.00" }
-    ],
-    smoothie: {
-      n: "Charged Rootz Smoothie", p: "$11.00",
-      i: "Blueberry, Mango, Banana, Spinach, Coconut Milk, Lemon, Blackstrap Molasses",
-      b: ["Nourishing", "Mineral rich", "Energy"]
-    },
-    promise: ["Plant powered ingredients", "Functional benefits", "No artificial anything", "Made with intention", "Good for you. Good for the planet."]
-  },
 
   img: {
     logo:      "assets/img/logo-768.png",
     logoAlpha: "assets/img/logo-alpha-768.png",
     logoSm:    "assets/img/logo-320.png",
-    shots:     { src: "assets/img/shots-2000.jpg",     sm: "assets/img/shots-700.jpg",  alt: "Charged Rootz wellness shots beside a pineapple, lemon and fresh ginger" },
-    lineup:    { src: "assets/img/lineup-2000.jpg",    sm: "assets/img/lineup-700.jpg", alt: "Cold-pressed juices in glass bottles beside the produce they are made from" },
-    infusions: { src: "assets/img/infusions-1400.jpg", sm: "assets/img/infusions-800.jpg", alt: "Three Charged Rootz herbal infusions with mint and citrus, labels facing out" },
-    menuJuice: { src: "assets/img/menu-juice-1206.jpg", sm: "assets/img/menu-juice-700.jpg", alt: "The printed Charged Rootz juice and wellness shot menu" },
-    menuFood:  { src: "assets/img/menu-food-1206.jpg",  sm: "assets/img/menu-food-700.jpg",  alt: "The printed Charged Rootz food plan menu" },
     stretch: [
       { src: "assets/img/stretch-1-1100.jpg", sm: "assets/img/stretch-1-640.jpg", alt: "Guiding a client through an assisted leg stretch on the table" },
       { src: "assets/img/stretch-2-1100.jpg", sm: "assets/img/stretch-2-640.jpg", alt: "Working a client through an assisted stretch, hands supporting the knee" },
@@ -155,7 +126,6 @@ window.CR = {
     "The 12-point assessment — what are your actual twelve points? The zone names on the body map are placeholders until you send yours.",
     "What do you charge for a stretch party, and is it per head or a flat visit fee?",
     "Which days and hours do you take bookings, and how far ahead?",
-    "Do you want your own name on the site, or keep it all under Charged Rootz?",
-    "Do you want the juice menu to take orders, or just show what you make?"
+    "Do you want your own name on the site, or keep it all under Charged Rootz?"
   ]
 };

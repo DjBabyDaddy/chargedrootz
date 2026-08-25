@@ -48,47 +48,51 @@
    out of the way.
    ========================================================================== */
 
-/* ---------- rooted hero photo ---------- */
+/* ---------- rooted hero ----------
+   Her photograph is portrait 2:3 and is the logo made literal: sun crown,
+   roots, water. A landscape crop would lose the roots, so it keeps its shape
+   and shares the opening with the page head instead. */
 .rooted{
-  position:relative;margin:0;
   border-bottom:1px solid var(--hair);
-  background:var(--panel);
-  overflow:hidden;
-}
-.rooted__img{
-  display:block;width:100%;
-  aspect-ratio:16/7;object-fit:cover;
-  max-height:62svh;
-}
-@media (max-width:640px){ .rooted__img{aspect-ratio:4/3} }
-
-/* Stand-in until the rooted photo lands. Swapped automatically the moment
-   assets/img/rooted-1600.jpg exists — no code change needed. */
-.rooted__slot{
-  display:grid;place-items:center;gap:var(--s-4);
-  aspect-ratio:16/7;max-height:62svh;padding:var(--s-6);
   background:
-    radial-gradient(120% 100% at 50% 0%, rgba(232,194,26,.20), transparent 62%),
-    linear-gradient(180deg,#1a120c,#0a0706);
-  text-align:center;
+    radial-gradient(90% 70% at 18% 0%, rgba(232,194,26,.10), transparent 60%),
+    var(--panel);
 }
-@media (max-width:640px){ .rooted__slot{aspect-ratio:4/3} }
-.rooted__slot img{width:88px;height:88px;opacity:.9}
-.rooted__slot p{color:var(--muted);max-width:34ch}
-.rooted__slot code{
-  font-family:var(--f-micro);color:var(--gold);
-  background:rgba(232,194,26,.08);padding:.15em .5em;border-radius:4px;
+.rooted__grid{display:grid;gap:var(--s-6);padding-block:var(--s-6) var(--s-7)}
+@media (min-width:880px){
+  .rooted__grid{
+    grid-template-columns:minmax(0,.46fr) minmax(0,1fr);
+    gap:var(--s-8);align-items:center;
+    padding-block:var(--s-7) var(--s-8);
+  }
+}
+.rooted__fig{margin:0;position:relative;border-radius:var(--radius);overflow:hidden}
+.rooted__fig img{
+  display:block;width:100%;height:auto;
+  aspect-ratio:2/3;object-fit:cover;
+}
+.rooted__fig::after{ /* the same warm relight the session photos carry */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(200deg,rgba(232,194,26,.16),rgba(218,62,27,.10) 46%,rgba(6,5,5,.28));
+  mix-blend-mode:soft-light;
+}
+@media (max-width:879px){
+  .rooted__fig{max-width:380px;margin-inline:auto}
 }
 
 /* ---------- page head ---------- */
-.pagehead{padding-block:var(--s-7) var(--s-6);text-align:center}
 .pagehead h1{
-  font-size:clamp(1.9rem,5.6vw,3.4rem);
+  font-size:clamp(2rem,5.2vw,3.4rem);
   text-wrap:balance;margin-top:var(--s-3);
 }
-.pagehead .measure{margin-inline:auto;margin-top:var(--s-5);color:var(--muted)}
-.pagehead .eyebrow{justify-content:center}
-.pagehead .eyebrow::after{display:none}
+.pagehead .lede{margin-top:var(--s-5);color:var(--muted);max-width:44ch}
+.pagehead .hero__concierge{margin-top:var(--s-5)}
+@media (max-width:879px){
+  .pagehead{text-align:center}
+  .pagehead .eyebrow{justify-content:center}
+  .pagehead .eyebrow::after{display:none}
+  .pagehead .lede{margin-inline:auto}
+}
 
 /* ---------- article ---------- */
 .article{max-width:70ch;margin-inline:auto;padding-bottom:var(--s-8)}
@@ -164,7 +168,6 @@
         <a href="about.html" aria-current="page">About</a>
         <a href="index.html#assessment">The assessment</a>
         <a href="index.html#sessions">Sessions</a>
-        <a href="index.html#bar">Botanical bar</a>
       </nav>
       <a class="btn btn--wire" href="index.html#book" data-book>Book a session</a>
     </div>
@@ -172,7 +175,6 @@
       <a href="about.html" aria-current="page">About</a>
       <a href="index.html#assessment">The assessment</a>
       <a href="index.html#sessions">Sessions</a>
-      <a href="index.html#bar">Botanical bar</a>
       <a href="index.html#book">Book</a>
     </nav>
   </div>
@@ -180,21 +182,26 @@
 
 <main id="main">
 
-  <!-- ===================== ROOTED HERO PHOTO ===================== -->
-  <figure class="rooted" id="rooted">
-    <div class="rooted__slot" id="rootedSlot">
-      <img src="assets/img/logo-alpha-768.png" alt="" width="768" height="768" aria-hidden="true">
-      <p class="micro">Hero photo slot — the rooted image (golden yellow, tree roots, water).</p>
-      <p class="micro">Drop it in as <code>assets/img/rooted-1600.jpg</code> and it replaces this panel automatically.</p>
-    </div>
-  </figure>
+  <!-- ===================== ROOTED HERO ===================== -->
+  <section class="rooted" aria-labelledby="page-h">
+    <div class="wrap rooted__grid">
+      <figure class="rooted__fig">
+        <img src="assets/img/rooted-720.jpg"
+             srcset="assets/img/rooted-480.jpg 480w, assets/img/rooted-720.jpg 720w"
+             sizes="(min-width:880px) 42vw, min(380px, 88vw)"
+             alt="The Charged Rootz stretch therapist in a golden gown and sun crown, standing in shallow water and reaching up into the roots of a great tree"
+             width="720" height="1080" fetchpriority="high" decoding="async">
+      </figure>
 
-  <!-- ===================== PAGE HEAD ===================== -->
-  <div class="wrap pagehead">
-    <p class="micro eyebrow">About</p>
-    <h1>Stretch by Charged&nbsp;Rootz</h1>
-    <p class="measure">Concierge stretch therapy. You don&rsquo;t come to me — I come to you.</p>
-  </div>
+      <div class="pagehead">
+        <p class="micro eyebrow">About</p>
+        <h1 id="page-h">Stretch by Charged&nbsp;Rootz</h1>
+        <p class="micro hero__concierge">In Your Home or at Our Pop-Up Studio</p>
+        <p class="lede">Rooted. Nourished. Elevated. What stretch therapy is, what a session
+        involves, and the certification behind it.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- ===================== ARTICLE ===================== -->
   <div class="wrap">
@@ -310,29 +317,6 @@
     if (n) { n.innerHTML = html; }
   }
 
-  /* ---------- rooted hero photo ----------
-     Probe for the real photo. If it is there it replaces the stand-in panel
-     with no code change; if it is not, the labelled slot simply stays. */
-  (function rootedPhoto() {
-    var fig  = document.getElementById("rooted");
-    var slot = document.getElementById("rootedSlot");
-    if (!fig || !slot) { return; }
-
-    var probe = new Image();
-    probe.onload = function () {
-      var img = document.createElement("img");
-      img.className = "rooted__img";
-      img.src = "assets/img/rooted-1600.jpg";
-      img.alt = "Tree roots reaching into water under golden light";
-      img.width = 1600;
-      img.height = 700;
-      img.decoding = "async";
-      img.fetchPriority = "high";
-      fig.replaceChild(img, slot);
-    };
-    probe.src = "assets/img/rooted-1600.jpg";
-  }());
-
   /* ---------- booking destination ---------- */
   (function bookingLinks() {
     var url = CR.booking && CR.booking.acuity;
@@ -353,7 +337,7 @@
     "<li>Cash App · " + esc(b.pay.cashapp) + "</li>" +
     '<li>PayPal · <a href="https://' + esc(b.pay.paypal) + '" rel="noopener">' + esc(b.pay.paypal) + "</a></li>" +
     "<li>Apple Pay · " + esc(b.pay.applepay) + "</li>");
-  set("footPromise", CR.bar.promise.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join(""));
+  set("footPromise", CR.stretch.promise.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join(""));
   set("footLine", esc(b.lines.foot));
 }());
 </script>
