@@ -1,0 +1,4 @@
+# Client review build — not for indexing.
+# Delete this file when the site goes live on chargedrootz.com.
+User-agent: *
+Disallow: /

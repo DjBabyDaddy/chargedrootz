@@ -105,6 +105,10 @@ and listed in `content.js` under `questions`.
 
 - **Delete the `#legend` section** at the bottom of `index.html`. It is a
   client-review aid listing every placeholder — useful now, not for the public.
+- **Delete `robots.txt` and `vercel.json`.** Both exist only to keep the
+  client-review build out of search results (`Disallow: /` plus an
+  `X-Robots-Tag: noindex` header). Leaving them in place would keep the real
+  site invisible to Google.
 - Confirm the mail path: the booking form validates, then opens the visitor's
   mail client with a finished draft addressed to `contact@chargedrootz.com`.
   If she would rather receive form posts directly, swap in a form service.
