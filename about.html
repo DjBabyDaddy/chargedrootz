@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en" style="color-scheme:dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Stretch by Charged Rootz</title>
+<meta name="description" content="What stretch therapy is, what to expect from a session, and the certification behind it. Concierge stretch therapy from Charged Rootz — I come to you.">
+<meta name="theme-color" content="#060505">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Charged Rootz">
+<meta property="og:title" content="About — Stretch by Charged Rootz">
+<meta property="og:description" content="Stretch therapy that comes to you. What it is, what to expect, and the certification behind it.">
+<meta property="og:image" content="assets/img/logo-768.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — Stretch by Charged Rootz">
+<meta name="twitter:description" content="Stretch therapy that comes to you. What it is, what to expect, and the certification behind it.">
+<meta name="twitter:image" content="assets/img/logo-768.png">
+
+<link rel="icon" href="assets/img/logo-128.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@600;800&family=Karla:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/ember.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About — Stretch by Charged Rootz",
+  "description": "What stretch therapy is, what to expect from a session, and the certification behind it.",
+  "mainEntity": {
+    "@type": "Service",
+    "name": "Stretch by Charged Rootz",
+    "serviceType": "Stretch therapy",
+    "description": "Concierge stretch therapy delivered in the client's own home. Every new client begins with a 12-point assessment."
+  }
+}
+</script>
+
+<style>
+/* ==========================================================================
+   ABOUT — an editorial reading page.
+   The homepage is cinematic; this one is quiet on purpose. Its whole job is
+   to be read on a phone, so the display face opens sections and then gets
+   out of the way.
+   ========================================================================== */
+
+/* ---------- rooted hero photo ---------- */
+.rooted{
+  position:relative;margin:0;
+  border-bottom:1px solid var(--hair);
+  background:var(--panel);
+  overflow:hidden;
+}
+.rooted__img{
+  display:block;width:100%;
+  aspect-ratio:16/7;object-fit:cover;
+  max-height:62svh;
+}
+@media (max-width:640px){ .rooted__img{aspect-ratio:4/3} }
+
+/* Stand-in until the rooted photo lands. Swapped automatically the moment
+   assets/img/rooted-1600.jpg exists — no code change needed. */
+.rooted__slot{
+  display:grid;place-items:center;gap:var(--s-4);
+  aspect-ratio:16/7;max-height:62svh;padding:var(--s-6);
+  background:
+    radial-gradient(120% 100% at 50% 0%, rgba(232,194,26,.20), transparent 62%),
+    linear-gradient(180deg,#1a120c,#0a0706);
+  text-align:center;
+}
+@media (max-width:640px){ .rooted__slot{aspect-ratio:4/3} }
+.rooted__slot img{width:88px;height:88px;opacity:.9}
+.rooted__slot p{color:var(--muted);max-width:34ch}
+.rooted__slot code{
+  font-family:var(--f-micro);color:var(--gold);
+  background:rgba(232,194,26,.08);padding:.15em .5em;border-radius:4px;
+}
+
+/* ---------- page head ---------- */
+.pagehead{padding-block:var(--s-7) var(--s-6);text-align:center}
+.pagehead h1{
+  font-size:clamp(1.9rem,5.6vw,3.4rem);
+  text-wrap:balance;margin-top:var(--s-3);
+}
+.pagehead .measure{margin-inline:auto;margin-top:var(--s-5);color:var(--muted)}
+.pagehead .eyebrow{justify-content:center}
+.pagehead .eyebrow::after{display:none}
+
+/* ---------- article ---------- */
+.article{max-width:70ch;margin-inline:auto;padding-bottom:var(--s-8)}
+.article > section + section{margin-top:var(--s-8)}
+.article h2{font-size:clamp(1.5rem,3.4vw,2.1rem);text-wrap:balance}
+.article h3{
+  font-family:var(--f-micro);font-size:var(--t-micro);
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;
+  margin-top:var(--s-6);
+}
+.article p{margin-top:var(--s-4);color:#DED3C4}
+.article h2 + p{margin-top:var(--s-5)}
+
+/* her strongest line, given room to land */
+.pull{
+  margin:var(--s-7) 0 0;padding:var(--s-5) 0 var(--s-5) var(--s-5);
+  border-left:2px solid var(--flame);
+  font-family:var(--f-display);font-weight:600;
+  font-size:clamp(1.2rem,2.6vw,1.55rem);line-height:1.3;
+  color:var(--bone);text-wrap:pretty;
+}
+
+/* ---------- session options ---------- */
+.opts{display:grid;gap:var(--s-4);margin-top:var(--s-5)}
+@media (min-width:620px){ .opts{grid-template-columns:1fr 1fr} }
+.opt{
+  border:1px solid var(--hair);border-radius:var(--radius);
+  background:var(--panel-2);padding:var(--s-5);
+}
+.opt--lead{border-color:var(--hair-2)}
+.opt__price{
+  font-family:var(--f-display);font-weight:800;
+  font-size:2rem;line-height:1;color:var(--gold);
+  font-variant-numeric:tabular-nums;display:block;
+}
+.opt__dur{display:block;margin-top:var(--s-2)}
+.opt__desc{color:var(--muted);margin-top:var(--s-3);font-size:.95rem}
+
+/* ---------- ready to book ---------- */
+.ready{
+  border-top:1px solid var(--hair);
+  background:var(--panel);
+  padding-block:var(--s-8);
+  text-align:center;
+}
+.ready h2{font-size:var(--t-h2);text-wrap:balance}
+.ready p{color:var(--muted);max-width:46ch;margin:var(--s-4) auto 0}
+.ready__cta{
+  display:flex;flex-wrap:wrap;gap:var(--s-4);
+  justify-content:center;margin-top:var(--s-6);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+}
+</style>
+</head>
+
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="nav__bar">
+      <a class="nav__brand" href="index.html">
+        <img class="nav__mark" src="assets/img/logo-alpha-768.png" alt="" width="768" height="768" aria-hidden="true">
+        <span class="nav__word">Charged Rootz</span>
+      </a>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="about.html" aria-current="page">About</a>
+        <a href="index.html#assessment">The assessment</a>
+        <a href="index.html#sessions">Sessions</a>
+        <a href="index.html#bar">Botanical bar</a>
+      </nav>
+      <a class="btn btn--wire" href="index.html#book" data-book>Book a session</a>
+    </div>
+    <nav class="nav__strip" aria-label="Sections">
+      <a href="about.html" aria-current="page">About</a>
+      <a href="index.html#assessment">The assessment</a>
+      <a href="index.html#sessions">Sessions</a>
+      <a href="index.html#bar">Botanical bar</a>
+      <a href="index.html#book">Book</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== ROOTED HERO PHOTO ===================== -->
+  <figure class="rooted" id="rooted">
+    <div class="rooted__slot" id="rootedSlot">
+      <img src="assets/img/logo-alpha-768.png" alt="" width="768" height="768" aria-hidden="true">
+      <p class="micro">Hero photo slot — the rooted image (golden yellow, tree roots, water).</p>
+      <p class="micro">Drop it in as <code>assets/img/rooted-1600.jpg</code> and it replaces this panel automatically.</p>
+    </div>
+  </figure>
+
+  <!-- ===================== PAGE HEAD ===================== -->
+  <div class="wrap pagehead">
+    <p class="micro eyebrow">About</p>
+    <h1>Stretch by Charged&nbsp;Rootz</h1>
+    <p class="measure">Concierge stretch therapy. You don&rsquo;t come to me — I come to you.</p>
+  </div>
+
+  <!-- ===================== ARTICLE ===================== -->
+  <div class="wrap">
+    <article class="article">
+
+      <section aria-labelledby="what-h">
+        <hr class="rule">
+        <h2 id="what-h" style="margin-top:var(--s-5)">What is stretch therapy?</h2>
+        <p>Stretch therapy is a guided, professional stretching service where a certified stretch therapist manually moves your body through targeted stretches to improve flexibility, mobility and recovery.</p>
+        <p>Think of it like a massage — but instead of kneading muscles, we&rsquo;re lengthening them. Instead of working on the tissue, we&rsquo;re opening the joints, releasing tension, and creating space in your body that you didn&rsquo;t know was missing.</p>
+        <blockquote class="pull">Most people don&rsquo;t realize how tight they actually are until someone shows them what &ldquo;loose&rdquo; feels like. That&rsquo;s what stretch therapy does — it shows your body what it&rsquo;s been missing.</blockquote>
+      </section>
+
+      <section aria-labelledby="expect-h">
+        <hr class="rule">
+        <h2 id="expect-h" style="margin-top:var(--s-5)">What to expect</h2>
+
+        <h3>Your first session</h3>
+        <p>Every new client begins with a <a href="index.html#assessment" style="color:var(--gold)">12-point assessment</a>. This is a full-body evaluation that identifies your specific restrictions, tight areas and problem zones. We don&rsquo;t guess — we assess. Then we stretch based on what <em>your</em> body actually needs, not a one-size-fits-all routine.</p>
+
+        <h3>After your assessment</h3>
+        <p>Each session is customized to what your body needs that day. Some days your hips are tight. Some days it&rsquo;s your shoulders or lower back. Every session meets you where you are.</p>
+
+        <h3>What to wear</h3>
+        <p>Comfortable, loose-fitting clothing you can move in. Sweatpants, leggings, gym clothes. Nothing restrictive.</p>
+        <p><strong style="color:var(--bone);font-weight:500">Socks must be worn during your session.</strong> This is for hygiene and safety during stretching.</p>
+
+        <h3>What you need</h3>
+        <p>Just a comfortable space — a bed, couch, floor mat or yoga mat. I bring everything else. That&rsquo;s the beauty of concierge stretch therapy: you don&rsquo;t come to me, I come to you.</p>
+
+        <h3>Session options</h3>
+        <div class="opts">
+          <div class="opt opt--lead">
+            <span class="opt__price">$120</span>
+            <span class="micro opt__dur">50-minute session</span>
+            <p class="opt__desc">Full-body stretch therapy. First session includes your 12-point assessment.</p>
+          </div>
+          <div class="opt">
+            <span class="opt__price">$60</span>
+            <span class="micro opt__dur">25-minute session</span>
+            <p class="opt__desc">Targeted stretch focused on specific areas — hips, shoulders, lower back.</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="cert-h">
+        <hr class="rule">
+        <h2 id="cert-h" style="margin-top:var(--s-5)">Certification</h2>
+        <p>Certified in stretch therapy through <strong style="color:var(--bone);font-weight:500">CNU&nbsp;Stretch</strong>.</p>
+        <p>Every session is delivered by a certified stretch therapist trained in proper body mechanics, safe stretching techniques and individualized assessment.</p>
+        <div class="cert" style="margin-top:var(--s-6)">
+          <span class="cert__seal" aria-hidden="true">CNU</span>
+          <p class="micro">Certified in stretch therapy through CNU&nbsp;Stretch.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ===================== READY TO BOOK ===================== -->
+  <section class="ready" aria-labelledby="ready-h">
+    <div class="wrap">
+      <p class="micro eyebrow" style="justify-content:center">Two ways in</p>
+      <h2 id="ready-h" style="margin-top:var(--s-4)">Ready to book?</h2>
+      <p>Pick a time for a one-on-one session, or tell me about a group and I&rsquo;ll quote a stretch party.</p>
+      <div class="ready__cta">
+        <a class="btn btn--grad" href="index.html#book" data-book>Book a session</a>
+        <a class="btn btn--ghost" href="index.html#book">Book a stretch party</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="foot" aria-labelledby="foot-h">
+  <div class="wrap">
+    <h2 class="sr-only" id="foot-h">Contact and payment</h2>
+    <div class="foot__grid">
+      <section aria-labelledby="foot-reach">
+        <h3 id="foot-reach">Reach her</h3>
+        <ul class="foot__list" id="footContact"></ul>
+      </section>
+      <section aria-labelledby="foot-pay">
+        <h3 id="foot-pay">Pay her</h3>
+        <ul class="foot__list" id="footPay"></ul>
+      </section>
+      <section aria-labelledby="foot-promise">
+        <h3 id="foot-promise">The promise</h3>
+        <ul class="promise" id="footPromise"></ul>
+      </section>
+    </div>
+    <div class="foot__sign">
+      <p id="footLine"></p>
+      <p class="micro muted">Charged Rootz · Est. 2021</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data/content.js"></script>
+<script>
+(function () {
+  "use strict";
+  var CR = window.CR;
+  if (!CR) { return; }
+
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+  function set(id, html) {
+    var n = document.getElementById(id);
+    if (n) { n.innerHTML = html; }
+  }
+
+  /* ---------- rooted hero photo ----------
+     Probe for the real photo. If it is there it replaces the stand-in panel
+     with no code change; if it is not, the labelled slot simply stays. */
+  (function rootedPhoto() {
+    var fig  = document.getElementById("rooted");
+    var slot = document.getElementById("rootedSlot");
+    if (!fig || !slot) { return; }
+
+    var probe = new Image();
+    probe.onload = function () {
+      var img = document.createElement("img");
+      img.className = "rooted__img";
+      img.src = "assets/img/rooted-1600.jpg";
+      img.alt = "Tree roots reaching into water under golden light";
+      img.width = 1600;
+      img.height = 700;
+      img.decoding = "async";
+      img.fetchPriority = "high";
+      fig.replaceChild(img, slot);
+    };
+    probe.src = "assets/img/rooted-1600.jpg";
+  }());
+
+  /* ---------- booking destination ---------- */
+  (function bookingLinks() {
+    var url = CR.booking && CR.booking.acuity;
+    if (!url) { return; }
+    Array.prototype.forEach.call(document.querySelectorAll("[data-book]"), function (a) {
+      a.setAttribute("href", url);
+      a.setAttribute("target", "_blank");
+      a.setAttribute("rel", "noopener");
+    });
+  }());
+
+  /* ---------- footer ---------- */
+  var b = CR.brand;
+  set("footContact",
+    '<li><a href="mailto:' + esc(b.email) + '">' + esc(b.email) + "</a></li>" +
+    '<li><a href="tel:' + esc(b.phone.replace(/[^0-9+]/g, "")) + '">' + esc(b.phone) + "</a></li>");
+  set("footPay",
+    "<li>Cash App · " + esc(b.pay.cashapp) + "</li>" +
+    '<li>PayPal · <a href="https://' + esc(b.pay.paypal) + '" rel="noopener">' + esc(b.pay.paypal) + "</a></li>" +
+    "<li>Apple Pay · " + esc(b.pay.applepay) + "</li>");
+  set("footPromise", CR.bar.promise.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join(""));
+  set("footLine", esc(b.lines.foot));
+}());
+</script>
+
+</body>
+</html>

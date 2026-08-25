@@ -1,0 +1,270 @@
+/* ==========================================================================
+   CHARGED ROOTZ — SHARED FOUNDATION  (ember)
+   Tokens, reset, utilities, chrome, buttons, photo treatment, footer.
+   Loaded by every page. Page-specific styling stays inline in that page so
+   there is exactly one place to look for it.
+
+   Colour is sampled from her logo and printed menus — see DESIGN.md.
+   Brand-gradient budget: at most two per viewport.
+   ========================================================================== */
+
+/* ==========================================================================
+   CHARGED ROOTZ — CONCEPT 1 "EMBER"
+   Dark, cinematic, ceremonial. Every colour sampled from her logo + menus.
+
+   Brand-gradient budget (max 2 per viewport):
+     hero      -> sun corona rays + hero primary CTA   (nav CTA is outline until hover)
+     sequence  -> progress spine fill
+     sessions  -> featured card top edge
+     booking   -> submit button
+   ========================================================================== */
+
+:root{
+  /* surfaces */
+  --void:#060505;
+  --panel:#100C0A;
+  --panel-2:#171110;
+  --hair:rgba(242,233,220,.10);
+  --hair-2:rgba(242,233,220,.18);
+
+  /* ink */
+  --bone:#F2E9DC;
+  --muted:#A08D7E;
+
+  /* fire */
+  --gold:#E8C21A;
+  --amber:#D98A1C;
+  --flame:#DA3E1B;
+  --crimson:#E11417;
+  --ember:#8C1A0D;
+  --grad:linear-gradient(180deg,#E8C21A 0%,#D98A1C 28%,#DA3E1B 62%,#E11417 100%);
+
+  /* category accents — chips only */
+  --c-green:#8CC152;   --c-green-t:#B4DE8A;
+  --c-purple:#9B59B6;  --c-purple-t:#C48ED8;
+  --c-blue:#2E7FD4;    --c-blue-t:#7FB6EE;
+  --c-crimson:#D62828; --c-crimson-t:#EE8279;
+  --c-gold:#E8C21A;    --c-gold-t:#F0D45F;
+  --c-flame:#DA3E1B;   --c-flame-t:#F0906B;
+
+  /* type */
+  --f-display:"Eczar",Georgia,"Times New Roman",serif;
+  --f-body:"Karla",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-micro:"Space Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+
+  --t-hero:clamp(2.15rem,8.4vw,5.1rem);
+  --t-h2:clamp(1.85rem,4.6vw,3rem);
+  --t-h3:clamp(1.2rem,2.4vw,1.55rem);
+  --t-body:clamp(1rem,.97rem + .18vw,1.0625rem);
+  --t-micro:clamp(.6875rem,.66rem + .12vw,.8125rem);
+
+  /* rhythm */
+  --s-1:.25rem; --s-2:.5rem;  --s-3:.75rem; --s-4:1rem;
+  --s-5:1.5rem; --s-6:2rem;   --s-7:3rem;   --s-8:4.5rem; --s-9:7rem;
+
+  --maxw:1200px;
+  --measure:62ch;
+  --radius:14px;
+
+  /* fixed chrome */
+  --ribbon-h:0px;   /* ribbon removed — kept at 0 so chrome calcs still resolve */
+  --nav-h:56px;
+  --strip-h:40px;
+  --chrome:calc(var(--ribbon-h) + var(--nav-h) + var(--strip-h));
+}
+@media (min-width:640px){
+  :root{ --nav-h:66px; --strip-h:0px; }
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  padding-top:var(--ribbon-h);
+  background:var(--void);
+  color:var(--bone);
+  font-family:var(--f-body);
+  font-size:var(--t-body);
+  line-height:1.6;
+  font-weight:400;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+/* [tabindex="-1"] is excluded on purpose: anchor targets are given tabindex="-1"
+   and focused so keyboard and screen-reader users land in the right place, but
+   they are not interactive and must not paint a ring around a whole section. */
+:where(a,button,input,select,textarea,summary,[tabindex]:not([tabindex="-1"])):focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px;
+  border-radius:4px;
+}
+::selection{background:var(--ember);color:var(--bone)}
+
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.06;margin:0}
+h1{font-weight:800;letter-spacing:-.02em}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+
+/* ---------- utilities ---------- */
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--s-5)}
+@media (min-width:768px){ .wrap{padding-inline:var(--s-6)} }
+.measure{max-width:var(--measure)}
+.micro{
+  font-family:var(--f-micro);
+  font-size:var(--t-micro);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  line-height:1.5;
+}
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+.muted{color:var(--muted)}
+.section{padding-block:var(--s-8)}
+@media (min-width:768px){ .section{padding-block:var(--s-9)} }
+[id]{scroll-margin-top:calc(var(--chrome) + 1rem)}
+
+/* brush-stroke section rule, echoing her printed menus */
+.rule{position:relative;height:1px;background:var(--hair);border:0;margin:0}
+.rule::before{
+  content:"";position:absolute;left:0;top:-1px;height:3px;width:72px;
+  background:var(--flame);
+  clip-path:polygon(0 40%,6% 0,88% 12%,100% 55%,92% 100%,10% 88%);
+}
+
+.eyebrow{color:var(--flame);display:flex;align-items:center;gap:var(--s-3)}
+.eyebrow::after{content:"";flex:0 0 auto;width:28px;height:1px;background:var(--hair-2)}
+
+.tbd{
+  border-bottom:1px dotted var(--amber);
+  color:var(--gold);
+  cursor:help;
+  text-decoration:none;
+}
+
+/* ---------- grain ---------- */
+.grain{
+  position:fixed;inset:0;z-index:70;pointer-events:none;
+  opacity:.055;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- skip link ---------- */
+.skip{
+  position:fixed;left:var(--s-4);top:calc(var(--ribbon-h) + var(--s-2));
+  z-index:200;transform:translateY(-200%);
+  background:var(--panel);border:1px solid var(--flame);color:var(--bone);
+  padding:.6rem 1rem;border-radius:8px;font-family:var(--f-micro);font-size:.75rem;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+  transition:transform .18s ease;
+}
+.skip:focus{transform:translateY(0)}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:var(--ribbon-h);z-index:100;
+  background:rgba(6,5,5,.82);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--hair);
+}
+.nav__bar{
+  height:var(--nav-h);display:flex;align-items:center;gap:var(--s-4);
+}
+.nav__brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;margin-right:auto}
+.nav__mark{width:30px;height:30px;flex:0 0 auto;filter:drop-shadow(0 0 10px rgba(218,62,27,.45))}
+.nav__word{font-family:var(--f-display);font-weight:600;font-size:1.05rem;letter-spacing:.01em;white-space:nowrap}
+.nav__links{display:none}
+@media (min-width:640px){
+  .nav__links{display:flex;align-items:center;gap:var(--s-5)}
+  .nav__links a{
+    font-family:var(--f-micro);font-size:.6875rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);text-decoration:none;
+    padding-block:.65rem;transition:color .16s ease;
+  }
+  .nav__links a:hover{color:var(--bone)}
+}
+/* mobile: links become a contained horizontal strip (page never scrolls sideways) */
+.nav__strip{
+  display:flex;gap:var(--s-5);align-items:center;height:var(--strip-h);
+  overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
+  border-top:1px solid var(--hair);
+}
+.nav__strip::-webkit-scrollbar{display:none}
+.nav__strip a{
+  font-family:var(--f-micro);font-size:.6875rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);text-decoration:none;white-space:nowrap;
+}
+@media (min-width:640px){ .nav__strip{display:none} }
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  min-height:44px;padding:.7rem 1.25rem;border-radius:999px;
+  font-family:var(--f-micro);font-size:.6875rem;letter-spacing:.1em;
+  text-transform:uppercase;text-decoration:none;cursor:pointer;
+  border:1px solid transparent;background:transparent;color:var(--bone);
+  transition:transform .18s ease,opacity .18s ease,border-color .18s ease,color .18s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn--grad{
+  background:var(--grad);color:#160A05;font-weight:700;
+  box-shadow:0 6px 26px rgba(218,62,27,.28);
+}
+.btn--grad:hover{opacity:.94}
+.btn--ghost{border-color:var(--hair-2);color:var(--bone)}
+.btn--ghost:hover{border-color:var(--flame)}
+/* nav CTA stays outline so the hero viewport keeps its 2-gradient budget */
+.btn--wire{border-color:var(--flame);color:var(--gold);padding-inline:1rem;min-height:40px}
+.btn--wire:hover{background:var(--grad);color:#160A05;border-color:transparent;font-weight:700}
+
+
+/* ---------- photo treatment ----------
+   Candid gym shots with busy backgrounds. Desaturate, then push warm so the
+   whole set reads as one roll of film. */
+.frame{
+  position:relative;overflow:hidden;border-radius:var(--radius);
+  background:var(--panel);isolation:isolate;
+}
+.frame img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(.62) contrast(1.06) brightness(.9);
+}
+.frame::before{ /* ember body */
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(120% 90% at 22% 8%,rgba(232,194,26,.30),rgba(140,26,13,.55) 58%,rgba(6,5,5,.78));
+  mix-blend-mode:multiply;
+}
+.frame::after{ /* warm relight for legibility */
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(200deg,rgba(232,194,26,.34),rgba(218,62,27,.20) 46%,rgba(6,5,5,.30));
+  mix-blend-mode:soft-light;
+}
+.frame--product img{filter:saturate(.86) contrast(1.04)}
+.frame--product::before{
+  background:radial-gradient(110% 100% at 50% 0%,rgba(232,194,26,.16),rgba(6,5,5,.62));
+}
+.frame--plain img{filter:none}
+.frame--plain::before,.frame--plain::after{display:none}
+
+
+/* ---------- footer ---------- */
+.foot{padding-block:var(--s-8) var(--s-6)}
+.foot__grid{display:grid;gap:var(--s-6)}
+@media (min-width:768px){ .foot__grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-7)} }
+.foot h2,.foot h3{font-size:1.05rem;margin-bottom:var(--s-3)}
+.foot a{color:var(--bone);text-underline-offset:3px}
+.foot__list{display:grid;gap:.5rem;color:var(--muted)}
+.foot__list b{color:var(--bone);font-weight:500}
+.promise{display:grid;gap:.5rem;color:var(--muted)}
+.promise li{position:relative;padding-left:1.1rem;line-height:1.5;font-size:.9375rem}
+.promise li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;
+  border-radius:50%;background:var(--amber)}
+.foot__sign{
+  margin-top:var(--s-7);padding-top:var(--s-5);border-top:1px solid var(--hair);
+  display:flex;flex-wrap:wrap;gap:var(--s-4);align-items:center;justify-content:space-between;
+}
+.foot__sign p{font-family:var(--f-display);font-weight:600;font-size:1.1rem}
+

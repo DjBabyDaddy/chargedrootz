@@ -1,60 +1,96 @@
-# Charged Rootz — Website Design Round 1
+# Charged Rootz — Website
 
-Three design directions for **one** website: an assisted-stretch practice with a
-cold-pressed juice / botanical bar section on the same site.
+**Ember is the chosen direction.** It is now the site. The other two concepts
+(Apothecary, Broadsheet) were removed after the client picked Ember — they
+remain in git history at commit `29d4038` if they are ever needed again.
 
-**Live review page:** open `index.html` — it presents all three concepts, the
-build scope, and the questions the client needs to answer.
-
----
-
-## The three concepts
-
-| # | Name | Direction | Leads with |
-|---|------|-----------|------------|
-| 1 | **Ember** | Dark, cinematic, scroll-driven. The client's native fire brand. | Scroll-scrubbed session sequence |
-| 2 | **Apothecary** | Warm daylight, editorial, calm. Herbalist's shop. | Filterable, printable menu |
-| 3 | **Broadsheet** | Swiss industrial print. Big type, hard edges, grid. | Structure — plus a Phase 2 hub sketch |
-
-All three ship the **same scope**. Only the art direction differs.
+Open `index.html` to view the site. No build step, no package manager. Works
+from disk (`file://`) or any static host.
 
 ---
 
-## Scope (binding)
+## What the site is
 
-**In — $100 flat, client hosts:**
-one site · stretch practice leads · about + what a session involves · session
-types · booking request form that emails her · botanical bar menu on the same
-site · contact + her existing payment handles · mobile-first, accessible, fast,
-SEO-ready.
-
-**Not in — separate quote:**
-per-lane sub-sites · live checkout / card processing · event ticketing ·
-customer accounts · calendar-synced availability · ongoing content updates.
-
-> Concept 3 contains a deliberately-stamped **Phase 2 / not included** block
-> sketching the multi-lane hub. It exists to show where the business could go.
-> It is not a deliverable of this round. Do not let it read as included.
-
----
-
-## Structure
+A concierge stretch-therapy practice — **the therapist travels to the client** —
+with the client's cold-pressed juice and wellness-shot bar on the same site.
 
 ```
-index.html                     review hub — start here
-DESIGN.md                      design system, tokens, scope (source of truth)
-concept-1-ember/index.html
-concept-2-apothecary/index.html
-concept-3-broadsheet/index.html
+index.html      the site — hero, practice, sequence, 12-point assessment,
+                sessions, prep, botanical bar, booking
+about.html      "About Stretch by Charged Rootz" — long-form reading page
 assets/
-  data/content.js              all copy, menu items, prices, image manifest
-  img/                         web-optimised imagery (see provenance below)
-  vendor/                      gsap, ScrollTrigger, lenis (vendored, no CDN)
-  shots/                       preview screenshots for the review hub
+  css/ember.css shared foundation: tokens, reset, chrome, buttons, photo
+                treatment, footer. Both pages load it.
+  data/content.js   all copy, menu items, prices, image manifest, booking URLs
+  img/              web-optimised imagery (provenance below)
+  vendor/           gsap, ScrollTrigger, lenis (vendored, no CDN)
 ```
 
-Each concept is a **single self-contained HTML file**. No build step, no package
-manager. Open directly from disk or serve statically.
+Page-specific CSS stays inline in the page that uses it, so there is exactly one
+place to look for it. Anything shared lives in `ember.css`.
+
+---
+
+## The signature element
+
+**The 12-point assessment.** Every new client starts with a full-body evaluation,
+and the site makes that the centrepiece: a hand-placed body map whose twelve
+points ignite cumulatively as you scroll the zone list, with a live readout
+below the figure.
+
+The count (12) is the client's and is confirmed. **The twelve zone names are
+placeholders** — they are the standard full-body mobility checks, marked `.tbd`,
+until she sends her actual protocol. See "Still open" below.
+
+Under `prefers-reduced-motion` every point renders lit and the panel un-sticks,
+so nothing is hidden behind motion.
+
+---
+
+## Confirmed by the client
+
+These came from her own written copy and are no longer placeholders:
+
+| | |
+|---|---|
+| Model | Concierge — she travels to the client |
+| Certification | Certified in stretch therapy through **CNU Stretch** |
+| 50-minute session | **$120** — full body; first visit includes the 12-point assessment |
+| 25-minute session | **$60** — targeted (hips, shoulders, lower back) |
+| First visit | Begins with the 12-point assessment |
+| What to wear | Loose clothing you can move in; **socks required**, hygiene and safety |
+| What she needs | A bed, couch, floor mat or yoga mat. She brings everything else |
+| New offering | **Stretch parties** — groups, by arrangement |
+
+---
+
+## Still open
+
+Rendered live in the "Still needs your input" panel at the bottom of the site,
+and listed in `content.js` under `questions`.
+
+- **The Acuity booking URL.** `content.js` → `booking.acuity` is empty. Paste the
+  scheduling link there and every "Book a session" control on both pages
+  repoints to it automatically. Until then they fall back to the request form.
+- **The twelve assessment zones** — her actual list.
+- **City and travel radius.** Phone is 314 (St. Louis), gym wall shows an
+  Arkansas flag. Not asserted anywhere in the build.
+- **Stretch party pricing** — per head or flat visit fee.
+- **Days and hours** she takes bookings.
+- The **rooted hero photo** for the About page. Drop it at
+  `assets/img/rooted-1600.jpg` and it replaces the labelled stand-in panel
+  automatically — no code change.
+
+---
+
+## Before it goes live
+
+- Fill in `booking.acuity` (above).
+- **Delete the `#legend` section** at the bottom of `index.html`. It is a
+  client-review aid listing every placeholder — useful now, not for the public.
+- Confirm the mail path: the booking form validates, then opens the visitor's
+  mail client with a finished draft addressed to `contact@chargedrootz.com`.
+  If she would rather receive form posts directly, swap in a form service.
 
 ---
 
@@ -81,28 +117,25 @@ gradient: linear-gradient(180deg,#E8C21A,#D98A1C 28%,#DA3E1B 62%,#E11417)
 smoothie, with her actual prices, transcribed from her printed menus. Payment
 handles are hers.
 
----
-
-## Placeholders
-
-Anything invented renders with a **dotted underline** (`class="tbd"`) and is
-listed in a legend at the bottom of each concept, plus on the review hub.
-
-Currently placeholder: session lengths, session prices, city/venue, and whether
-the stretch lane gets its own name.
-
-Open questions for the client are in `content.js` under `questions` and rendered
-on the review hub.
+Anything still invented renders with a **dotted underline** (`class="tbd"`) and
+is listed in the legend panel at the bottom of the site.
 
 ---
 
-## Known gaps
+## Accessibility and performance baseline
 
-- The client mentioned **videos** of her stretching. Not yet received.
-- Her shirt reads **"CNU Stretch"** — unclear whether that is a certification, a
-  studio she works under, or a name she wants used. Asked.
-- Phone is a **314** (St. Louis) but the gym wall shows an **Arkansas** flag.
-  Location not asserted anywhere in the build. Asked.
+- Semantic landmarks, single `h1`, logical heading order, skip link
+- Visible `:focus-visible` ring on real controls only — anchor targets take
+  `tabindex="-1"` for keyboard/screen-reader landing and deliberately do **not**
+  paint a ring around a whole section
+- WCAG AA contrast on body text
+- `prefers-reduced-motion` fully honoured — motion disabled, all content intact,
+  assessment points render lit
+- Hero ignition uses explicit `fromTo` + `clearProps` and a 4s failsafe, so the
+  hero can never be left invisible if GSAP fails to load
+- Content readable with JavaScript disabled
+- Responsive `srcset`, lazy loading below the fold, explicit dimensions (no CLS)
+- No CDN dependencies — animation libraries are vendored locally
 
 ---
 
@@ -112,20 +145,6 @@ She already owns `chargedrootz.com` and asked whether to buy
 `stretchbychargedrootz`. Recommendation: **don't**. Put the stretch site at the
 root, and add lanes later as paths (`/bar`, `/events`) on the same domain. One
 domain, one search reputation, no extra spend.
-
----
-
-## Accessibility and performance baseline
-
-Applies to all three concepts:
-
-- Semantic landmarks, single `h1`, logical heading order
-- Visible `:focus-visible` styling, full keyboard operation
-- WCAG AA contrast on body text
-- `prefers-reduced-motion` fully honoured — all motion disabled, content intact
-- Content readable with JavaScript disabled
-- Responsive `srcset`, lazy loading below the fold, explicit dimensions (no CLS)
-- No CDN dependencies — animation libraries are vendored locally
 
 ---
 

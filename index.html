@@ -1,364 +1,1590 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" style="color-scheme:dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Charged Rootz — Design Round 1 | Built by BabyDaddy</title>
-<meta name="description" content="Three website design directions for Charged Rootz: assisted stretch sessions and the botanical bar. Review round 1.">
-<meta name="theme-color" content="#12100E">
-<meta property="og:title" content="Charged Rootz — Design Round 1">
-<meta property="og:description" content="Three design directions to pick from. Same site, three different looks.">
+<title>Charged Rootz — Concierge Stretch Therapy &amp; Botanical Bar</title>
+<meta name="description" content="Concierge stretch therapy. A certified stretch therapist comes to you and moves your body through targeted stretches for flexibility, mobility and recovery. Plus a cold-pressed juice and wellness shot bar.">
+<meta name="theme-color" content="#060505">
+
 <meta property="og:type" content="website">
-<link rel="icon" href="assets/img/logo-128.png">
+<meta property="og:site_name" content="Charged Rootz">
+<meta property="og:title" content="Charged Rootz — Concierge Stretch Therapy">
+<meta property="og:description" content="Stretch therapy that comes to you. Rooted. Nourished. Elevated.">
+<meta property="og:image" content="assets/img/logo-768.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Charged Rootz — Concierge Stretch Therapy">
+<meta name="twitter:description" content="Stretch therapy that comes to you. Rooted. Nourished. Elevated.">
+<meta name="twitter:image" content="assets/img/logo-768.png">
+
+<link rel="icon" href="assets/img/logo-128.png" type="image/png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@500;700&family=Karla:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --void:#12100E; --panel:#1B1815; --panel2:#232019;
-  --line:rgba(242,233,220,.13);
-  --bone:#F2E9DC; --muted:#A5947F;
-  --gold:#E8C21A; --amber:#D98A1C; --flame:#DA3E1B; --crimson:#E11417;
-  --fire:linear-gradient(180deg,#E8C21A 0%,#D98A1C 28%,#DA3E1B 62%,#E11417 100%);
-  --ok:#7FB069; --warn:#D98A1C;
-  --wrap:1180px;
-}
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{
-  margin:0; background:var(--void); color:var(--bone);
-  font:400 clamp(1rem,.97rem + .16vw,1.075rem)/1.65 Karla,system-ui,sans-serif;
-  -webkit-font-smoothing:antialiased;
-}
-img{max-width:100%; height:auto; display:block}
-a{color:inherit}
-.wrap{width:min(100% - 2.5rem,var(--wrap)); margin-inline:auto}
-.mono{font-family:"Space Mono",ui-monospace,monospace; text-transform:uppercase; letter-spacing:.11em; font-size:.72rem}
-h1,h2,h3{font-family:Eczar,Georgia,serif; font-weight:700; line-height:1.08; margin:0}
-.skip{position:absolute;left:-9999px}
-.skip:focus{left:1rem;top:1rem;z-index:99;background:var(--bone);color:var(--void);padding:.6rem 1rem;border-radius:6px}
-:focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:3px}
+<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@600;800&family=Karla:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-/* ---------- header ---------- */
-header{border-bottom:1px solid var(--line); background:rgba(18,16,14,.9); backdrop-filter:blur(10px); position:sticky; top:0; z-index:20}
-.bar{display:flex; align-items:center; gap:1rem; padding:.85rem 0; justify-content:space-between}
-.brandline{display:flex; align-items:center; gap:.7rem; min-width:0}
-.brandline img{width:34px;height:34px;border-radius:50%;flex:none}
-.brandline b{font-family:Eczar,serif;font-size:1.02rem;letter-spacing:.01em}
-.byline{color:var(--muted)}
-@media(max-width:640px){.byline{display:none}}
+<link rel="stylesheet" href="assets/css/ember.css">
+
+<link rel="preload" as="image" href="assets/img/logo-alpha-768.png" fetchpriority="high">
+
+<script>
+/* Pre-hide the hero so the ignition timeline cannot flash unstyled content.
+   Skipped entirely under reduced motion, and released by a failsafe timer if
+   GSAP never arrives — the hero must never be permanently blank. */
+(function () {
+  var mq = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (mq && mq.matches) { return; }
+  var el = document.documentElement;
+  el.className += " pre-ignite";
+  setTimeout(function () { el.classList.remove("pre-ignite"); }, 1600);
+})();
+</script>
+
+<!-- Motion libraries. Deferred: nothing on this page depends on them for content. -->
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/vendor/lenis.min.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "#chargedrootz",
+      "name": "Charged Rootz",
+      "slogan": "Rooted. Nourished. Elevated.",
+      "description": "Concierge stretch therapy delivered in your own home, plus a cold-pressed juice and wellness shot bar.",
+      "foundingDate": "2021",
+      "email": "contact@chargedrootz.com",
+      "telephone": "+1-314-566-5749",
+      "image": "assets/img/logo-768.png",
+      "priceRange": "$60-$120",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Your city",
+        "addressCountry": "US"
+      },
+      "paymentAccepted": "Cash App, PayPal, Apple Pay"
+    },
+    {
+      "@type": "Service",
+      "name": "Stretch by Charged Rootz",
+      "serviceType": "Stretch therapy",
+      "provider": { "@id": "#chargedrootz" },
+      "description": "Concierge stretch therapy delivered in the client's own home by a therapist certified through CNU Stretch. Every new client begins with a 12-point full-body assessment.",
+      "areaServed": { "@type": "City", "name": "Your city" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Stretch therapy sessions",
+        "itemListElement": [
+          { "@type": "Offer", "name": "50-Minute Session", "price": "120", "priceCurrency": "USD",
+            "description": "Full-body stretch therapy. First session includes the 12-point assessment." },
+          { "@type": "Offer", "name": "25-Minute Session", "price": "60", "priceCurrency": "USD",
+            "description": "Targeted stretch focused on specific areas." }
+        ]
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+/* pre-ignition: hero children wait for the timeline (see head guard) */
+.pre-ignite .hero__sun,
+.pre-ignite .hero__logo,
+.pre-ignite .hero__tag,
+.pre-ignite .hero__h1,
+.pre-ignite .hero__lede,
+.pre-ignite .hero__concierge,
+.pre-ignite .hero__cta,
+.pre-ignite .hero__meta{opacity:0}
 
 /* ---------- hero ---------- */
-.hero{padding:clamp(3rem,7vw,5.5rem) 0 clamp(2rem,4vw,3rem); border-bottom:1px solid var(--line)}
-.hero h1{font-size:clamp(2.1rem,1.35rem + 3.4vw,4rem); max-width:19ch; letter-spacing:-.005em}
-.hero h1 em{font-style:normal; background:var(--fire); -webkit-background-clip:text; background-clip:text; color:transparent}
-.lede{max-width:62ch; color:#D8CBBB; margin:1.25rem 0 0; font-size:1.08rem}
-.eyebrow{color:var(--amber); margin-bottom:1rem}
-.heroGrid{display:grid; gap:2.5rem; grid-template-columns:1fr}
-@media(min-width:920px){.heroGrid{grid-template-columns:1.55fr .95fr; align-items:end}}
-.heroCard{border:1px solid var(--line); border-radius:14px; padding:1.25rem 1.35rem; background:var(--panel)}
-.heroCard h3{font-size:1.02rem; margin-bottom:.7rem}
-.heroCard ul{margin:0; padding-left:1.05rem; color:#CFC1B1; font-size:.94rem}
-.heroCard li{margin:.35rem 0}
+.hero{
+  position:relative;
+  min-height:calc(100svh - var(--chrome));
+  display:grid;place-items:center;
+  padding-block:var(--s-7) var(--s-8);
+  overflow:hidden;
+  text-align:center;
+}
+.hero::after{ /* deep ember floor, keeps the corona from floating */
+  content:"";position:absolute;inset:auto 0 0 0;height:38%;
+  background:linear-gradient(180deg,rgba(6,5,5,0),rgba(6,5,5,.9) 60%,var(--void));
+  pointer-events:none;
+}
+.hero__inner{position:relative;z-index:2;display:grid;gap:var(--s-5);justify-items:center}
+.hero__sun{
+  position:absolute;z-index:1;top:50%;left:50%;
+  width:min(148vw,900px);aspect-ratio:1;
+  transform:translate(-50%,-58%);
+  pointer-events:none;
+}
+@media (min-width:768px){ .hero__sun{transform:translate(-50%,-54%)} }
+.corona-outer{animation:spin 90s linear infinite;transform-origin:300px 300px}
+.corona-inner{animation:spin 140s linear infinite reverse;transform-origin:300px 300px}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-/* ---------- sections ---------- */
-section{padding:clamp(3rem,6vw,5rem) 0; border-bottom:1px solid var(--line)}
-.shead{display:flex; align-items:baseline; gap:1rem; margin-bottom:2rem; flex-wrap:wrap}
-.shead h2{font-size:clamp(1.5rem,1.15rem + 1.5vw,2.25rem)}
-.shead .mono{color:var(--muted)}
-.rule{height:3px; border:0; margin:0 0 2rem; background:var(--fire); width:78px; border-radius:2px}
+.hero__logo{
+  width:clamp(150px,32vw,246px);height:auto;
+  filter:drop-shadow(0 0 46px rgba(218,62,27,.42));
+}
+.hero__tag{color:var(--gold)}
+.hero__h1{font-size:var(--t-hero);max-width:15ch}
+.hero__h1 em{font-style:normal;color:var(--flame)}
+.hero__lede{color:var(--muted);max-width:46ch;margin-inline:auto}
+.hero__cta{display:flex;flex-wrap:wrap;gap:var(--s-3);justify-content:center;margin-top:var(--s-2)}
+.hero__meta{color:var(--muted);margin-top:var(--s-4)}
 
-/* ---------- concepts ---------- */
-.concepts{display:grid; gap:1.75rem; grid-template-columns:1fr}
-@media(min-width:800px){.concepts{grid-template-columns:repeat(3,1fr)}}
+/* On a short laptop the stacked hero pushes "Book a session" under the fold.
+   Tighten the mark and the vertical rhythm rather than shrinking the headline. */
+@media (max-height:900px) and (min-width:768px){
+  .hero{padding-block:var(--s-6) var(--s-6)}
+  .hero__inner{gap:var(--s-4)}
+  .hero__logo{width:clamp(120px,18vh,190px)}
+  .hero__h1{font-size:clamp(2rem,6.4vw,3.9rem)}
+  .hero__meta{margin-top:var(--s-3)}
+}
+@media (max-height:740px) and (min-width:768px){
+  .hero__logo{width:clamp(96px,14vh,140px)}
+  .hero__lede{max-width:56ch}
+}
+
+/* ---------- the practice ---------- */
+.practice__grid{display:grid;gap:var(--s-6);align-items:center}
+@media (min-width:900px){
+  .practice__grid{grid-template-columns:minmax(0,.86fr) minmax(0,1fr);gap:var(--s-8)}
+}
+.practice__photo{aspect-ratio:4/5}
+.practice__body{display:grid;gap:var(--s-5)}
+.practice__quote{
+  font-family:var(--f-display);font-weight:600;
+  font-size:clamp(1.25rem,2.4vw,1.7rem);line-height:1.34;
+  max-width:30ch;
+}
+.practice__quote span{color:var(--muted)}
+.facts{display:grid;gap:var(--s-4);border-top:1px solid var(--hair);padding-top:var(--s-5)}
+@media (min-width:520px){ .facts{grid-template-columns:repeat(3,minmax(0,1fr))} }
+.fact dt{color:var(--muted);font-family:var(--f-micro);font-size:var(--t-micro);
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem}
+.fact dd{margin:0;font-family:var(--f-display);font-weight:600;font-size:1.15rem}
+
+/* ---------- release sequence ---------- */
+.seq{display:grid;gap:var(--s-6);margin-top:var(--s-7)}
+@media (min-width:900px){
+  .seq{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s-8);align-items:start}
+}
+.seq__visual{position:relative}
+.seq__frames{position:relative;aspect-ratio:5/4;border-radius:var(--radius);overflow:hidden;background:var(--panel)}
+@media (min-width:900px){ .seq__frames{aspect-ratio:4/5} }
+.seq__frame{position:absolute;inset:0;opacity:0}
+.seq__frame:first-child{opacity:1}
+.seq__count{
+  position:absolute;z-index:3;left:var(--s-4);bottom:var(--s-4);
+  color:var(--gold);background:rgba(6,5,5,.66);
+  border:1px solid var(--hair-2);border-radius:999px;padding:.3rem .7rem;
+}
+.seq__list{position:relative;padding-left:2.5rem}
+.seq__spine{position:absolute;left:.75rem;top:.4rem;bottom:.4rem;width:1px;background:var(--hair)}
+.seq__spine-fill{
+  position:absolute;inset:0;width:1px;background:var(--grad);
+  transform:scaleY(0);transform-origin:top center;
+}
+.seq__steps{display:grid;gap:var(--s-7)}
+.seq__step{position:relative}
+.seq__dot{
+  position:absolute;left:-2rem;top:.5rem;width:9px;height:9px;border-radius:50%;
+  background:var(--void);border:1px solid var(--hair-2);
+}
+.seq__k{color:var(--flame);display:block;margin-bottom:.4rem}
+.seq__t{font-size:var(--t-h3);margin-bottom:.5rem}
+.seq__d{color:var(--muted);max-width:40ch}
+
+/* enhanced (JS + motion allowed) */
+.seq.is-enhanced .seq__visual{position:sticky;top:calc(var(--chrome) + 1.5rem)}
+.seq.is-enhanced .seq__frames{max-height:34vh}
+.seq.is-enhanced .seq__steps{gap:0}
+.seq.is-enhanced .seq__step{
+  min-height:56vh;display:flex;flex-direction:column;justify-content:center;
+  opacity:.55;transition:opacity .45s ease;
+}
+.seq.is-enhanced .seq__step.is-active{opacity:1}
+.seq.is-enhanced .seq__step.is-active .seq__dot{background:var(--flame);border-color:var(--flame)}
+@media (min-width:900px){
+  .seq.is-enhanced .seq__frames{max-height:none;height:min(74vh,720px);aspect-ratio:auto}
+}
+
+/* ---------- sessions ---------- */
+.sessions__grid{display:grid;gap:var(--s-5);margin-top:var(--s-7)}
+@media (min-width:900px){
+  .sessions__grid{
+    grid-template-columns:minmax(0,1fr) minmax(0,1.16fr) minmax(0,1fr);
+    gap:var(--s-5);align-items:start;
+  }
+}
 .card{
-  border:1px solid var(--line); border-radius:16px; overflow:hidden; background:var(--panel);
-  display:flex; flex-direction:column; transition:border-color .25s ease, transform .25s ease;
+  position:relative;background:var(--panel);border:1px solid var(--hair);
+  border-radius:var(--radius);padding:var(--s-5);display:grid;gap:var(--s-4);
 }
-.card:hover,.card:focus-within{border-color:rgba(232,194,26,.42); transform:translateY(-3px)}
-.shot{aspect-ratio:16/11; background:var(--panel2); border-bottom:1px solid var(--line); position:relative; overflow:hidden}
-.shot img{width:100%;height:100%;object-fit:cover;object-position:top center}
-.shot .pending{position:absolute;inset:0;display:grid;place-content:center;gap:.4rem;text-align:center;color:var(--muted);padding:1rem}
-.cbody{padding:1.25rem 1.3rem 1.4rem; display:flex; flex-direction:column; gap:.7rem; flex:1}
-.cnum{color:var(--amber)}
-.card h3{font-size:1.28rem}
-.card p{margin:0; color:#CDBFAF; font-size:.95rem}
-.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.15rem}
-.tag{border:1px solid var(--line); border-radius:999px; padding:.24rem .6rem; font-size:.68rem;
-  font-family:"Space Mono",monospace; text-transform:uppercase; letter-spacing:.08em; color:#BFAF9C}
-.cta{
-  margin-top:auto; display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
-  padding:.7rem 1rem; border-radius:9px; text-decoration:none; font-weight:700; font-size:.92rem;
-  background:var(--fire); color:#1A1008; border:0;
+@media (min-width:900px){ .card{padding:var(--s-6)} }
+.card--featured{
+  background:var(--panel-2);border-color:var(--hair-2);overflow:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,.5);
 }
-.cta.ghost{background:transparent;color:var(--bone);border:1px solid var(--line)}
+@media (min-width:900px){ .card--featured{transform:translateY(-26px)} }
+.card--featured::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--grad);
+}
+.card__flag{color:var(--gold)}
+.card__name{font-size:var(--t-h3)}
+.card__meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:.6rem}
+.card__price{font-family:var(--f-display);font-weight:800;font-size:1.9rem;line-height:1}
+.card__dur{color:var(--muted)}
+.card__desc{color:var(--muted)}
+.card__inc{display:grid;gap:.55rem;border-top:1px solid var(--hair);padding-top:var(--s-4)}
+.card__inc li{position:relative;padding-left:1.1rem;font-size:.9375rem;line-height:1.5}
+.card__inc li::before{
+  content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;
+  border-radius:50%;background:var(--flame);
+}
 
-/* ---------- scope ---------- */
-.scope{display:grid;gap:1.25rem;grid-template-columns:1fr}
-@media(min-width:820px){.scope{grid-template-columns:1fr 1fr}}
-.box{border:1px solid var(--line); border-radius:14px; padding:1.4rem 1.5rem; background:var(--panel)}
-.box.in{border-color:rgba(127,176,105,.4)}
-.box.out{border-color:rgba(217,138,28,.4)}
-.box h3{display:flex;align-items:center;gap:.55rem;font-size:1.08rem;margin-bottom:.9rem}
-.pill{font-family:"Space Mono",monospace;font-size:.63rem;text-transform:uppercase;letter-spacing:.1em;
-  padding:.22rem .5rem;border-radius:5px}
-.pill.g{background:rgba(127,176,105,.16);color:#A8CE93}
-.pill.o{background:rgba(217,138,28,.16);color:#E7B461}
-.box ul{margin:0;padding:0;list-style:none}
-.box li{padding:.42rem 0 .42rem 1.5rem; position:relative; border-bottom:1px dashed rgba(242,233,220,.09); font-size:.95rem; color:#D3C6B6}
-.box li:last-child{border-bottom:0}
-.box li::before{position:absolute;left:0;top:.42rem;font-family:"Space Mono",monospace;font-size:.8rem}
-.box.in li::before{content:"✓";color:var(--ok)}
-.box.out li::before{content:"—";color:var(--warn)}
-.note{margin-top:1.4rem;border-left:3px solid var(--amber);padding:.85rem 1.1rem;background:rgba(217,138,28,.07);
-  border-radius:0 8px 8px 0;color:#E0D3C2;font-size:.95rem}
+/* ---------- botanical bar ---------- */
+.bar__banner{margin-top:var(--s-6);aspect-ratio:2000/1055}
+.band{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s-3) var(--s-5);
+  border-top:1px solid var(--hair-2);border-bottom:1px solid var(--hair);
+  padding-block:var(--s-4);margin-top:var(--s-8);
+}
+.band__name{font-family:var(--f-display);font-weight:600;font-size:var(--t-h3);margin-right:auto}
+.band__unit{color:var(--muted)}
+.band__price{font-family:var(--f-display);font-weight:800;font-size:1.6rem;color:var(--gold);line-height:1}
 
-/* ---------- questions / answer ---------- */
-.qs{counter-reset:q; display:grid; gap:.75rem}
-.q{border:1px solid var(--line);border-radius:11px;padding:.95rem 1.15rem .95rem 3.1rem;position:relative;background:var(--panel);color:#D6C9B9}
-.q::before{counter-increment:q;content:counter(q,decimal-leading-zero);position:absolute;left:1.15rem;top:.95rem;
-  font-family:"Space Mono",monospace;font-size:.76rem;color:var(--amber)}
-.answer{border:1px solid rgba(232,194,26,.32);border-radius:14px;padding:1.4rem 1.5rem;background:linear-gradient(180deg,rgba(232,194,26,.06),transparent)}
-.answer h3{font-size:1.1rem;margin-bottom:.7rem}
-.answer p{margin:.55rem 0;color:#D8CBBB}
-.answer code{font-family:"Space Mono",monospace;font-size:.86em;background:rgba(242,233,220,.09);padding:.13rem .42rem;border-radius:4px}
+.menu{display:grid;gap:0;margin-top:var(--s-2)}
+@media (min-width:860px){ .menu{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--s-8)} }
+.menu li{padding-block:var(--s-4);border-bottom:1px solid var(--hair)}
+.menu__n{font-family:var(--f-display);font-weight:600;font-size:1.1rem;line-height:1.25}
+.menu__i{color:var(--muted);font-size:.9375rem;margin-top:.25rem;line-height:1.5}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.6rem}
+.chip{
+  font-family:var(--f-micro);font-size:.625rem;letter-spacing:.09em;
+  text-transform:uppercase;padding:.22rem .5rem;border-radius:999px;
+  border:1px solid currentColor;opacity:.92;white-space:nowrap;
+}
+.chip[data-c="green"]{color:var(--c-green-t)}
+.chip[data-c="purple"]{color:var(--c-purple-t)}
+.chip[data-c="blue"]{color:var(--c-blue-t)}
+.chip[data-c="crimson"]{color:var(--c-crimson-t)}
+.chip[data-c="gold"]{color:var(--c-gold-t)}
+.chip[data-c="flame"]{color:var(--c-flame-t)}
+.dot-accent{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:.5rem;vertical-align:middle}
 
-/* ---------- craft ---------- */
-.craft{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-@media(min-width:700px){.craft{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1000px){.craft{grid-template-columns:repeat(3,1fr)}}
-.craft div{background:var(--panel);padding:1rem 1.15rem}
-.craft b{display:block;font-size:.92rem;margin-bottom:.22rem}
-.craft span{color:var(--muted);font-size:.84rem;line-height:1.5;display:block}
+.bar__strip{margin-top:var(--s-6);aspect-ratio:2000/1055}
+.bar__lower{display:grid;gap:var(--s-6);margin-top:var(--s-8)}
+@media (min-width:860px){
+  .bar__lower{grid-template-columns:minmax(0,.62fr) minmax(0,1fr);gap:var(--s-7);align-items:start}
+}
+.bar__tall{aspect-ratio:3/4}
+.addons li{
+  display:flex;align-items:baseline;gap:var(--s-3);
+  padding-block:var(--s-3);border-bottom:1px solid var(--hair);
+}
+.addons__n{font-family:var(--f-display);font-weight:600;font-size:1.05rem}
+.addons__u{color:var(--muted);margin-right:auto}
+.addons__p{font-family:var(--f-micro);font-size:.875rem;color:var(--gold)}
+.smoothie{
+  margin-top:var(--s-6);background:var(--panel);border:1px solid var(--hair);
+  border-left:3px solid var(--flame);border-radius:var(--radius);padding:var(--s-5);
+  display:grid;gap:var(--s-3);
+}
+.smoothie__top{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s-3)}
+.smoothie__n{font-family:var(--f-display);font-weight:600;font-size:var(--t-h3);margin-right:auto}
+.smoothie__p{font-family:var(--f-display);font-weight:800;font-size:1.5rem;color:var(--gold);line-height:1}
 
-footer{padding:2.5rem 0 3.5rem;color:var(--muted)}
-.fgrid{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;align-items:center}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.menus-link{
+  display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-4);
+  margin-top:var(--s-7);padding-top:var(--s-5);border-top:1px solid var(--hair);
+}
+.menus-link p{color:var(--muted);margin-right:auto;max-width:44ch}
+
+/* ---------- dialog ---------- */
+dialog.sheet{
+  border:1px solid var(--hair-2);background:var(--panel);color:var(--bone);
+  border-radius:var(--radius);padding:0;max-width:min(920px,92vw);width:100%;
+  max-height:88vh;overflow:auto;
+}
+dialog.sheet::backdrop{background:rgba(6,5,5,.88)}
+.sheet__head{
+  position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:var(--s-4);
+  padding:var(--s-4) var(--s-5);background:var(--panel);border-bottom:1px solid var(--hair);
+}
+.sheet__title{font-family:var(--f-display);font-weight:600;font-size:1.15rem;margin-right:auto}
+.sheet__close{
+  min-height:40px;min-width:40px;border-radius:999px;border:1px solid var(--hair-2);
+  background:transparent;color:var(--bone);cursor:pointer;font-family:var(--f-micro);
+  font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;padding-inline:.9rem;
+}
+.sheet__body{padding:var(--s-5);display:grid;gap:var(--s-6)}
+@media (min-width:768px){ .sheet__body{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.sheet__body figcaption{color:var(--muted);margin-top:var(--s-3);font-size:.9375rem}
+
+/* ---------- booking ---------- */
+.book{background:var(--panel);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.book__grid{display:grid;gap:var(--s-6)}
+@media (min-width:900px){
+  .book__grid{grid-template-columns:minmax(0,.72fr) minmax(0,1fr);gap:var(--s-8);align-items:start}
+}
+.book__aside{display:grid;gap:var(--s-4)}
+.book__aside p{color:var(--muted);max-width:38ch}
+.form{display:grid;gap:var(--s-5)}
+.row{display:grid;gap:var(--s-5)}
+@media (min-width:640px){ .row--2{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.field{display:grid;gap:.4rem}
+.field label{font-family:var(--f-micro);font-size:var(--t-micro);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+.field .req{color:var(--flame)}
+.field input,.field select,.field textarea{
+  width:100%;min-height:48px;padding:.7rem .85rem;
+  background:var(--void);color:var(--bone);
+  border:1px solid var(--hair-2);border-radius:10px;
+  font-family:var(--f-body);font-size:1rem;line-height:1.5;
+}
+.field textarea{min-height:130px;resize:vertical}
+.field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 22px,calc(100% - 14px) 22px;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:2.5rem}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--flame);outline-offset:1px}
+.field [aria-invalid="true"]{border-color:var(--crimson)}
+.field__err{color:var(--c-crimson-t);font-family:var(--f-micro);font-size:.6875rem;
+  letter-spacing:.08em;text-transform:uppercase;min-height:1em}
+.days{border:0;margin:0;padding:0}
+.days legend{font-family:var(--f-micro);font-size:var(--t-micro);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);padding:0;margin-bottom:.6rem}
+.days__set{display:flex;flex-wrap:wrap;gap:.5rem}
+.day{position:relative}
+.day input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.day span{
+  display:flex;align-items:center;justify-content:center;
+  min-width:46px;min-height:40px;padding:0 .6rem;border-radius:999px;
+  border:1px solid var(--hair-2);font-family:var(--f-micro);font-size:.6875rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  transition:border-color .16s ease,color .16s ease;
+}
+.day input:checked + span{border-color:var(--flame);color:var(--gold)}
+.day input:focus-visible + span{outline:2px solid var(--gold);outline-offset:3px}
+.form__foot{display:grid;gap:var(--s-3)}
+@media (min-width:520px){ .form__foot{grid-template-columns:auto minmax(0,1fr);align-items:center;gap:var(--s-4)} }
+.form__status{font-family:var(--f-micro);font-size:var(--t-micro);letter-spacing:.06em;
+  color:var(--muted);text-transform:none;line-height:1.5}
+.form__status[data-tone="ok"]{color:var(--c-green-t)}
+.form__status[data-tone="err"]{color:var(--c-crimson-t)}
+
+/* ---------- legend ---------- */
+.legend{background:#0A0807;border-top:1px solid var(--hair)}
+.legend__grid{display:grid;gap:var(--s-6);margin-top:var(--s-6)}
+@media (min-width:860px){ .legend__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-8)} }
+.legend h2{font-size:var(--t-h3)}
+.legend h3{font-size:1rem;margin-bottom:var(--s-3)}
+.legend__list{display:grid;gap:.65rem}
+.legend__list li{
+  display:flex;flex-wrap:wrap;gap:.5rem;align-items:baseline;
+  padding-bottom:.65rem;border-bottom:1px solid var(--hair);color:var(--muted);font-size:.9375rem;
+}
+.legend__list b{color:var(--bone);font-weight:500}
+.legend__q{display:grid;gap:.75rem;counter-reset:q}
+.legend__q li{
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:.75rem;
+  color:var(--muted);font-size:.9375rem;line-height:1.55;
+}
+.legend__q li::before{
+  counter-increment:q;content:counter(q,decimal-leading-zero);
+  font-family:var(--f-micro);font-size:.6875rem;letter-spacing:.1em;color:var(--flame);
+  padding-top:.25rem;
+}
+
+
+/* ==========================================================================
+   SIGNATURE — THE 12-POINT ASSESSMENT
+   Her practice's one ownable ritual. A hand-placed body map whose twelve
+   points ignite in order as you scroll, ember -> gold, echoing the corona.
+   The count (12) is hers and confirmed; the zone names are .tbd until she
+   sends her own protocol.
+   ========================================================================== */
+.assess{background:var(--panel);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.assess__grid{display:grid;gap:var(--s-7)}
+@media (min-width:900px){
+  /* asymmetric on purpose — the figure is the quieter half */
+  .assess__grid{grid-template-columns:minmax(0,.62fr) minmax(0,1fr);gap:var(--s-8);align-items:start}
+}
+
+.assess__stage{
+  position:relative;
+  border:1px solid var(--hair);
+  border-radius:var(--radius);
+  background:
+    radial-gradient(120% 76% at 50% 8%, rgba(232,194,26,.09), transparent 62%),
+    var(--void);
+  padding:var(--s-5) var(--s-4);
+  overflow:hidden;
+}
+@media (min-width:900px){ .assess__stage{position:sticky;top:calc(var(--chrome) + var(--s-5))} }
+
+.assess__fig{display:block;width:100%;height:auto;max-height:62vh;margin-inline:auto}
+.assess__body{fill:none;stroke:var(--bone);stroke-opacity:.30;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* each point: a dim ring that ignites */
+.apt__halo{fill:var(--flame);opacity:0;transform-box:fill-box;transform-origin:center}
+.apt__ring{fill:var(--void);stroke:var(--bone);stroke-opacity:.34;stroke-width:1.3}
+.apt__core{fill:var(--bone);fill-opacity:.30}
+.apt__num{
+  font-family:var(--f-micro);font-size:9px;letter-spacing:.04em;
+  fill:var(--bone);fill-opacity:.55;text-anchor:middle;dominant-baseline:central;
+  paint-order:stroke;
+}
+.apt.is-lit .apt__halo{opacity:.30}
+.apt.is-lit .apt__ring{stroke:var(--gold);stroke-opacity:1}
+.apt.is-lit .apt__core{fill:var(--gold);fill-opacity:1}
+.apt.is-lit .apt__num{fill:#160A05;fill-opacity:1}
+.js-motion .apt__halo,
+.js-motion .apt__ring,
+.js-motion .apt__core,
+.js-motion .apt__num{transition:opacity .34s ease,stroke-opacity .34s ease,fill-opacity .34s ease,stroke .34s ease,fill .34s ease}
+
+/* readout under the figure */
+.assess__readout{
+  display:flex;align-items:baseline;justify-content:center;gap:var(--s-3);
+  margin-top:var(--s-4);padding-top:var(--s-4);border-top:1px solid var(--hair);
+  min-height:2.4em;
+}
+.assess__readout b{
+  font-family:var(--f-display);font-size:1.6rem;font-weight:800;color:var(--gold);
+  font-variant-numeric:tabular-nums;line-height:1;
+}
+.assess__readout span{color:var(--muted)}
+
+/* the twelve zones */
+.zones{counter-reset:zone;display:grid;gap:0;margin-top:var(--s-5)}
+.zone{
+  display:grid;grid-template-columns:2.5rem minmax(0,1fr);gap:var(--s-4);
+  align-items:baseline;padding-block:var(--s-4);
+  border-top:1px solid var(--hair);
+}
+.zone:last-child{border-bottom:1px solid var(--hair)}
+.zone__n{
+  font-family:var(--f-micro);font-size:var(--t-micro);letter-spacing:.1em;
+  color:var(--muted);font-variant-numeric:tabular-nums;
+}
+.zone__n::before{counter-increment:zone;content:counter(zone,decimal-leading-zero)}
+.zone__t{font-family:var(--f-display);font-size:1.08rem;font-weight:600;line-height:1.25}
+.zone__s{display:block;color:var(--muted);font-size:.92rem;margin-top:.15rem}
+.js-motion .zone{transition:background-color .3s ease,border-color .3s ease}
+.js-motion .zone__n,.js-motion .zone__t{transition:color .3s ease}
+/* Inside the zone list the dotted underline alone carries "placeholder" —
+   the gold .tbd colour would otherwise make every zone read as already lit. */
+.zone .tbd{color:inherit;border-bottom-color:rgba(160,141,126,.55)}
+.zone.is-lit .tbd{border-bottom-color:var(--amber)}
+.zone.is-lit{background:linear-gradient(90deg,rgba(232,194,26,.07),transparent 62%)}
+.zone.is-lit .zone__n{color:var(--gold)}
+.zone.is-lit .zone__t{color:var(--gold)}
+
+/* ---------- prep: what to wear / socks / what you need ---------- */
+.prep{display:grid;gap:var(--s-5);margin-top:var(--s-6)}
+@media (min-width:760px){ .prep{grid-template-columns:repeat(3,minmax(0,1fr))} }
+.prep__item{
+  border:1px solid var(--hair);border-radius:var(--radius);
+  background:var(--panel-2);padding:var(--s-5);
+}
+.prep__item h3{font-size:var(--t-h3);margin-bottom:var(--s-3)}
+.prep__item p{color:var(--muted)}
+
+/* ---------- certification ---------- */
+.cert{
+  display:flex;align-items:center;gap:var(--s-4);flex-wrap:wrap;
+  margin-top:var(--s-6);padding:var(--s-5);
+  border:1px solid var(--hair-2);border-radius:var(--radius);
+  background:var(--panel-2);
+}
+.cert__seal{
+  flex:0 0 auto;width:44px;height:44px;border-radius:50%;
+  display:grid;place-items:center;
+  border:1px solid var(--flame);color:var(--gold);
+  font-family:var(--f-micro);font-size:.6rem;letter-spacing:.06em;
+}
+.cert p{margin:0}
+.cert strong{color:var(--bone);font-weight:500}
+
+/* ---------- concierge line in the hero ---------- */
+.hero__concierge{
+  display:inline-flex;align-items:center;gap:.6rem;
+  margin-top:var(--s-4);padding:.45rem .95rem;
+  border:1px solid var(--hair-2);border-radius:999px;
+  color:var(--gold);
+}
+.hero__concierge::before{
+  content:"";width:6px;height:6px;border-radius:50%;background:var(--flame);flex:0 0 auto;
+}
+
+/* ---------- interaction polish ---------- */
+.menu__row{transition:background-color .2s ease,padding-left .2s ease}
+@media (hover:hover){
+  .menu__row:hover{background:rgba(242,233,220,.035);padding-left:var(--s-3)}
+}
+.card{transition:transform .22s cubic-bezier(.22,.61,.36,1),border-color .22s ease}
+@media (hover:hover){
+  .card:hover{transform:translateY(-3px);border-color:var(--hair-2)}
+}
+
+/* ---------- reveal (enhanced only) ---------- */
+[data-reveal]{opacity:1}
+.js-motion [data-reveal]{opacity:0;transform:translateY(22px)}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms !important;animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;scroll-behavior:auto !important;
+  }
+  .btn:hover{transform:none}
+  .card:hover{transform:none}
+  .js-motion [data-reveal]{opacity:1;transform:none}
+
+  /* No scroll ignition here, so every assessment point must read as lit and
+     the stage must not stick — nothing may be hidden behind motion. */
+  .apt__ring{stroke:var(--gold);stroke-opacity:1}
+  .apt__core{fill:var(--gold);fill-opacity:1}
+  .apt__num{fill:#160A05;fill-opacity:1}
+  .apt__halo{opacity:.22}
+  .assess__stage{position:static}
+}
 </style>
 </head>
+
 <body>
+
+<div class="grain" aria-hidden="true"></div>
+
 <a class="skip" href="#main">Skip to content</a>
 
-<header>
-  <div class="wrap bar">
-    <span class="brandline">
-      <img src="assets/img/logo-128.png" alt="" width="34" height="34">
-      <b>Charged Rootz</b>
-    </span>
-    <span class="mono byline">Design round 1 · Built by BabyDaddy</span>
+<header class="nav">
+  <div class="wrap">
+    <div class="nav__bar">
+      <a class="nav__brand" href="#top">
+        <img class="nav__mark" src="assets/img/logo-alpha-768.png" alt="" width="768" height="768" aria-hidden="true">
+        <span class="nav__word">Charged Rootz</span>
+      </a>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="about.html">About</a>
+        <a href="#assessment">The assessment</a>
+        <a href="#sessions">Sessions</a>
+        <a href="#bar">Botanical bar</a>
+      </nav>
+      <a class="btn btn--wire" href="#book" data-book>Book a session</a>
+    </div>
+    <nav class="nav__strip" aria-label="Sections">
+      <a href="about.html">About</a>
+      <a href="#practice">The practice</a>
+      <a href="#assessment">The assessment</a>
+      <a href="#sessions">Sessions</a>
+      <a href="#bar">Botanical bar</a>
+      <a href="#book">Book</a>
+    </nav>
   </div>
 </header>
 
 <main id="main">
+  <span id="top"></span>
 
-<div class="hero">
-  <div class="wrap heroGrid">
-    <div>
-      <p class="mono eyebrow">Three directions · pick one</p>
-      <h1>Same site. Three ways to <em>feel</em> it.</h1>
-      <p class="lede">
-        These are three design directions for one website — your stretch practice out front,
-        your botanical bar riding along on the same site. Every juice, shot, add-on and price
-        in them is pulled straight from your own printed menus. The colours come out of your
-        actual logo file, not a guess.
-      </p>
-      <p class="lede">
-        Open all three, then tell me which one feels like you. Anything with a
-        <span style="border-bottom:1px dotted var(--amber)">dotted underline</span> is a
-        placeholder I need your real answer for.
-      </p>
-    </div>
-    <div class="heroCard">
-      <h3>How to review this</h3>
-      <ul>
-        <li>Open each concept and scroll all the way down.</li>
-        <li>Check it on your phone too — that is where most people will see it.</li>
-        <li>Note what you like from each. We can mix.</li>
-        <li>Answer the questions further down this page.</li>
-      </ul>
-    </div>
-  </div>
-</div>
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" aria-labelledby="hero-h1">
+    <svg class="hero__sun" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="coronaGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#E8C21A"></stop>
+          <stop offset="28%" stop-color="#D98A1C"></stop>
+          <stop offset="62%" stop-color="#DA3E1B"></stop>
+          <stop offset="100%" stop-color="#E11417"></stop>
+        </linearGradient>
+        <radialGradient id="coronaFade" cx="50%" cy="50%" r="50%">
+          <stop offset="42%" stop-color="#fff" stop-opacity="0"></stop>
+          <stop offset="66%" stop-color="#fff" stop-opacity=".95"></stop>
+          <stop offset="100%" stop-color="#fff" stop-opacity="0"></stop>
+        </radialGradient>
+        <mask id="coronaMask">
+          <rect width="600" height="600" fill="url(#coronaFade)"></rect>
+        </mask>
+      </defs>
+      <g mask="url(#coronaMask)">
+        <g class="corona-outer" id="coronaOuter" stroke="url(#coronaGrad)" stroke-linecap="round" fill="none"></g>
+        <g class="corona-inner" id="coronaInner" stroke="url(#coronaGrad)" stroke-linecap="round" fill="none" opacity=".5"></g>
+      </g>
+    </svg>
 
-<section>
-  <div class="wrap">
-    <div class="shead"><h2>The three directions</h2><span class="mono">01 — 03</span></div>
-    <hr class="rule">
-    <div class="concepts">
-
-      <article class="card">
-        <div class="shot">
-          <img src="assets/shots/concept-1.png" alt="Preview of the Ember concept" loading="lazy" decoding="async"
-               onerror="this.style.display='none';this.nextElementSibling.hidden=false">
-          <div class="pending" hidden><span class="mono">Preview rendering</span><span>Open the concept to view</span></div>
-        </div>
-        <div class="cbody">
-          <p class="mono cnum">Concept 01</p>
-          <h3>Ember</h3>
-          <p>Dark and cinematic — your logo lit like a sun, deep black behind it. The four steps
-             of a session unfold as you scroll. This one leans into the fire in your brand.</p>
-          <div class="tags"><span class="tag">Dark</span><span class="tag">Cinematic</span><span class="tag">Scroll-driven</span></div>
-          <a class="cta" href="concept-1-ember/index.html">Open Ember</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="shot">
-          <img src="assets/shots/concept-2.png" alt="Preview of the Apothecary concept" loading="lazy" decoding="async"
-               onerror="this.style.display='none';this.nextElementSibling.hidden=false">
-          <div class="pending" hidden><span class="mono">Preview rendering</span><span>Open the concept to view</span></div>
-        </div>
-        <div class="cbody">
-          <p class="mono cnum">Concept 02</p>
-          <h3>Apothecary</h3>
-          <p>Warm daylight and calm — closer to a herbalist's shop than a gym. Your menu becomes
-             a searchable list people can filter, and it prints cleanly on paper.</p>
-          <div class="tags"><span class="tag">Light</span><span class="tag">Editorial</span><span class="tag">Filterable menu</span></div>
-          <a class="cta" href="concept-2-apothecary/index.html">Open Apothecary</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="shot">
-          <img src="assets/shots/concept-3.png" alt="Preview of the Broadsheet concept" loading="lazy" decoding="async"
-               onerror="this.style.display='none';this.nextElementSibling.hidden=false">
-          <div class="pending" hidden><span class="mono">Preview rendering</span><span>Open the concept to view</span></div>
-        </div>
-        <div class="cbody">
-          <p class="mono cnum">Concept 03</p>
-          <h3>Broadsheet</h3>
-          <p>Bold printed-poster energy — big type, hard edges, everything on a grid. It also
-             sketches how the bigger multi-business hub could work later, clearly marked as a
-             separate future job.</p>
-          <div class="tags"><span class="tag">Bold</span><span class="tag">Print</span><span class="tag">Shows Phase 2</span></div>
-          <a class="cta" href="concept-3-broadsheet/index.html">Open Broadsheet</a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section id="scope">
-  <div class="wrap">
-    <div class="shead"><h2>What the $100 build covers</h2><span class="mono">Read this part</span></div>
-    <hr class="rule">
-    <p class="lede" style="margin-bottom:2rem">
-      So there is no confusion later: this round buys you <strong>one website</strong>, with your
-      stretch practice leading and your juice menu on the same site. Below is exactly what is in
-      and what is not.
-    </p>
-    <div class="scope">
-      <div class="box in">
-        <h3><span class="pill g">Included</span> One site, $100 flat</h3>
-        <ul>
-          <li>One site, with the stretch practice leading</li>
-          <li>About you, and what a session actually involves</li>
-          <li>Session types and a booking request form that emails you</li>
-          <li>Your botanical bar menu on the same site — juices, shots, add-ons</li>
-          <li>Contact details and your existing payment handles</li>
-          <li>Mobile-first, accessible, fast, search-engine ready</li>
-          <li>You keep control of hosting and the domain</li>
-        </ul>
+    <div class="hero__inner wrap">
+      <img class="hero__logo" src="assets/img/logo-alpha-768.png"
+           alt="Charged Rootz — a sun-crowned figure rooted in flame"
+           width="768" height="768" fetchpriority="high" decoding="async">
+      <p class="micro hero__tag" id="hero-tag">Rooted. Nourished. Elevated.</p>
+      <h1 class="hero__h1" id="hero-h1">You lie down.<br><em>I do the reaching.</em></h1>
+      <p class="hero__lede">Certified stretch therapy, one on one, in your own space. You need a couch or a mat and a pair of socks &mdash; I bring everything else.</p>
+      <p class="micro hero__concierge">You don&rsquo;t come to me. I come to you.</p>
+      <div class="hero__cta">
+        <a class="btn btn--grad" href="#book" data-book>Book a session</a>
+        <a class="btn btn--ghost" href="#assessment">See the 12-point assessment</a>
       </div>
-      <div class="box out">
-        <h3><span class="pill o">Not included</span> Would be a separate job</h3>
-        <ul>
-          <li>Separate sub-sites for each business lane</li>
-          <li>Live checkout or card processing</li>
-          <li>Event ticketing and weekend-retreat booking</li>
-          <li>Customer accounts or a login area</li>
-          <li>Calendar-synced real-time availability</li>
-          <li>Ongoing content updates after handover</li>
-        </ul>
+      <p class="micro hero__meta" id="hero-meta">Est.&nbsp;2021 · Certified through CNU&nbsp;Stretch</p>
+    </div>
+  </section>
+
+  <!-- ===================== THE PRACTICE ===================== -->
+  <section class="section" id="practice" aria-labelledby="practice-h">
+    <div class="wrap">
+      <div class="practice__grid">
+        <figure class="frame practice__photo" style="margin:0">
+          <img src="assets/img/stretch-2-1100.jpg"
+               srcset="assets/img/stretch-2-640.jpg 640w, assets/img/stretch-2-1100.jpg 1100w"
+               sizes="(min-width:900px) 44vw, 92vw"
+               alt="Working a client through an assisted stretch, hands supporting the knee"
+               width="1100" height="1375" loading="lazy" decoding="async">
+        </figure>
+
+        <div class="practice__body" data-reveal>
+          <p class="micro eyebrow" id="practice-eyebrow">The practice</p>
+          <h2 id="practice-h" style="font-size:var(--t-h2)">Assisted stretch sessions</h2>
+          <p class="practice__quote" id="practice-blurb"></p>
+          <hr class="rule">
+          <dl class="facts">
+            <div class="fact"><dt>Where</dt><dd id="fact-city"></dd></div>
+            <div class="fact"><dt>Under the name</dt><dd id="fact-name"></dd></div>
+            <div class="fact"><dt>Since</dt><dd id="fact-est"></dd></div>
+          </dl>
+          <div class="cert">
+            <span class="cert__seal" aria-hidden="true">CNU</span>
+            <p class="micro" id="certLine"></p>
+          </div>
+        </div>
       </div>
     </div>
-    <p class="note">
-      <strong>About Concept 3.</strong> It includes a sketch of the full multi-business hub —
-      stretch, the bar, and weekend events all under one roof. That sketch is there so you can
-      see where this could go. It is <strong>not</strong> part of this $100 build and would be
-      quoted separately. Everything else in all three concepts is the same single site.
-    </p>
-  </div>
-</section>
+  </section>
 
-<section id="domain">
-  <div class="wrap">
-    <div class="shead"><h2>Your domain question</h2><span class="mono">Answered</span></div>
-    <hr class="rule">
-    <div class="answer">
-      <h3>Keep chargedrootz.com. Do not buy a second domain yet.</h3>
-      <p>
-        You asked whether it should be <code>stretchbychargedrootz</code>. My advice: put the
-        stretch site on the domain you already own, at <code>chargedrootz.com</code>.
-      </p>
-      <p>
-        When the other lanes are ready they live as paths on the same domain —
-        <code>chargedrootz.com/bar</code> and <code>chargedrootz.com/events</code> — instead of
-        separate purchases. That is exactly how my own site runs four business pages under one
-        domain.
-      </p>
-      <p>
-        Two reasons it matters: you spend nothing extra, and every visit builds the search
-        reputation of one name instead of splitting it across three. If you later decide the
-        stretch side needs its own name, you can add it then and point it here. Nothing gets
-        wasted.
-      </p>
+  <!-- ===================== RELEASE SEQUENCE ===================== -->
+  <section class="section" id="sequence" aria-labelledby="seq-h">
+    <div class="wrap">
+      <p class="micro eyebrow">Four steps, in order</p>
+      <h2 id="seq-h" style="font-size:var(--t-h2);margin-top:var(--s-4)">The release sequence</h2>
+      <p class="muted measure" style="margin-top:var(--s-4)">What actually happens, from the message you send to the bottle you walk out with.</p>
+
+      <div class="seq" id="seq">
+        <div class="seq__visual">
+          <div class="seq__frames" id="seqFrames"></div>
+          <p class="micro seq__count" id="seqCount" aria-hidden="true">01 / 04</p>
+        </div>
+        <div class="seq__list">
+          <div class="seq__spine" aria-hidden="true"><span class="seq__spine-fill" id="seqFill"></span></div>
+          <ol class="seq__steps" id="seqSteps"></ol>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="questions">
-  <div class="wrap">
-    <div class="shead"><h2>What I need from you</h2><span class="mono">Six answers</span></div>
-    <hr class="rule">
-    <p class="lede" style="margin-bottom:1.75rem">
-      Anything dotted in the concepts is a guess standing in for your real answer. Reply to the
-      email with these and I can lock the build.
-    </p>
-    <div class="qs">
-      <div class="q">Your shirt says <strong>CNU Stretch</strong>. Is that a certification, a studio you work under, or a name you want on the site?</div>
-      <div class="q">Which city and gym should the site send people to? Your number is a 314 but the flag on the wall is Arkansas.</div>
-      <div class="q">Session lengths and prices are placeholders. What do you actually charge, and how long are your sessions?</div>
-      <div class="q">Do you want your own name on the site, or keep it all under Charged Rootz?</div>
-      <div class="q">Which days do you stretch, and how far ahead do you take bookings?</div>
-      <div class="q">Should the juice menu take orders, or just show people what you make?</div>
+
+  <!-- ===================== THE 12-POINT ASSESSMENT (signature) ===================== -->
+  <section class="section assess" id="assessment" aria-labelledby="assess-h">
+    <div class="wrap">
+      <p class="micro eyebrow">Every new client starts here</p>
+      <h2 id="assess-h" style="font-size:var(--t-h2);margin-top:var(--s-4);text-wrap:balance">The 12-point assessment</h2>
+      <p class="muted measure" style="margin-top:var(--s-4)" id="assessLede"></p>
+
+      <div class="assess__grid" style="margin-top:var(--s-7)">
+        <div class="assess__stage">
+          <svg class="assess__fig" viewBox="0 0 240 560" role="img" aria-labelledby="assessFigTitle">
+            <title id="assessFigTitle">Body map showing the twelve zones checked during the assessment</title>
+            <g class="assess__body">
+              <circle cx="120" cy="42" r="22"></circle>
+              <path d="M120 64 V 84"></path>
+              <path d="M84 92 H 156"></path>
+              <path d="M120 84 V 272"></path>
+              <path d="M84 92 L 68 178 L 60 258"></path>
+              <path d="M156 92 L 172 178 L 180 258"></path>
+              <path d="M92 272 H 148"></path>
+              <path d="M100 272 L 94 390 L 98 508"></path>
+              <path d="M140 272 L 146 390 L 142 508"></path>
+              <path d="M98 508 H 78"></path>
+              <path d="M142 508 H 162"></path>
+            </g>
+            <g id="assessPoints"></g>
+          </svg>
+          <p class="assess__readout" id="assessReadout" aria-hidden="true"></p>
+        </div>
+
+        <div>
+          <ol class="zones" id="zonesList"></ol>
+          <p class="micro muted" style="margin-top:var(--s-5)" id="assessNote"></p>
+        </div>
+      </div>
     </div>
-    <p class="note">
-      Also — you mentioned videos of you stretching. Send those and I will work the best one in.
-      The four photos in these concepts are yours; I rotated and cropped them for the web.
-    </p>
-  </div>
-</section>
+  </section>
 
-<section id="craft">
-  <div class="wrap">
-    <div class="shead"><h2>What went into these</h2><span class="mono">Under the hood</span></div>
-    <hr class="rule">
-    <div class="craft">
-      <div><b>Brand extraction</b><span>Palette sampled pixel-by-pixel from your logo file and printed menus. Nothing invented.</span></div>
-      <div><b>Design system</b><span>One shared token set and content layer driving all three concepts, so they stay consistent.</span></div>
-      <div><b>Responsive typography</b><span>Fluid type scales that resize with the screen instead of jumping at breakpoints.</span></div>
-      <div><b>Modern CSS layout</b><span>Grid and flexbox, asymmetric compositions, hairline grid systems.</span></div>
-      <div><b>Scroll animation</b><span>GSAP with ScrollTrigger and Lenis smooth scroll, driving the pinned session sequence.</span></div>
-      <div><b>Accessibility</b><span>WCAG AA contrast, keyboard navigation, screen-reader landmarks, reduced-motion support.</span></div>
-      <div><b>Performance</b><span>Responsive image sets, lazy loading, reserved space to stop layout jumping. No heavy frameworks.</span></div>
-      <div><b>Interactive components</b><span>Filterable and searchable menu with saved state, accessible dialogs.</span></div>
-      <div><b>Form engineering</b><span>Inline validation with live announcements, and it still works with scripts disabled.</span></div>
-      <div><b>Technical SEO</b><span>Structured data so Google can read your business, services and menu. Social preview cards.</span></div>
-      <div><b>Print styling</b><span>The Apothecary menu prints cleanly on paper — useful behind the bar.</span></div>
-      <div><b>Image pipeline</b><span>Your photos rotated, cropped, colour-corrected and exported at multiple sizes.</span></div>
+  <!-- ===================== SESSIONS ===================== -->
+  <section class="section" id="sessions" aria-labelledby="sessions-h">
+    <div class="wrap">
+      <p class="micro eyebrow">Session types</p>
+      <h2 id="sessions-h" style="font-size:var(--t-h2);margin-top:var(--s-4);text-wrap:balance">Pick the one that fits your week</h2>
+      <p class="muted measure" style="margin-top:var(--s-4)">Your first 50-minute session includes the 12-point assessment. After that, every session is built around what your body needs that day.</p>
+      <div class="sessions__grid" id="sessionCards"></div>
+
+      <h3 class="micro eyebrow" style="margin-top:var(--s-8)">Before I arrive</h3>
+      <div class="prep" id="prepList"></div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- ===================== BOTANICAL BAR ===================== -->
+  <section class="section" id="bar" aria-labelledby="bar-h">
+    <div class="wrap">
+      <p class="micro eyebrow">The botanical bar</p>
+      <h2 id="bar-h" style="font-size:var(--t-h2);margin-top:var(--s-4)">Cold-pressed, made to order</h2>
+      <p class="muted measure" style="margin-top:var(--s-4)" id="bar-line"></p>
+
+      <figure class="frame frame--product bar__banner" style="margin:0">
+        <img src="assets/img/lineup-2000.jpg"
+             srcset="assets/img/lineup-700.jpg 700w, assets/img/lineup-2000.jpg 2000w"
+             sizes="(min-width:1200px) 1136px, 92vw"
+             alt="Cold-pressed juices in glass bottles beside the produce they are made from"
+             width="2000" height="1055" loading="lazy" decoding="async">
+      </figure>
+
+      <h3 class="sr-only">Cold-pressed juices</h3>
+      <div class="band">
+        <span class="band__name">Cold-pressed juice</span>
+        <span class="micro band__unit" id="juiceUnit"></span>
+        <span class="band__price" id="juicePrice"></span>
+      </div>
+      <ul class="menu" id="juiceList"></ul>
+
+      <h3 class="sr-only">Wellness shots</h3>
+      <figure class="frame frame--product bar__strip" style="margin:0">
+        <img src="assets/img/shots-2000.jpg"
+             srcset="assets/img/shots-700.jpg 700w, assets/img/shots-2000.jpg 2000w"
+             sizes="(min-width:1200px) 1136px, 92vw"
+             alt="Charged Rootz wellness shots beside a pineapple, lemon and fresh ginger"
+             width="2000" height="1055" loading="lazy" decoding="async">
+      </figure>
+      <div class="band">
+        <span class="band__name">Wellness shots</span>
+        <span class="micro band__unit" id="shotUnit"></span>
+        <span class="band__price" id="shotPrice"></span>
+      </div>
+      <ul class="menu" id="shotList"></ul>
+
+      <div class="bar__lower">
+        <figure class="frame frame--product bar__tall" style="margin:0">
+          <img src="assets/img/infusions-1400.jpg"
+               srcset="assets/img/infusions-800.jpg 800w, assets/img/infusions-1400.jpg 1400w"
+               sizes="(min-width:860px) 40vw, 92vw"
+               alt="Three Charged Rootz herbal infusions with mint and citrus, labels facing out"
+               width="1400" height="1867" loading="lazy" decoding="async">
+        </figure>
+        <div>
+          <h3 style="font-size:var(--t-h3)">Add to anything</h3>
+          <ul class="addons" id="addonList" style="margin-top:var(--s-4)"></ul>
+          <div class="smoothie" id="smoothie"></div>
+        </div>
+      </div>
+
+      <div class="menus-link">
+        <p id="foodLine"></p>
+        <a class="btn btn--ghost" id="menuTrigger" href="assets/img/menu-juice-1206.jpg" target="_blank" rel="noopener">View her printed menus</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BOOKING ===================== -->
+  <section class="section book" id="book" aria-labelledby="book-h">
+    <div class="wrap">
+      <div class="book__grid">
+        <div class="book__aside">
+          <p class="micro eyebrow">Two ways in</p>
+          <h2 id="book-h" style="font-size:var(--t-h2);text-wrap:balance">Ready to book?</h2>
+          <p>Pick a time for a one-on-one session, or tell me about a group and I&rsquo;ll quote a stretch party.</p>
+
+          <a class="btn btn--grad" href="#book" data-book style="margin-top:var(--s-2)">Book a session</a>
+
+          <hr class="rule">
+          <p class="muted">Booking a stretch party, or not sure which session you need? Use the form &mdash; nothing is charged there, I just reply to confirm.</p>
+          <p class="micro muted">Questions first? <a href="mailto:contact@chargedrootz.com" style="color:var(--bone)">contact@chargedrootz.com</a></p>
+        </div>
+
+        <div>
+        <h3 class="micro eyebrow" id="form-h" style="margin-bottom:var(--s-5)">Or send a request</h3>
+        <form class="form" id="bookForm" aria-labelledby="form-h" action="mailto:contact@chargedrootz.com" method="post" enctype="text/plain" novalidate>
+          <div class="row row--2">
+            <div class="field">
+              <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+              <p class="field__err" id="e-name"></p>
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
+              <p class="field__err" id="e-email"></p>
+            </div>
+          </div>
+
+          <div class="row row--2">
+            <div class="field">
+              <label for="f-phone">Phone <span class="muted">(optional)</span></label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" aria-describedby="e-phone">
+              <p class="field__err" id="e-phone"></p>
+            </div>
+            <div class="field">
+              <label for="f-session">Session type <span class="req" aria-hidden="true">*</span></label>
+              <select id="f-session" name="session" required aria-describedby="e-session">
+                <option value="">Choose one</option>
+              </select>
+              <p class="field__err" id="e-session"></p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-hurts">What hurts, and what do you want back? <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="f-hurts" name="what_hurts" required aria-describedby="e-hurts"></textarea>
+            <p class="field__err" id="e-hurts"></p>
+          </div>
+
+          <fieldset class="days" aria-describedby="e-days">
+            <legend>Preferred days <span class="req" aria-hidden="true">*</span></legend>
+            <div class="days__set" id="daySet"></div>
+            <p class="field__err" id="e-days"></p>
+          </fieldset>
+
+          <div class="form__foot">
+            <button class="btn btn--wire" type="submit">Send request</button>
+            <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer>
-  <div class="wrap fgrid">
-    <span class="mono">Charged Rootz · Design round 1</span>
-    <span class="mono">Built by BabyDaddy · <a href="mailto:jada.ai@builtbybabydaddy.com">jada.ai@builtbybabydaddy.com</a></span>
+<!-- ===================== FOOTER ===================== -->
+<footer class="foot" aria-labelledby="foot-h">
+  <div class="wrap">
+    <h2 class="sr-only" id="foot-h">Contact and payment</h2>
+    <div class="foot__grid">
+      <section aria-labelledby="foot-reach">
+        <h3 id="foot-reach">Reach her</h3>
+        <ul class="foot__list" id="footContact"></ul>
+      </section>
+      <section aria-labelledby="foot-pay">
+        <h3 id="foot-pay">Pay her</h3>
+        <ul class="foot__list" id="footPay"></ul>
+      </section>
+      <section aria-labelledby="foot-promise">
+        <h3 id="foot-promise">The promise</h3>
+        <ul class="promise" id="footPromise"></ul>
+      </section>
+    </div>
+    <div class="foot__sign">
+      <p id="footLine"></p>
+      <p class="micro muted">Charged Rootz · Est. 2021</p>
+    </div>
   </div>
 </footer>
+
+<!-- ===================== TBD LEGEND ===================== -->
+<aside class="section legend" id="legend" aria-labelledby="legend-h">
+  <div class="wrap">
+    <p class="micro eyebrow">Needs your input</p>
+    <h2 id="legend-h" style="margin-top:var(--s-4);text-wrap:balance">Still needs your input</h2>
+    <p class="muted measure" style="margin-top:var(--s-4)">Session prices, the certification and the twelve-point count are now yours and confirmed. Everything still marked with a dotted underline is a placeholder waiting on you.</p>
+    <div class="legend__grid">
+      <div>
+        <h3>Placeholder values</h3>
+        <ul class="legend__list" id="legendList"></ul>
+      </div>
+      <div>
+        <h3>Questions for you</h3>
+        <ol class="legend__q" id="legendQ"></ol>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- ===================== PRINTED MENUS DIALOG ===================== -->
+<dialog class="sheet" id="menuSheet" aria-labelledby="sheet-title">
+  <div class="sheet__head">
+    <h2 class="sheet__title" id="sheet-title">Her printed menus</h2>
+    <button class="sheet__close" type="button" id="sheetClose">Close</button>
+  </div>
+  <div class="sheet__body">
+    <figure class="frame frame--plain" style="margin:0">
+      <img src="assets/img/menu-juice-1206.jpg"
+           srcset="assets/img/menu-juice-700.jpg 700w, assets/img/menu-juice-1206.jpg 1206w"
+           sizes="(min-width:768px) 42vw, 84vw"
+           alt="The printed Charged Rootz juice and wellness shot menu"
+           width="1206" height="1822" loading="lazy" decoding="async">
+      <figcaption class="micro" style="padding:var(--s-3) 0">Juice and wellness shot menu</figcaption>
+    </figure>
+    <figure class="frame frame--plain" style="margin:0">
+      <img src="assets/img/menu-food-1206.jpg"
+           srcset="assets/img/menu-food-700.jpg 700w, assets/img/menu-food-1206.jpg 1206w"
+           sizes="(min-width:768px) 42vw, 84vw"
+           alt="The printed Charged Rootz food plan menu"
+           width="1206" height="1828" loading="lazy" decoding="async">
+      <figcaption class="micro" style="padding:var(--s-3) 0">Food plan menu</figcaption>
+    </figure>
+  </div>
+</dialog>
+
+<!-- ========== content ========== -->
+<script src="assets/data/content.js"></script>
+
+<!-- ========== render (synchronous, no libraries, works from file://) ========== -->
+<script>
+(function () {
+  "use strict";
+  var CR = window.CR;
+  if (!CR) { return; }
+
+  /* content.js paths are already root-relative; this page sits at the root. */
+  function A(p) { return p; }
+
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
+  /* Fields may be a plain string (confirmed) or {tbd:true,value} (needs her input). */
+  function val(f) { return (f && typeof f === "object" && "value" in f) ? f.value : f; }
+
+  var TBD_TITLE = "Placeholder — send me the real one and I will swap it in";
+  var tbdRegistry = [];
+
+  /* Renders {tbd:true,value} as a dotted placeholder and logs it for the legend. */
+  function ph(field, label) {
+    if (field && typeof field === "object" && field.tbd) {
+      tbdRegistry.push({ label: label, value: field.value });
+      return '<span class="tbd" title="' + TBD_TITLE + '">' + esc(field.value) + "</span>";
+    }
+    return esc(field && field.value !== undefined ? field.value : field);
+  }
+
+  function set(id, html) {
+    var n = document.getElementById(id);
+    if (n) { n.innerHTML = html; }
+  }
+
+  function chips(list, accent) {
+    if (!list || !list.length) { return ""; }
+    return '<ul class="chips">' + list.map(function (b) {
+      return '<li class="chip" data-c="' + esc(accent) + '">' + esc(b) + "</li>";
+    }).join("") + "</ul>";
+  }
+
+  /* ---------- hero corona ---------- */
+  (function corona() {
+    var outer = document.getElementById("coronaOuter");
+    var inner = document.getElementById("coronaInner");
+    if (!outer || !inner) { return; }
+    var C = 300, out = "", inn = "", i, a, rad;
+    for (i = 0; i < 60; i++) {
+      a = (i / 60) * Math.PI * 2;
+      rad = i % 3 === 0 ? 292 : (i % 3 === 1 ? 258 : 236);
+      out += '<line x1="' + (C + Math.cos(a) * 176).toFixed(1) + '" y1="' + (C + Math.sin(a) * 176).toFixed(1) +
+             '" x2="' + (C + Math.cos(a) * rad).toFixed(1) + '" y2="' + (C + Math.sin(a) * rad).toFixed(1) +
+             '" stroke-width="' + (i % 3 === 0 ? 1.25 : 0.7) + '"/>';
+    }
+    for (i = 0; i < 96; i++) {
+      a = (i / 96) * Math.PI * 2;
+      inn += '<line x1="' + (C + Math.cos(a) * 152).toFixed(1) + '" y1="' + (C + Math.sin(a) * 152).toFixed(1) +
+             '" x2="' + (C + Math.cos(a) * 164).toFixed(1) + '" y2="' + (C + Math.sin(a) * 164).toFixed(1) +
+             '" stroke-width="0.6"/>';
+    }
+    outer.innerHTML = out;
+    inner.innerHTML = inn;
+  }());
+
+  /* ---------- hero + practice ---------- */
+  set("hero-tag", esc(CR.brand.tagline));
+  set("hero-meta", "Est. " + esc(CR.brand.est) + " · Certified through CNU Stretch");
+  set("practice-blurb", esc(CR.stretch.blurb));
+  set("certLine", esc(CR.brand.cert));
+  set("fact-city", ph(CR.brand.city, "Your city / service area"));
+  set("fact-name", ph(CR.brand.stretchName, "Name of the stretch offering"));
+  set("fact-est", esc(CR.brand.est));
+
+  /* ---------- release sequence ---------- */
+  (function sequence() {
+    var steps = CR.stretch.steps;
+    var photos = CR.img.stretch;
+    var frames = document.getElementById("seqFrames");
+    var list = document.getElementById("seqSteps");
+    if (!frames || !list) { return; }
+
+    frames.innerHTML = steps.map(function (s, i) {
+      var p = photos[i] || photos[0];
+      var first = i === 0;
+      return '<figure class="frame seq__frame" data-i="' + i + '"' + (first ? "" : ' aria-hidden="true"') + ' style="margin:0">' +
+        '<img src="' + esc(A(p.src)) + '" srcset="' + esc(A(p.sm)) + ' 640w, ' + esc(A(p.src)) + ' 1100w"' +
+        ' sizes="(min-width:900px) 46vw, 92vw" width="1100" height="1375" loading="lazy" decoding="async"' +
+        ' alt="' + (first ? esc(p.alt) : "") + '">' +
+        "</figure>";
+    }).join("");
+
+    list.innerHTML = steps.map(function (s, i) {
+      var n = ("0" + (i + 1)).slice(-2);
+      return '<li class="seq__step" data-i="' + i + '">' +
+        '<span class="seq__dot" aria-hidden="true"></span>' +
+        '<span class="micro seq__k">' + n + " / " + esc(s.k) + "</span>" +
+        '<h3 class="seq__t">' + esc(s.t) + "</h3>" +
+        '<p class="seq__d">' + esc(s.d) + "</p>" +
+        "</li>";
+    }).join("");
+  }());
+
+  /* ---------- sessions ---------- */
+  (function sessions() {
+    var host = document.getElementById("sessionCards");
+    var sel = document.getElementById("f-session");
+    if (!host) { return; }
+
+    host.innerHTML = CR.stretch.sessions.map(function (s) {
+      var price = ph(s.price, s.name + " — price");
+      var dur = ph(s.dur, s.name + " — length");
+      return '<article class="card' + (s.featured ? " card--featured" : "") + '">' +
+        '<h3 class="card__name">' + esc(s.name) + "</h3>" +
+        '<p class="card__meta"><span class="card__price">' + price + "</span>" +
+        '<span class="micro card__dur">' + dur + "</span></p>" +
+        '<p class="card__desc">' + esc(s.desc) + "</p>" +
+        '<ul class="card__inc">' + s.includes.map(function (x) {
+          return "<li>" + esc(x) + "</li>";
+        }).join("") + "</ul>" +
+        "</article>";
+    }).join("");
+
+    if (sel) {
+      CR.stretch.sessions.forEach(function (s) {
+        var o = document.createElement("option");
+        o.value = s.name;
+        o.textContent = s.party
+          ? s.name + " (tell me about your group)"
+          : s.name + " — " + val(s.price);
+        sel.appendChild(o);
+      });
+      var other = document.createElement("option");
+      other.value = "Not sure yet";
+      other.textContent = "Not sure yet — help me pick";
+      sel.appendChild(other);
+    }
+  }());
+
+
+  /* ---------- the 12-point assessment (signature) ----------
+     Coordinates are hand-placed against the figure in the SVG above and run in
+     the same order as CR.stretch.assessment.zones. */
+  var ASSESS_XY = [
+    [120, 76], [156, 92], [100,116], [120,150], [160,152], [120,232],
+    [100,272], [140,272], [146,340], [ 96,330], [ 96,440], [143,495]
+  ];
+
+  (function assessment() {
+    var a = CR.stretch.assessment;
+    var gPts = document.getElementById("assessPoints");
+    var list = document.getElementById("zonesList");
+    if (!a || !gPts || !list) { return; }
+
+    set("assessLede", esc(a.lede));
+
+    gPts.innerHTML = a.zones.map(function (z, i) {
+      var xy = ASSESS_XY[i] || [120, 280];
+      return '<g class="apt" data-i="' + i + '">' +
+        '<circle class="apt__halo" cx="' + xy[0] + '" cy="' + xy[1] + '" r="15"></circle>' +
+        '<circle class="apt__ring" cx="' + xy[0] + '" cy="' + xy[1] + '" r="9.5"></circle>' +
+        '<circle class="apt__core" cx="' + xy[0] + '" cy="' + xy[1] + '" r="9.5"></circle>' +
+        '<text class="apt__num" x="' + xy[0] + '" y="' + xy[1] + '">' + (i + 1) + '</text>' +
+        '</g>';
+    }).join("");
+
+    list.innerHTML = a.zones.map(function (z, i) {
+      var name = a.zonesAreTbd
+        ? '<span class="tbd" title="' + TBD_TITLE + '">' + esc(z.n) + '</span>'
+        : esc(z.n);
+      return '<li class="zone" data-i="' + i + '">' +
+        '<span class="micro zone__n" aria-hidden="true"></span>' +
+        '<span><span class="zone__t">' + name + '</span>' +
+        '<span class="zone__s">' + esc(z.s) + '</span></span></li>';
+    }).join("");
+
+    if (a.zonesAreTbd) {
+      tbdRegistry.push({
+        label: "The twelve assessment zones",
+        value: "standard full-body zones — send me your actual protocol"
+      });
+      set("assessNote", "The count is hers. The twelve zone names are the standard full-body "
+        + "mobility checks and are marked as placeholders until she sends her own list.");
+    }
+
+    /* Static readout so the panel is never blank before scroll or without JS motion. */
+    set("assessReadout", "<b>12</b><span>points, every first visit</span>");
+  }());
+
+  /* ---------- before I arrive ---------- */
+  (function prep() {
+    var host = document.getElementById("prepList");
+    if (!host || !CR.stretch.prep) { return; }
+    host.innerHTML = CR.stretch.prep.map(function (x) {
+      return '<div class="prep__item"><h3>' + esc(x.t) + "</h3><p>" + esc(x.d) + "</p></div>";
+    }).join("");
+  }());
+
+  /* ---------- booking destinations ----------
+     Every [data-book] control points at Acuity once the URL is filled in
+     in content.js. Until then they fall back to the on-page request form. */
+  (function bookingLinks() {
+    var url = CR.booking && CR.booking.acuity;
+    if (!url) { return; }
+    Array.prototype.forEach.call(document.querySelectorAll("[data-book]"), function (a) {
+      a.setAttribute("href", url);
+      a.setAttribute("target", "_blank");
+      a.setAttribute("rel", "noopener");
+    });
+  }());
+
+  /* ---------- botanical bar ---------- */
+  (function bar() {
+    var b = CR.bar;
+    set("bar-line", esc(CR.brand.lines.bar));
+    set("foodLine", esc(CR.brand.lines.food));
+
+    set("juiceUnit", esc(b.juices.unit) + " · every juice");
+    set("juicePrice", esc(b.juices.price));
+    set("juiceList", b.juices.items.map(function (j) {
+      return "<li>" +
+        '<p class="menu__n">' + esc(j.n) + "</p>" +
+        '<p class="menu__i">' + esc(j.i) + "</p>" +
+        chips(j.b, j.c) +
+        "</li>";
+    }).join(""));
+
+    set("shotUnit", esc(b.shots.unit) + " · every shot");
+    set("shotPrice", esc(b.shots.price));
+    set("shotList", b.shots.items.map(function (s) {
+      return "<li>" +
+        '<p class="menu__n">' + esc(s.n) + "</p>" +
+        '<p class="menu__i">' + esc(s.i) + "</p>" +
+        "</li>";
+    }).join(""));
+
+    set("addonList", b.addons.map(function (a) {
+      return "<li>" +
+        '<span class="addons__n">' + esc(a.n) + "</span>" +
+        '<span class="micro addons__u">' + esc(a.u) + "</span>" +
+        '<span class="addons__p">' + esc(a.p) + "</span>" +
+        "</li>";
+    }).join(""));
+
+    var sm = b.smoothie;
+    set("smoothie",
+      '<div class="smoothie__top">' +
+        '<h4 class="smoothie__n">' + esc(sm.n) + "</h4>" +
+        '<span class="smoothie__p">' + esc(sm.p) + "</span>" +
+      "</div>" +
+      '<p class="muted">' + esc(sm.i) + "</p>" +
+      chips(sm.b, "flame")
+    );
+  }());
+
+  /* ---------- booking days ---------- */
+  (function days() {
+    var host = document.getElementById("daySet");
+    if (!host) { return; }
+    var names = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    host.innerHTML = names.map(function (d) {
+      return '<label class="day"><input type="checkbox" name="days" value="' + d + '"><span>' + d + "</span></label>";
+    }).join("");
+  }());
+
+  /* ---------- footer ---------- */
+  (function footer() {
+    var br = CR.brand;
+    set("footContact",
+      '<li><b>Email</b><br><a href="mailto:' + esc(br.email) + '">' + esc(br.email) + "</a></li>" +
+      '<li><b>Phone</b><br><a href="tel:+1' + esc(br.phone.replace(/[^0-9]/g, "")) + '">' + esc(br.phone) + "</a></li>" +
+      "<li><b>Area</b><br>" + ph(br.city, "Your city / service area") + "</li>"
+    );
+    set("footPay",
+      "<li><b>Cash App</b><br>" + esc(br.pay.cashapp) + "</li>" +
+      '<li><b>PayPal</b><br><a href="https://' + esc(br.pay.paypal) + '" rel="noopener">' + esc(br.pay.paypal) + "</a></li>" +
+      "<li><b>Apple Pay</b><br>" + esc(br.pay.applepay) + "</li>"
+    );
+    set("footPromise", CR.bar.promise.map(function (p) {
+      return "<li>" + esc(p) + "</li>";
+    }).join(""));
+    set("footLine", esc(br.lines.foot));
+  }());
+
+  /* ---------- legend (runs last: registry is now complete) ---------- */
+  (function legend() {
+    var seen = {};
+    var rows = tbdRegistry.filter(function (r) {
+      var k = r.label + "|" + r.value;
+      if (seen[k]) { return false; }
+      seen[k] = true;
+      return true;
+    });
+    rows.push({ label: "City in the search-engine data (JSON-LD)", value: "Your city" });
+
+    set("legendList", rows.map(function (r) {
+      return "<li><b>" + esc(r.label) + "</b><span>shown as</span>" +
+        '<span class="tbd" title="' + TBD_TITLE + '">' + esc(r.value) + "</span></li>";
+    }).join(""));
+
+    set("legendQ", CR.questions.map(function (q) {
+      return "<li><span>" + esc(q) + "</span></li>";
+    }).join(""));
+  }());
+}());
+</script>
+
+<!-- ========== interaction + motion (never required to read the page) ========== -->
+<script>
+window.addEventListener("DOMContentLoaded", function () {
+  "use strict";
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hasGSAP = !!(window.gsap && window.ScrollTrigger);
+
+  /* ---------------- printed menus dialog (progressive enhancement) ---------------- */
+  (function menuDialog() {
+    var trigger = document.getElementById("menuTrigger");
+    var sheet = document.getElementById("menuSheet");
+    var close = document.getElementById("sheetClose");
+    if (!trigger || !sheet || typeof sheet.showModal !== "function") { return; }
+
+    trigger.addEventListener("click", function (e) {
+      e.preventDefault();
+      sheet.showModal();
+      close.focus();
+    });
+    close.addEventListener("click", function () { sheet.close(); });
+    sheet.addEventListener("close", function () { trigger.focus(); });
+    sheet.addEventListener("click", function (e) {
+      if (e.target === sheet) { sheet.close(); }
+    });
+  }());
+
+  /* ---------------- booking form ---------------- */
+  (function bookingForm() {
+    var form = document.getElementById("bookForm");
+    var status = document.getElementById("formStatus");
+    if (!form || !status) { return; }
+
+    var rules = [
+      { id: "f-name", err: "e-name", test: function (v) { return v.trim().length >= 2; },
+        msg: "Add your name so I know who I am replying to." },
+      { id: "f-email", err: "e-email", test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()); },
+        msg: "Add an email I can reply to." },
+      { id: "f-phone", err: "e-phone", test: function (v) { return v.trim() === "" || v.replace(/[^0-9]/g, "").length >= 10; },
+        msg: "That phone number looks short. Leave it blank if you would rather not." },
+      { id: "f-session", err: "e-session", test: function (v) { return v !== ""; },
+        msg: "Pick a session type, or choose help me pick." },
+      { id: "f-hurts", err: "e-hurts", test: function (v) { return v.trim().length >= 8; },
+        msg: "Tell me what is bothering you, even in a few words." }
+    ];
+
+    function checkOne(rule, show) {
+      var input = document.getElementById(rule.id);
+      var errNode = document.getElementById(rule.err);
+      var ok = rule.test(input.value);
+      if (show) {
+        input.setAttribute("aria-invalid", ok ? "false" : "true");
+        errNode.textContent = ok ? "" : rule.msg;
+      }
+      return ok;
+    }
+
+    function checkDays(show) {
+      var boxes = form.querySelectorAll('input[name="days"]');
+      var errNode = document.getElementById("e-days");
+      var ok = false, i;
+      for (i = 0; i < boxes.length; i++) { if (boxes[i].checked) { ok = true; } }
+      if (show) { errNode.textContent = ok ? "" : "Pick at least one day that usually works."; }
+      return ok;
+    }
+
+    rules.forEach(function (rule) {
+      var input = document.getElementById(rule.id);
+      input.addEventListener("blur", function () { checkOne(rule, true); });
+      input.addEventListener("input", function () {
+        if (input.getAttribute("aria-invalid") === "true") { checkOne(rule, true); }
+      });
+    });
+    form.querySelectorAll('input[name="days"]').forEach(function (b) {
+      b.addEventListener("change", function () { checkDays(true); });
+    });
+
+    form.addEventListener("submit", function (e) {
+      var firstBad = null;
+      var bad = 0;
+      rules.forEach(function (rule) {
+        if (!checkOne(rule, true)) {
+          bad++;
+          if (!firstBad) { firstBad = document.getElementById(rule.id); }
+        }
+      });
+      if (!checkDays(true)) {
+        bad++;
+        if (!firstBad) { firstBad = form.querySelector('input[name="days"]'); }
+      }
+
+      /* The mailto action is the no-JS fallback. With JS we validate first and
+         hand off to the mail client only once the request is actually complete. */
+      e.preventDefault();
+
+      if (bad > 0) {
+        status.setAttribute("data-tone", "err");
+        status.textContent = bad === 1
+          ? "One field needs a fix — see the note under it."
+          : bad + " fields need a fix — see the notes under them.";
+        if (firstBad) { firstBad.focus(); }
+        return;
+      }
+      status.setAttribute("data-tone", "ok");
+      status.textContent = "Looks good — opening your email app with this filled in.";
+
+      /* A mailto: form POST is unreliable (most browsers drop or mangle it), so
+         build the message ourselves and hand the mail client a finished draft. */
+      (function openMailDraft() {
+        var v = function (id) { var n = document.getElementById(id); return n ? n.value.trim() : ""; };
+        var days = Array.prototype.filter.call(
+          form.querySelectorAll('input[name="days"]'), function (b) { return b.checked; }
+        ).map(function (b) { return b.value; }).join(", ");
+
+        var body = [
+          "Name: "  + v("f-name"),
+          "Email: " + v("f-email"),
+          "Phone: " + (v("f-phone") || "not given"),
+          "Session: " + v("f-session"),
+          "Preferred days: " + days,
+          "",
+          "What hurts / what they want back:",
+          v("f-hurts")
+        ].join("\n");
+
+        window.location.href = "mailto:contact@chargedrootz.com"
+          + "?subject=" + encodeURIComponent("Session request — " + v("f-name"))
+          + "&body="    + encodeURIComponent(body);
+      }());
+    });
+  }());
+
+  /* ---------------- motion: skipped entirely without GSAP or with reduced motion ---------------- */
+  if (!hasGSAP || reduced) {
+    document.documentElement.classList.remove("pre-ignite");
+    return;
+  }
+
+  document.documentElement.classList.add("js-motion");
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* smooth scroll — no hijacking, native wheel distance is preserved */
+  var lenis = null;
+  if (window.Lenis) {
+    lenis = new window.Lenis({ duration: 1.05, smoothWheel: true, touchMultiplier: 1.6 });
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  /* anchor links keep working, and focus lands where the reader lands */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      var id = a.getAttribute("href").slice(1);
+      var target = id && document.getElementById(id);
+      if (!target) { return; }
+      var chrome = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--ribbon-h")) || 0;
+      e.preventDefault();
+      if (lenis) {
+        lenis.scrollTo(target, { offset: -(chrome + 72) });
+      } else {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+      history.replaceState(null, "", "#" + id);
+    });
+  });
+
+
+  /* ---------------- hero ignition ----------------
+     One staged entrance. The corona breathes open, the mark settles, then the
+     line lands. Everything else on the page stays quiet by comparison. */
+  (function heroIgnition() {
+    var hero = document.querySelector(".hero__inner");
+    if (!hero) { return; }
+
+    /* Explicit fromTo throughout. gsap.from() infers its end value from whatever
+       the element computes to at build time, which is fragile while the
+       pre-ignite guard is still on the page — an inferred end of 0 leaves the
+       element invisible for good. fromTo states both ends, so it cannot. */
+    var CLEAR = "opacity,transform";
+    var tl = gsap.timeline({
+      defaults: { ease: "power3.out" },
+      onStart: function () { document.documentElement.classList.remove("pre-ignite"); }
+    });
+
+    tl.fromTo(".hero__sun",
+        { opacity: 0, scale: .82 },
+        { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out", clearProps: CLEAR })
+      .fromTo(".hero__logo",
+        { opacity: 0, y: 18, scale: .94 },
+        { opacity: 1, y: 0, scale: 1, duration: .9, clearProps: CLEAR }, "-=1.15")
+      .fromTo(".hero__tag",
+        { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .6, clearProps: CLEAR }, "-=.55")
+      .fromTo(".hero__h1",
+        { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: .8, clearProps: CLEAR }, "-=.4")
+      .fromTo(".hero__lede",
+        { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .7, clearProps: CLEAR }, "-=.5")
+      .fromTo(".hero__concierge",
+        { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .6, clearProps: CLEAR }, "-=.45")
+      .fromTo(".hero__cta > *",
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: .6, stagger: .08, clearProps: CLEAR }, "-=.4")
+      .fromTo(".hero__meta",
+        { opacity: 0 }, { opacity: 1, duration: .5, clearProps: CLEAR }, "-=.3");
+
+    /* Failsafe: whatever happens to the timeline, the hero must end up readable. */
+    setTimeout(function () {
+      document.documentElement.classList.remove("pre-ignite");
+      Array.prototype.forEach.call(
+        hero.parentNode.querySelectorAll(".hero__sun,.hero__logo,.hero__tag,.hero__h1,.hero__lede,.hero__concierge,.hero__cta,.hero__cta > *,.hero__meta"),
+        function (el) {
+          if (parseFloat(getComputedStyle(el).opacity) < 1) {
+            el.style.opacity = "";
+            el.style.transform = "";
+          }
+        }
+      );
+    }, 4000);
+  }());
+
+  /* section reveals */
+  gsap.utils.toArray("[data-reveal]").forEach(function (el) {
+    gsap.to(el, {
+      opacity: 1, y: 0, duration: .8, ease: "power2.out",
+      scrollTrigger: { trigger: el, start: "top 82%", once: true }
+    });
+  });
+
+  /* hero parallax — transform only */
+  gsap.to(".hero__sun", {
+    yPercent: 14, scale: 1.08, ease: "none",
+    scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: .6 }
+  });
+  gsap.to(".hero__inner", {
+    yPercent: -8, opacity: .15, ease: "none",
+    scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: .6 }
+  });
+
+  /* ---------------- the release sequence ---------------- */
+  (function releaseSequence() {
+    var seq = document.getElementById("seq");
+    var fill = document.getElementById("seqFill");
+    var count = document.getElementById("seqCount");
+    if (!seq || !fill) { return; }
+
+    var frames = Array.prototype.slice.call(seq.querySelectorAll(".seq__frame"));
+    var steps = Array.prototype.slice.call(seq.querySelectorAll(".seq__step"));
+    if (frames.length < 2 || steps.length < 2) { return; }
+
+    seq.classList.add("is-enhanced");
+    gsap.set(frames, { opacity: 0 });
+    gsap.set(frames[0], { opacity: 1 });
+
+    var current = -1;
+    function activate(i) {
+      if (i === current) { return; }
+      current = i;
+      gsap.to(frames, { opacity: 0, duration: .55, ease: "power1.out", overwrite: "auto" });
+      gsap.to(frames[i], { opacity: 1, duration: .55, ease: "power1.out", overwrite: "auto" });
+      steps.forEach(function (s, n) { s.classList.toggle("is-active", n === i); });
+      if (count) { count.textContent = ("0" + (i + 1)).slice(-2) + " / 0" + steps.length; }
+    }
+    activate(0);
+
+    steps.forEach(function (step, i) {
+      ScrollTrigger.create({
+        trigger: step,
+        start: "top 62%",
+        end: "bottom 38%",
+        onToggle: function (self) { if (self.isActive) { activate(i); } }
+      });
+    });
+
+    gsap.fromTo(fill, { scaleY: 0 }, {
+      scaleY: 1, ease: "none",
+      scrollTrigger: {
+        trigger: seq.querySelector(".seq__list"),
+        start: "top 62%",
+        end: "bottom 42%",
+        scrub: .35
+      }
+    });
+
+    ScrollTrigger.refresh();
+  }());
+
+  /* ---------------- the 12-point assessment ----------------
+     Points ignite cumulatively as the reader moves down the list, so the body
+     fills in the way the assessment actually runs: one zone at a time, and
+     nothing you have already been through goes dark again. */
+  (function assessmentIgnition() {
+    var section = document.getElementById("assessment");
+    var readout = document.getElementById("assessReadout");
+    if (!section) { return; }
+
+    var pts   = Array.prototype.slice.call(section.querySelectorAll(".apt"));
+    var zones = Array.prototype.slice.call(section.querySelectorAll(".zone"));
+    if (pts.length < 2 || zones.length !== pts.length) { return; }
+
+    var current = -1;
+    function lightTo(i) {
+      if (i === current) { return; }
+      current = i;
+      pts.forEach(function (p, n)   { p.classList.toggle("is-lit", n <= i); });
+      zones.forEach(function (z, n) { z.classList.toggle("is-lit", n === i); });
+      if (readout) {
+        var z = zones[i];
+        var name = z ? z.querySelector(".zone__t").textContent : "";
+        readout.innerHTML = "<b>" + ("0" + (i + 1)).slice(-2) + "</b><span>" + name + "</span>";
+      }
+    }
+
+    zones.forEach(function (zone, i) {
+      ScrollTrigger.create({
+        trigger: zone,
+        start: "top 72%",
+        end: "bottom 34%",
+        onToggle: function (self) { if (self.isActive) { lightTo(i); } }
+      });
+    });
+
+    /* Leaving the section upward resets it so the ritual replays on the way back. */
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top bottom",
+      onLeaveBack: function () {
+        current = -1;
+        pts.forEach(function (p)   { p.classList.remove("is-lit"); });
+        zones.forEach(function (z) { z.classList.remove("is-lit"); });
+        if (readout) { readout.innerHTML = "<b>12</b><span>points, every first visit</span>"; }
+      }
+    });
+  }());
+
+  ScrollTrigger.refresh();
+});
+</script>
+
 </body>
 </html>

@@ -1,4 +1,7 @@
-# Charged Rootz — Design System (mockup round 1)
+# Charged Rootz — Design System
+
+> **Ember is the chosen direction and is now the site.** Concepts 2 and 3 were
+> removed; they remain in git history at `29d4038`.
 
 Source of truth: the client's own **logo file** (2000×2000) and her two printed
 menus. Every colour below was sampled from those files, not invented.
@@ -21,9 +24,9 @@ Sampled top→bottom down the logo mark:
 | `--cr-flame` | `#DA3E1B` | Primary accent, rules, active states |
 | `--cr-crimson` | `#E11417` | Gradient end, emphasis |
 | `--cr-ember` | `#8C1A0D` | Deep shadow accent (from menu artwork) |
-| `--cr-void` | `#060505` | Warm black canvas (dark concepts) |
+| `--cr-void` | `#060505` | Warm black canvas |
 | `--cr-bone` | `#F2E9DC` | Warm white text on dark |
-| `--cr-paper` | `#F4F1EA` | Warm canvas (light concepts) |
+| `--cr-paper` | `#F4F1EA` | Warm light canvas (unused by Ember; kept for future lanes) |
 | `--cr-ink` | `#141110` | Text on light |
 
 **Brand gradient:** `linear-gradient(180deg,#E8C21A,#D98A1C 28%,#DA3E1B 62%,#E11417)`
@@ -40,7 +43,7 @@ Set per concept — see each concept's header comment. Constant rules:
 
 ## Component Stylings
 - Buttons carry the brand gradient only on the single primary action per view.
-- Cards inherit the concept substrate; never mix radii within a concept.
+- Cards inherit the page substrate; never mix radii within a view.
 - Every interactive element has a visible `:focus-visible` ring.
 
 ## Layout Principles
@@ -49,8 +52,8 @@ Set per concept — see each concept's header comment. Constant rules:
 - Mobile-first; single column below `768px`.
 
 ## Depth & Elevation
-- Dark concept: light comes from the gradient, not from shadows. Glows only on the mark.
-- Light concepts: 1px hairlines carry structure. Shadows `≤ 0 2px 8px rgba(0,0,0,.05)`.
+- Light comes from the gradient, not from shadows. Glows only on the mark.
+- 1px hairlines carry structure. Shadows stay minimal.
 
 ## Do's and Don'ts
 - DO use her real menu items, real prices, real payment handles.
@@ -58,24 +61,34 @@ Set per concept — see each concept's header comment. Constant rules:
 - DON'T invent stretch pricing, testimonials, credentials, or years of experience.
 - DON'T use stock photos of people — her photography or a labelled slot only.
 - DON'T design the multi-lane hub as if it ships in this build. See Scope.
+- DON'T let the brand gradient carry more than ONE primary action per view.
 
 ## Responsive Behavior
 - Breakpoints 640 / 768 / 1024 / 1280.
 - Images fluid with `srcset`; art-directed crops via `<picture>` where needed.
 - `prefers-reduced-motion: reduce` disables all scroll/parallax motion.
 
-## Scope (binding — this is a $100 flat build)
-**In:** ONE site. Stretch practice is the lead — who she is, what a session is,
-and a booking request. The botanical bar / juice menu rides along on the same
-site as a second section. Contact + payment handles. She hosts the domain.
+## Scope
 
-**Not in (Phase 2, quoted separately):** the multi-lane hub with its own
-sub-sites, live e-commerce checkout, event ticketing, member accounts,
-calendar-synced scheduling. Concept 3 *illustrates* how the hub could grow
-later — it is a sketch of a future phase, not a deliverable of this one.
+**In:** ONE site. The stretch practice leads — who she is, what a session is,
+the 12-point assessment, and booking. The botanical bar / juice menu rides along
+on the same site as a second section. Contact + payment handles. She hosts the
+domain.
+
+**Not in (Phase 2, quoted separately):** multi-lane sub-sites, live e-commerce
+checkout, event ticketing, member accounts, calendar-synced scheduling.
 
 ## Agent Prompt Guide
 - Do NOT introduce colours outside the palette above.
-- The brand gradient appears at most twice per viewport.
-- Every invented value gets `class="tbd"` and appears in that page's legend.
-- All three concepts ship the same scope. Only the art direction differs.
+- The brand gradient appears at most twice per viewport, and only ONE of those
+  is a primary action.
+- Every invented value gets `class="tbd"` and appears in the page legend.
+- Shared foundation lives in `assets/css/ember.css`; page-specific CSS stays
+  inline in the page that uses it. Never duplicate a token.
+
+## Signature
+
+The **12-point assessment** body map is the one element the site is remembered
+by. Keep it quiet everywhere else: hairline figure, cumulative ignition, one
+live readout. It earns its motion because the content is a real ordered
+protocol, not decoration.
