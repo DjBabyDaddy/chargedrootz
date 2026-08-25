@@ -48,9 +48,9 @@
   --c-flame:#DA3E1B;   --c-flame-t:#F0906B;
 
   /* type */
-  --f-display:"Eczar",Georgia,"Times New Roman",serif;
-  --f-body:"Karla",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --f-micro:"Space Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+  --f-display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --f-body:"Lora",Georgia,"Times New Roman",serif;
+  --f-micro:"Lora",Georgia,"Times New Roman",serif;
 
   --t-hero:clamp(2.15rem,8.4vw,5.1rem);
   --t-h2:clamp(1.85rem,4.6vw,3rem);

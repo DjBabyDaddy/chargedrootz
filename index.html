@@ -23,7 +23,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@600;800&family=Karla:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="assets/css/ember.css">
 
@@ -215,6 +215,38 @@
 .seq.is-enhanced .seq__step.is-active .seq__dot{background:var(--flame);border-color:var(--flame)}
 @media (min-width:900px){
   .seq.is-enhanced .seq__frames{max-height:none;height:min(74vh,720px);aspect-ratio:auto}
+}
+
+/* ---------- in the room ---------- */
+.moments{overflow:clip;background:var(--panel);border-block:1px solid var(--hair)}
+.moments__viewport{margin-top:var(--s-7);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.moments__viewport::-webkit-scrollbar{display:none}
+.moments__track{display:flex;gap:var(--s-4);width:max-content;padding-inline:var(--s-5) var(--s-8)}
+.moments__track > li{scroll-snap-align:center}
+.moments__card{width:clamp(260px,78vw,430px);aspect-ratio:4/5}
+.moments__card--portrait{aspect-ratio:3/4}
+@media (min-width:768px){
+  .moments__track{gap:var(--s-5);padding-inline:var(--s-6) var(--s-8)}
+  .moments__card{width:clamp(310px,43vw,520px)}
+}
+@media (min-width:900px){
+  .moments{min-height:100svh;display:grid;align-content:center}
+  .moments__viewport{overflow:hidden}
+  .moments__track{padding-inline:max(var(--s-6),calc((100vw - var(--maxw))/2 + var(--s-6)))}
+  .moments__card{width:clamp(360px,34vw,500px);height:min(60vh,640px);aspect-ratio:auto}
+  .moments__card--portrait{width:clamp(300px,27vw,410px)}
+}
+
+/* ---------- client story ---------- */
+.story{background:var(--void)}
+.story__grid{display:grid;gap:var(--s-6);align-items:center}
+.story__copy{display:grid;gap:var(--s-4)}
+.story__lede{font-family:var(--f-display);font-weight:600;font-size:clamp(1.35rem,2.6vw,1.85rem);line-height:1.25;max-width:23ch}
+.story__video{width:min(100%,390px);aspect-ratio:9/16;margin-inline:auto!important;background:var(--panel-2)}
+.story__video video{display:block;width:100%;height:100%;object-fit:cover}
+@media (min-width:800px){
+  .story__grid{grid-template-columns:minmax(0,1fr) minmax(300px,.62fr);gap:var(--s-8)}
+  .story__video{justify-self:end;width:min(100%,420px)}
 }
 
 /* ---------- sessions ---------- */
@@ -509,6 +541,7 @@
       <nav class="nav__links" aria-label="Sections">
         <a href="about.html">About</a>
         <a href="#assessment">The assessment</a>
+        <a href="#moments">In the room</a>
         <a href="#sessions">Sessions</a>
       </nav>
       <a class="btn btn--wire" href="#book" data-book>Book a session</a>
@@ -517,6 +550,7 @@
       <a href="about.html">About</a>
       <a href="#practice">The practice</a>
       <a href="#assessment">The assessment</a>
+      <a href="#moments">In the room</a>
       <a href="#sessions">Sessions</a>
       <a href="#book">Book</a>
     </nav>
@@ -618,6 +652,46 @@
     </div>
   </section>
 
+
+  <!-- ===================== IN THE ROOM ===================== -->
+  <section class="section moments" id="moments" aria-labelledby="moments-h">
+    <div class="wrap moments__head">
+      <p class="micro eyebrow">Inside the session</p>
+      <h2 id="moments-h" style="font-size:var(--t-h2);margin-top:var(--s-4)">In the room</h2>
+      <p class="muted measure" style="margin-top:var(--s-4)">A closer look at the hands-on work, the space, and the people who make time for their bodies.</p>
+    </div>
+
+    <div class="moments__viewport" tabindex="0" aria-label="Photo gallery from Charged Rootz stretch sessions">
+      <ol class="moments__track">
+        <li><figure class="frame moments__card"><img src="assets/img/moments/moment-01-1600.jpg" srcset="assets/img/moments/moment-01-800.jpg 800w, assets/img/moments/moment-01-1600.jpg 1600w" sizes="(min-width:900px) 38vw, 78vw" width="1600" height="1200" loading="lazy" decoding="async" alt="A Charged Rootz stretch session in progress inside the gym"></figure></li>
+        <li><figure class="frame moments__card"><img src="assets/img/moments/moment-02-1600.jpg" srcset="assets/img/moments/moment-02-800.jpg 800w, assets/img/moments/moment-02-1600.jpg 1600w" sizes="(min-width:900px) 38vw, 78vw" width="1600" height="1200" loading="lazy" decoding="async" alt="The stretch therapist guiding a client through a table stretch"></figure></li>
+        <li><figure class="frame moments__card moments__card--portrait"><img src="assets/img/moments/moment-03-1600.jpg" srcset="assets/img/moments/moment-03-800.jpg 800w, assets/img/moments/moment-03-1600.jpg 1600w" sizes="(min-width:900px) 28vw, 70vw" width="1200" height="1600" loading="lazy" decoding="async" alt="A client receiving a supported leg stretch"></figure></li>
+        <li><figure class="frame moments__card"><img src="assets/img/moments/moment-04-1600.jpg" srcset="assets/img/moments/moment-04-800.jpg 800w, assets/img/moments/moment-04-1600.jpg 1600w" sizes="(min-width:900px) 38vw, 78vw" width="1600" height="1200" loading="lazy" decoding="async" alt="A stretch session with the therapist supporting a client on the table"></figure></li>
+        <li><figure class="frame moments__card moments__card--portrait"><img src="assets/img/moments/moment-05-1600.jpg" srcset="assets/img/moments/moment-05-800.jpg 800w, assets/img/moments/moment-05-1600.jpg 1600w" sizes="(min-width:900px) 28vw, 70vw" width="1200" height="1600" loading="lazy" decoding="async" alt="The therapist working through a close supported leg stretch"></figure></li>
+        <li><figure class="frame moments__card"><img src="assets/img/moments/moment-06-1600.jpg" srcset="assets/img/moments/moment-06-800.jpg 800w, assets/img/moments/moment-06-1600.jpg 1600w" sizes="(min-width:900px) 38vw, 78vw" width="1600" height="1200" loading="lazy" decoding="async" alt="A group stretch session in the gym"></figure></li>
+        <li><figure class="frame moments__card moments__card--portrait"><img src="assets/img/moments/moment-07-1600.jpg" srcset="assets/img/moments/moment-07-800.jpg 800w, assets/img/moments/moment-07-1600.jpg 1600w" sizes="(min-width:900px) 28vw, 70vw" width="1200" height="1600" loading="lazy" decoding="async" alt="A client preparing for a shoulder stretch"></figure></li>
+        <li><figure class="frame moments__card moments__card--portrait"><img src="assets/img/moments/moment-08-1600.jpg" srcset="assets/img/moments/moment-08-800.jpg 800w, assets/img/moments/moment-08-1600.jpg 1600w" sizes="(min-width:900px) 28vw, 70vw" width="1200" height="1600" loading="lazy" decoding="async" alt="A client receiving an upper-body stretch in a group session"></figure></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== CLIENT STORY ===================== -->
+  <section class="section story" aria-labelledby="story-h">
+    <div class="wrap story__grid">
+      <div class="story__copy" data-reveal>
+        <p class="micro eyebrow">A client's perspective</p>
+        <h2 id="story-h" style="font-size:var(--t-h2);margin-top:var(--s-4)">In her own words</h2>
+        <p class="story__lede">Hear directly from a client about her experience in a Charged Rootz session.</p>
+        <p class="muted">No script. Just one client sharing her perspective.</p>
+      </div>
+      <figure class="frame story__video" style="margin:0">
+        <video controls preload="metadata" poster="assets/img/client-story-poster.jpg" aria-describedby="story-h">
+          <source src="assets/video/client-story.mp4" type="video/mp4">
+          Your browser does not support this video. Please contact Charged Rootz to hear this client story.
+        </video>
+      </figure>
+    </div>
+  </section>
 
   <!-- ===================== THE 12-POINT ASSESSMENT (signature) ===================== -->
   <section class="section assess" id="assessment" aria-labelledby="assess-h">
@@ -1352,6 +1426,38 @@ window.addEventListener("DOMContentLoaded", function () {
         end: "bottom 42%",
         scrub: .35
       }
+    });
+
+    ScrollTrigger.refresh();
+  }());
+
+  (function momentsGallery() {
+    var section = document.getElementById("moments");
+    var track = section && section.querySelector(".moments__track");
+    if (!section || !track) { return; }
+
+    var media = gsap.matchMedia();
+    media.add("(min-width: 900px)", function () {
+      var travel = function () {
+        return Math.max(0, track.scrollWidth - window.innerWidth + 48);
+      };
+      var tween = gsap.to(track, {
+        x: function () { return -travel(); },
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: function () { return "+=" + travel(); },
+          pin: true,
+          scrub: .55,
+          invalidateOnRefresh: true
+        }
+      });
+      return function () {
+        tween.scrollTrigger.kill();
+        tween.kill();
+        gsap.set(track, { clearProps: "transform" });
+      };
     });
 
     ScrollTrigger.refresh();
