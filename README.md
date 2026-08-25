@@ -55,7 +55,7 @@ These came from her own written copy and are no longer placeholders:
 
 | | |
 |---|---|
-| Model | Concierge — she travels to the client |
+| Model | Concierge — in the client's home **or at the pop-up studio** |
 | Certification | Certified in stretch therapy through **CNU Stretch** |
 | 50-minute session | **$120** — full body; first visit includes the 12-point assessment |
 | 25-minute session | **$60** — targeted (hips, shoulders, lower back) |
@@ -118,8 +118,9 @@ Everything is the client's own material. Nothing was invented silently.
 | Asset | Source |
 |---|---|
 | `logo-*.png` | Her 2000×2000 logo file. Cropped square, alpha variant keyed off black. |
-| `menu-juice-*`, `menu-food-*` | Her two printed menus. |
-| `shots-*`, `lineup-*`, `infusions-*` | Her product photography. `infusions` rotated 90° CW. |
+| `menu-juice-*`, `menu-food-*` | Her two printed menus. *Unused since the bar was removed.* |
+| `shots-*`, `lineup-*`, `infusions-*` | Her product photography. *Unused since the bar was removed.* |
+| `rooted-480/720` | Her portrait at the tree roots, used as the About hero. Resized from her 720×1080 original. |
 | `stretch-1..4-*` | Her four session photos. Rotated 90° CW, cropped 4:5, desaturated ~8% to calm busy gym backgrounds. |
 
 **Brand palette** was sampled pixel-by-pixel from the logo file, top to bottom:
@@ -130,9 +131,9 @@ amber   #D98A1C      crimson  #E11417      bone   #F2E9DC
 gradient: linear-gradient(180deg,#E8C21A,#D98A1C 28%,#DA3E1B 62%,#E11417)
 ```
 
-**Menu data is real** — all 11 juices, 6 wellness shots, 4 add-ons and the
-smoothie, with her actual prices, transcribed from her printed menus. Payment
-handles are hers.
+The menu and product images are **no longer referenced by the site** — they are
+kept only so a future `/bar` lane does not have to re-derive them. Payment
+handles in the footer are hers.
 
 Anything still invented renders with a **dotted underline** (`class="tbd"`) and
 is listed in the legend panel at the bottom of the site.
