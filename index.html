@@ -623,10 +623,6 @@
             <div class="fact"><dt>Under the name</dt><dd id="fact-name"></dd></div>
             <div class="fact"><dt>Since</dt><dd id="fact-est"></dd></div>
           </dl>
-          <div class="cert">
-            <span class="cert__seal" aria-hidden="true">CNU</span>
-            <p class="micro" id="certLine"></p>
-          </div>
         </div>
       </div>
     </div>
@@ -934,7 +930,6 @@
   set("hero-tag", esc(CR.brand.tagline));
   set("hero-meta", "Est. " + esc(CR.brand.est) + " · Certified through CNU Stretch");
   set("practice-blurb", esc(CR.stretch.blurb));
-  set("certLine", esc(CR.brand.cert));
   set("fact-city", ph(CR.brand.city, "Your city / service area"));
   set("fact-name", ph(CR.brand.stretchName, "Name of the stretch offering"));
   set("fact-est", esc(CR.brand.est));
