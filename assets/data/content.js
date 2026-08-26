@@ -94,7 +94,7 @@ window.CR = {
     prep: [
       { t: "What to wear",  d: "Comfortable, loose-fitting clothing you can move in. Sweatpants, leggings, gym clothes. Nothing restrictive." },
       { t: "Socks on",      d: "Socks must be worn for the whole session. This is for hygiene and safety during stretching." },
-      { t: "What you need", d: "Just a comfortable space — a bed, couch, floor mat or yoga mat. I bring everything else." }
+      { t: "What you need", d: "Just a clear space of approximately 6 ft × 9 ft for me to comfortably set up and move around my professional stretch table. I bring the table and everything needed for your session. You simply show up, get comfortable, and let me do the stretching. That’s the beauty of concierge stretch therapy — you don’t come to me, I come to you." }
     ],
 
     /* Footer promise. Every line is lifted from her own copy — nothing added. */
