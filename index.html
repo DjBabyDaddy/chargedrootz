@@ -139,6 +139,24 @@
 .hero__cta{display:flex;flex-wrap:wrap;gap:var(--s-3);justify-content:center;margin-top:var(--s-2)}
 .hero__meta{color:var(--muted);margin-top:var(--s-4)}
 
+/* Hallmark component treatment: the client mark returns after the hero as a
+   restrained, defined watermark. It stays beneath content and never takes focus. */
+.site-watermark{
+  position:fixed;z-index:0;top:50%;left:50%;
+  width:clamp(20rem,58vw,48rem);aspect-ratio:1;
+  display:grid;place-items:center;
+  pointer-events:none;opacity:0;visibility:hidden;
+  transform:translate(-50%,-50%);
+  will-change:opacity;
+}
+.site-watermark__mark{
+  width:100%;height:100%;object-fit:contain;
+  opacity:.88;transform:scale(.9);
+  filter:drop-shadow(0 0 44px rgba(218,62,27,.18));
+  will-change:transform;
+}
+main,.foot{position:relative;z-index:1}
+
 /* On a short laptop the stacked hero pushes "Book a session" under the fold.
    Tighten the mark and the vertical rhythm rather than shrinking the headline. */
 @media (max-height:900px) and (min-width:768px){
@@ -528,6 +546,9 @@
 <body>
 
 <div class="grain" aria-hidden="true"></div>
+<div class="site-watermark" aria-hidden="true">
+  <img class="site-watermark__mark" src="assets/img/logo-alpha-768.png" alt="" width="768" height="768" decoding="async">
+</div>
 
 <a class="skip" href="#main">Skip to content</a>
 
@@ -1378,6 +1399,35 @@ window.addEventListener("DOMContentLoaded", function () {
     yPercent: -8, opacity: .15, ease: "none",
     scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: .6 }
   });
+
+  /* The brand mark returns only after the hero sun has moved past, as a quiet
+     backdrop for the rest of the page rather than another hero-layer element. */
+  (function siteWatermark() {
+    var mark = document.querySelector(".site-watermark");
+    var markArt = mark && mark.querySelector(".site-watermark__mark");
+    if (!mark || !markArt) { return; }
+
+    gsap.to(mark, {
+      autoAlpha: .18,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "bottom 62%",
+        end: "bottom 25%",
+        scrub: .45
+      }
+    });
+    gsap.to(markArt, {
+      scale: 1,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "bottom 62%",
+        end: "bottom top",
+        scrub: .6
+      }
+    });
+  }());
 
   /* ---------------- the release sequence ---------------- */
   (function releaseSequence() {
