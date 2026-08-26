@@ -12,7 +12,7 @@ window.CR = {
     },
     email: "contact@chargedrootz.com",
     phone: "314-566-5749",
-    city:        { tbd: true, value: "Your city" },
+    city:        { value: "St. Louis City, St. Louis County, St. Charles, and surrounding Metro East Illinois communities, including Fairview Heights, Granite City, and Alton." },
     stretchName: "Stretch by Charged Rootz",
     cert:        "Certified in stretch therapy through CNU Stretch.",
     /* The single biggest differentiator: she travels to the client. */
@@ -53,7 +53,7 @@ window.CR = {
       { name: "25-Minute Session", dur: "25 min", price: "$60",
         desc: "Targeted stretch focused on specific areas — hips, shoulders, lower back.",
         includes: ["Focused on one or two problem zones", "Good between full sessions", "Same hands-on approach"] },
-      { name: "Stretch Party", dur: { tbd: true, value: "By arrangement" }, price: { tbd: true, value: "Ask for a quote" },
+      { name: "Stretch Party", dur: "Customized based on group size", price: "Contact for a custom quote",
         desc: "I bring stretch therapy to your group — birthdays, team days, girls' nights, recovery sessions after a race.",
         includes: ["Multiple guests, one visit", "You pick the space", "Send the details and I will quote it"],
         party: true }
@@ -63,7 +63,7 @@ window.CR = {
     steps: [
       { k: "Book",    t: "Pick your time",       d: "Choose a session length and a slot that works. Tell me what is bothering you when you book." },
       { k: "I arrive", t: "I come to you",       d: "You need a comfortable space — a bed, couch, floor mat or yoga mat. I bring everything else." },
-      { k: "Assess",  t: "We don't guess",       d: "Your first visit starts with the 12-point assessment: a full-body evaluation of your restrictions and problem zones." },
+      { k: "Assess",  t: "We don't guess",       d: "Your first visit starts with a full-body mobility assessment to identify areas of tightness, restriction, and imbalance." },
       { k: "Release", t: "You stay passive",     d: "I move you through the stretches your body needs that day. Some days it is hips. Some days shoulders or lower back." }
     ],
 
@@ -72,7 +72,7 @@ window.CR = {
        full-body mobility zones and are marked tbd until she confirms her own list. */
     assessment: {
       count: 12,
-      lede: "Every new client starts here. A full-body evaluation that finds your specific restrictions, tight areas and problem zones — so we stretch what your body actually needs, not a one-size-fits-all routine.",
+      lede: "Full-body mobility assessment to identify areas of tightness, restriction, and imbalance.",
       zonesAreTbd: true,
       zones: [
         { n: "Neck",            s: "cervical rotation and side bend" },
@@ -122,9 +122,7 @@ window.CR = {
 
   /* Surfaced on the review page so she can answer in one pass. */
   questions: [
-    "Which city and travel radius should the site quote? Your number is 314 but the flag on the wall is Arkansas.",
     "The 12-point assessment — what are your actual twelve points? The zone names on the body map are placeholders until you send yours.",
-    "What do you charge for a stretch party, and is it per head or a flat visit fee?",
     "Which days and hours do you take bookings, and how far ahead?",
     "Do you want your own name on the site, or keep it all under Charged Rootz?"
   ]
