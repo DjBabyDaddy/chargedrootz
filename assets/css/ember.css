@@ -174,6 +174,16 @@ ul,ol{margin:0;padding:0;list-style:none}
   height:var(--nav-h);display:flex;align-items:center;gap:var(--s-4);
 }
 .nav__brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;margin-right:auto}
+/* The brand is the "back to top" control and was a 30px-tall target, set by the
+   mark alone. The bar is 56px, so the height is free — only the hit box was
+   missing. */
+@media (max-width:639px){
+  .nav__brand{min-height:44px}
+  /* Contact and payment links are discrete destinations, not prose links, so
+     the inline-target exemption does not really cover them. Padding is the only
+     lever that does not disturb the type. */
+  .foot__list a{display:inline-block;padding-block:.3rem}
+}
 .nav__mark{width:30px;height:30px;flex:0 0 auto;filter:drop-shadow(0 0 10px rgba(218,62,27,.45))}
 .nav__word{font-family:var(--f-display);font-weight:600;font-size:1.05rem;letter-spacing:.01em;white-space:nowrap}
 .nav__links{display:none}
@@ -191,7 +201,15 @@ ul,ol{margin:0;padding:0;list-style:none}
   display:flex;gap:var(--s-5);align-items:center;height:var(--strip-h);
   overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
   border-top:1px solid var(--hair);
+  /* The last link sat hard against the edge, mid-word, with nothing to say the
+     strip continues. The fade reads as "more this way"; the trailing spacer
+     gives it empty space to land on so the final link is never dimmed once you
+     have scrolled to the end. */
+  -webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 28px),transparent 100%);
+          mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 28px),transparent 100%);
+  scroll-padding-inline-end:var(--s-5);
 }
+.nav__strip::after{content:"";flex:0 0 var(--s-5)}
 .nav__strip::-webkit-scrollbar{display:none}
 .nav__strip a{
   font-family:var(--f-micro);font-size:.6875rem;letter-spacing:.1em;
@@ -208,17 +226,22 @@ ul,ol{margin:0;padding:0;list-style:none}
   border:1px solid transparent;background:transparent;color:var(--bone);
   transition:transform .18s ease,opacity .18s ease,border-color .18s ease,color .18s ease;
 }
-.btn:hover{transform:translateY(-2px)}
 .btn--grad{
   background:var(--grad);color:#160A05;font-weight:700;
   box-shadow:0 6px 26px rgba(218,62,27,.28);
 }
-.btn--grad:hover{opacity:.94}
 .btn--ghost{border-color:var(--hair-2);color:var(--bone)}
-.btn--ghost:hover{border-color:var(--flame)}
 /* nav CTA stays outline so the hero viewport keeps its 2-gradient budget */
 .btn--wire{border-color:var(--flame);color:var(--gold);padding-inline:1rem;min-height:40px}
-.btn--wire:hover{background:var(--grad);color:#160A05;border-color:transparent;font-weight:700}
+/* Hover belongs to devices that have a pointer. Unguarded, a tap on a phone
+   leaves :hover latched — the button stays lifted and the wire CTA stays filled
+   until something else is tapped, which reads as a stuck state. */
+@media (hover:hover){
+  .btn:hover{transform:translateY(-2px)}
+  .btn--grad:hover{opacity:.94}
+  .btn--ghost:hover{border-color:var(--flame)}
+  .btn--wire:hover{background:var(--grad);color:#160A05;border-color:transparent;font-weight:700}
+}
 
 
 /* ---------- photo treatment ----------

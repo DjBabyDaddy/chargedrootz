@@ -178,6 +178,47 @@ main,.foot{position:relative;z-index:1}
   .hero__lede{max-width:56ch}
 }
 
+/* The rules above are walled off behind min-width:768px, so phones — where the
+   fold is tightest — never received any of it. Measured at 375x667: the hero
+   stacks 675px of content into 570px of usable height, putting "Book a session"
+   97px BELOW the fold and the credibility line 153px below.
+
+   The two CTAs are left stacked on purpose. Sitting them side by side would
+   recover 56px but squeeze a 27-character label into ~160px; the 97px is found
+   in the mark, the rhythm and the padding instead, so both buttons keep full
+   width and a 44px target. Height-gated as well as width-gated: a 390x844
+   phone has room to spare and is left alone. */
+@media (max-width:767px) and (max-height:820px){
+  .hero{padding-block:var(--s-5) var(--s-6)}
+  .hero__inner{gap:var(--s-4)}
+  .hero__logo{width:clamp(96px,26vw,150px)}
+  .hero__concierge{margin-top:var(--s-2)}
+  .hero__meta{margin-top:var(--s-3)}
+}
+/* Second tier for genuinely short phones. The tier above leaves 375x667 with
+   only 3px of clearance and still strands 360x640 below the fold, which is no
+   better than not fixing it — the CTA has to be unambiguously on screen, not
+   technically on screen. The headline gives up the least here, so it goes
+   first; the mark is already at its 96px floor. */
+@media (max-width:767px) and (max-height:700px){
+  .hero{padding-block:var(--s-4) var(--s-5)}
+  .hero__inner{gap:var(--s-3)}
+  .hero__h1{font-size:clamp(1.9rem,7.6vw,2.4rem)}
+}
+/* A rotated phone is ~390px tall but over 767px wide, so it misses both tiers
+   above and lands on the desktop short-viewport rules, which assume a window
+   rather than a handset — the CTA ends up ~170px under the fold. Keyed to
+   orientation so a short desktop window is not caught by it. */
+@media (max-height:560px) and (orientation:landscape) and (pointer:coarse){
+  .hero{padding-block:var(--s-4) var(--s-4);min-height:0}
+  .hero__inner{gap:var(--s-3)}
+  .hero__logo{width:clamp(64px,13vh,96px)}
+  .hero__h1{font-size:clamp(1.6rem,4.4vw,2.2rem)}
+  .hero__lede{max-width:64ch}
+  .hero__concierge{margin-top:0}
+  .hero__meta{margin-top:var(--s-2)}
+}
+
 /* ---------- the practice ---------- */
 .practice__grid{display:grid;gap:var(--s-6);align-items:center}
 @media (min-width:900px){
@@ -240,6 +281,14 @@ main,.foot{position:relative;z-index:1}
 .seq.is-enhanced .seq__step.is-active .seq__dot{background:var(--flame);border-color:var(--flame)}
 @media (min-width:900px){
   .seq.is-enhanced .seq__frames{max-height:none;height:min(74vh,720px);aspect-ratio:auto}
+}
+/* Desktop's step rhythm assumes a tall viewport beside a tall image. On a phone
+   the same numbers stack ~224vh of scrolling, most of it empty, between the
+   first step and the last. The crossfade is worth keeping — it just needs a
+   step height a thumb can cross. */
+@media (max-width:899px){
+  .seq.is-enhanced .seq__frames{max-height:28vh}
+  .seq.is-enhanced .seq__step{min-height:40vh}
 }
 
 /* ---------- in the room ---------- */
@@ -316,6 +365,22 @@ main,.foot{position:relative;z-index:1}
   background:var(--panel-2);overflow:hidden;min-height:320px;
 }
 .sched__frame iframe{display:block;width:100%;border:0;background:#fff}
+/* The iframe carries a fixed height="800" — taller than the phone it renders on,
+   so a touch that lands anywhere on it scrolls the scheduler rather than the
+   page, and the reader gets stuck inside a panel they did not choose to enter.
+   Capping it to the viewport keeps the page reachable, and the direct link below
+   is the way out for anyone who would rather book in a real tab. */
+@media (max-width:899px){
+  .sched__frame iframe{height:min(800px,72svh)}
+  .sched__out{
+    display:flex;align-items:center;justify-content:center;gap:.5rem;
+    margin-top:var(--s-3);padding:.7rem 1rem;min-height:44px;
+    border:1px solid var(--hair-2);border-radius:999px;
+    color:var(--gold);text-decoration:none;text-align:center;
+  }
+  .sched__out::after{content:"97";font-size:1.05em;line-height:1}
+}
+@media (min-width:900px){ .sched__out{display:none} }
 /* Acuity renders on a white ground; a hairline keeps it from floating on the void. */
 .sched__frame::after{
   content:"";position:absolute;inset:0;pointer-events:none;
@@ -481,6 +546,151 @@ main,.foot{position:relative;z-index:1}
 .zone.is-lit{background:linear-gradient(90deg,rgba(232,194,26,.07),transparent 62%)}
 .zone.is-lit .zone__n{color:var(--gold)}
 .zone.is-lit .zone__t{color:var(--gold)}
+
+/* --------------------------------------------------------------------------
+   MOBILE ASSESSMENT — the deck
+   Below 900px the desktop ritual (sticky figure + scroll-linked ignition) is
+   impossible: the figure stacks above a 1014px list and scrolls out of sight
+   long before the first point lights. Scroll is the wrong verb on a phone.
+
+   So the same twelve zones become a swipe deck. The figure stays in view, the
+   cards move horizontally, and each swipe ignites the next point exactly as
+   scrolling does on desktop. Same DOM, same classes, same is-lit semantics —
+   only the driver changes. See the deck controller in the main script.
+
+   Sizing is measured, not guessed (375x667):
+     figure 40vh -> 267px box, 115px drawn, assembly ~525px inside a 570px fold
+   The points are aspect-locked to a 240x560 portrait canvas, so shrinking the
+   figure shrinks them too — at 62vh they already render 14px with a 6.7px
+   numeral. They are scaled up in viewBox units instead. Points 7 and 8 sit 40
+   units apart, so r=20 is the hard ceiling before they collide; r=18 keeps a
+   margin. `r` is an SVG2 CSS geometry property and falls back to the markup
+   attribute where it is unsupported, so this cannot break the figure.
+   -------------------------------------------------------------------------- */
+@media (max-width:899px){
+  /* A grid item defaults to min-width:auto, so the 12-card flex row below would
+     refuse to shrink under its own content and stretch the page to ~3500px —
+     which on a phone zooms the whole viewport out instead of scrolling the deck.
+     minmax(0,1fr) is what lets overflow-x:auto actually take effect. */
+  .assess__grid{grid-template-columns:minmax(0,1fr);gap:var(--s-4)}
+  .assess__stage{padding:var(--s-4) var(--s-3)}
+  .assess__body{stroke-opacity:.5}
+  /* The figure must never grow past the room left over once the readout, card
+     and controls are accounted for — if the assembly outgrows the fold, the
+     figure scrolls out of sight while you swipe and we are back to the original
+     bug. The calc() reserves that fixed overhead so the figure yields on short
+     phones instead of pushing the deck under the fold. svh, not vh, so an
+     expanded URL bar cannot break the reservation. */
+    .assess__fig{max-height:max(150px,min(42vh,calc(100svh - 385px),320px))}
+
+  .apt__ring,.apt__core{r:16}
+  .apt__halo{r:24}
+  .apt__num{font-size:22px}
+  /* the figure is a display, not a control: at this scale adjacent points are
+     only ~21px apart, so a 44px target is geometrically impossible. Tapping is
+     a bonus on top of the deck and its buttons, never the only way through. */
+  .apt__hit{fill:transparent;stroke:none}
+  .js-deck .apt{cursor:pointer}
+  .js-deck .apt:focus-visible{outline:none}
+  .js-deck .apt:focus-visible .apt__halo{opacity:.5}
+  .js-deck .apt:focus-visible .apt__ring{stroke:var(--gold);stroke-opacity:1}
+
+  /* readout becomes the live label for the active card */
+  .assess__readout{margin-top:var(--s-3);padding-top:var(--s-3);min-height:2.2em}
+  .assess__readout b{font-size:1.35rem}
+
+  /* ---- the deck ---- */
+  .js-deck .zones{
+    display:flex;gap:var(--s-3);margin-top:0;
+    overflow-x:auto;scroll-snap-type:x mandatory;
+    scrollbar-width:none;-ms-overflow-style:none;
+    /* Full-bleed, so cards can sit edge to edge and still centre-snap.
+       The end spacers must be measured against the list's own full-bleed width,
+       not a percentage: percentage padding resolves against the containing block
+       (the 342px grid column here), which leaves the first and last cards short
+       of centre and impossible to snap to. 100vw matches the real width, and is
+       the same expression the card basis uses so the two cannot drift apart. */
+    margin-inline:calc(var(--s-5) * -1);
+    padding-inline:calc((100vw - min(78vw,320px)) / 2);
+    overscroll-behavior-x:contain;
+  }
+  .js-deck .zones::-webkit-scrollbar{display:none}
+
+  .js-deck .zone{
+    flex:0 0 min(78vw,320px);scroll-snap-align:center;
+    display:block;border:1px solid var(--hair);border-radius:var(--radius);
+    background:var(--panel-2);padding:var(--s-4);
+    border-top:1px solid var(--hair);
+    opacity:.5;transition:opacity .3s ease,border-color .3s ease;
+  }
+  .js-deck .zone:last-child{border-bottom:1px solid var(--hair)}
+  .js-deck .zone.is-lit{background:var(--panel-2);border-color:var(--hair-2);opacity:1}
+  .js-deck .zone__n{display:block;margin-bottom:.35rem}
+  .js-deck .zone__t{font-size:1.15rem}
+  /* clamped so one long placeholder cannot push the deck past the fold and
+     hide the figure again — the whole bug this section exists to fix */
+  .js-deck .zone__s{
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;
+    overflow:hidden;margin-top:.3rem;
+  }
+
+  /* ---- controls (JS-created: absent means absent, never dead) ---- */
+  .deck__bar{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:var(--s-4);margin-top:var(--s-3);
+  }
+  .deck__btn{
+    flex:0 0 auto;width:44px;height:44px;border-radius:50%;
+    display:grid;place-items:center;
+    background:transparent;border:1px solid var(--hair-2);color:var(--bone);
+    cursor:pointer;transition:border-color .18s ease,color .18s ease,opacity .18s ease;
+  }
+  .deck__btn:disabled{opacity:.3;cursor:default}
+  .deck__btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;
+    stroke-linecap:round;stroke-linejoin:round}
+  .deck__dots{display:flex;flex-wrap:wrap;gap:0;justify-content:center}
+  /* The dot is a 7px mark but an 18px target: the visible dot moves to a
+     pseudo-element so the button can carry a hit box more than twice its size.
+     18 is the ceiling — twelve of them plus two 44px arrows is all the width a
+     375px screen has. They stay a secondary path; swipe and the arrows are the
+     ones that meet 44px. */
+  .deck__dot{
+    width:18px;height:18px;padding:0;border:0;background:transparent;
+    display:grid;place-items:center;cursor:pointer;
+  }
+  .deck__dot::before{
+    content:"";width:7px;height:7px;border-radius:50%;
+    background:var(--hair-2);transition:background-color .3s ease,box-shadow .3s ease;
+  }
+  .deck__dot.is-on::before{background:var(--gold)}
+  .deck__dot.is-current::before{box-shadow:0 0 0 3px rgba(232,194,26,.22)}
+}
+@media (max-width:899px) and (hover:hover){
+  .deck__btn:hover:not(:disabled){border-color:var(--flame);color:var(--gold)}
+}
+
+/* --------------------------------------------------------------------------
+   LANDSCAPE PHONE
+   A rotated phone is still under 900px, so it takes the deck — but with ~293px
+   of usable height it cannot stack a figure above a card. Width is the one
+   thing it has, so the figure moves beside the deck and the deck drops its
+   full-bleed centring (in one column, percentage padding resolves against that
+   column, which is what we want here).
+
+   This is a degraded view by nature: the figure is small and the numerals are
+   near their legible floor. Portrait is the designed experience; this exists so
+   rotating the phone does not break the section.
+   -------------------------------------------------------------------------- */
+@media (max-width:899px) and (max-height:560px) and (orientation:landscape){
+  .assess__grid{grid-template-columns:minmax(0,.34fr) minmax(0,1fr);align-items:start}
+  .assess__fig{max-height:min(50svh,200px)}
+  .assess__readout{margin-top:var(--s-2);padding-top:var(--s-2);min-height:0}
+  .assess__readout b{font-size:1.1rem}
+
+  .js-deck .zones{margin-inline:0;padding-inline:calc(50% - 120px)}
+  .js-deck .zone{flex:0 0 240px}
+  .js-deck .zone__s{-webkit-line-clamp:2}
+}
 
 /* ---------- prep: what to wear / socks / what you need ---------- */
 .prep{display:grid;gap:var(--s-5);margin-top:var(--s-6)}
@@ -1051,6 +1261,10 @@ main,.foot{position:relative;z-index:1}
         '<circle class="apt__ring" cx="' + xy[0] + '" cy="' + xy[1] + '" r="9.5"></circle>' +
         '<circle class="apt__core" cx="' + xy[0] + '" cy="' + xy[1] + '" r="9.5"></circle>' +
         '<text class="apt__num" x="' + xy[0] + '" y="' + xy[1] + '">' + (i + 1) + '</text>' +
+        /* Transparent hit area, drawn last so it wins hit-testing. r=20 is the
+           ceiling: points 7 and 8 are 40 units apart and would collide beyond
+           it. Unused on desktop, where the pointer never targets the figure. */
+        '<circle class="apt__hit" cx="' + xy[0] + '" cy="' + xy[1] + '" r="20"></circle>' +
         '</g>';
     }).join("");
 
@@ -1076,6 +1290,211 @@ main,.foot{position:relative;z-index:1}
 
     /* Static readout so the panel is never blank before scroll or without JS motion. */
     set("assessReadout", "<b>12</b><span>points, every first visit</span>");
+  }());
+
+  /* ---------- assessment: shared lighting + the mobile deck ----------
+     This lives OUTSIDE the motion block on purpose. Everything below the
+     `if (!hasGSAP || reduced) return;` guard further down is skipped both when
+     GSAP fails to load AND whenever the visitor has reduced motion switched on
+     at the OS level — which is common on phones. Putting the deck there would
+     hand those visitors a set of buttons and dots that render but do nothing.
+
+     So the deck depends on nothing but matchMedia and IntersectionObserver.
+     GSAP stays responsible only for the desktop scroll path, which calls
+     `light()` here rather than owning its own copy.
+
+     Controls are built in JS, never in markup: if this script never runs there
+     are no buttons to be dead — just twelve readable rows. */
+  window.CRAssess = (function assessDeck() {
+    var section = document.getElementById("assessment");
+    var readout = document.getElementById("assessReadout");
+    var list    = document.getElementById("zonesList");
+    if (!section || !list) { return null; }
+
+    var pts   = Array.prototype.slice.call(section.querySelectorAll(".apt"));
+    var zones = Array.prototype.slice.call(section.querySelectorAll(".zone"));
+    if (pts.length < 2 || zones.length !== pts.length) { return null; }
+
+    var IDLE    = "<b>12</b><span>points, every first visit</span>";
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var current = -1;
+    var bar = null, prevBtn = null, nextBtn = null, dots = [];
+
+    /* Cumulative up to i, matching the desktop rule exactly: everything at or
+       before the active zone reads lit, and only the active row is highlighted.
+       Under reduced motion the global transition override makes this snap
+       instead of fade — the information survives, the animation doesn't. */
+    function light(i) {
+      if (i === current) { return; }
+      current = i;
+      pts.forEach(function (p, n)   { p.classList.toggle("is-lit", n <= i); });
+      zones.forEach(function (z, n) { z.classList.toggle("is-lit", n === i); });
+
+      if (readout) {
+        if (i < 0) {
+          readout.innerHTML = IDLE;
+        } else {
+          var t = zones[i].querySelector(".zone__t");
+          readout.innerHTML = "<b>" + ("0" + (i + 1)).slice(-2) + "</b><span>"
+            + (t ? t.textContent : "") + "</span>";
+        }
+      }
+
+      dots.forEach(function (d, n) {
+        d.classList.toggle("is-on", n <= i);
+        d.classList.toggle("is-current", n === i);
+        d.setAttribute("aria-current", n === i ? "true" : "false");
+      });
+      if (prevBtn) { prevBtn.disabled = i <= 0; }
+      if (nextBtn) { nextBtn.disabled = i >= zones.length - 1; }
+    }
+
+    function reset() {
+      current = -1;
+      pts.forEach(function (p)   { p.classList.remove("is-lit"); });
+      zones.forEach(function (z) { z.classList.remove("is-lit"); });
+      if (readout) { readout.innerHTML = IDLE; }
+    }
+
+    /* ---- deck, below 900px only ---- */
+    var mq = window.matchMedia("(max-width:899px)");
+    var io = null;
+
+    /* Centre by measured delta, not offsetLeft: the cards' offsetParent is the
+       page, not the scroll container, so offsetLeft carries a page-level origin
+       that leaves the first and last card one short of centre. Rect deltas are
+       independent of both the offset parent and the current scroll position. */
+    function goTo(i) {
+      var n = Math.max(0, Math.min(zones.length - 1, i));
+      var c = zones[n].getBoundingClientRect();
+      var l = list.getBoundingClientRect();
+      var delta = (c.left + c.width / 2) - (l.left + l.width / 2);
+      var to = list.scrollLeft + delta;
+      if (list.scrollTo) {
+        list.scrollTo({ left: to, behavior: reduced ? "auto" : "smooth" });
+      } else {
+        list.scrollLeft = to;
+      }
+      light(n);
+    }
+
+    function onPointActivate(e) {
+      var g = e.currentTarget;
+      var i = parseInt(g.getAttribute("data-i"), 10);
+      if (!isNaN(i)) { goTo(i); }
+    }
+    function onPointKey(e) {
+      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+        e.preventDefault();
+        onPointActivate(e);
+      }
+    }
+    function onListKey(e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); goTo(current + 1); }
+      if (e.key === "ArrowLeft")  { e.preventDefault(); goTo(current - 1); }
+    }
+
+    function build() {
+      if (bar) { return; }
+      document.documentElement.classList.add("js-deck");
+
+      /* Lenis leaves nested scrollers alone by default (syncTouch is off, as
+         .moments__viewport already demonstrates on this page) — this is belt
+         and braces in case that config ever changes. */
+      list.setAttribute("data-lenis-prevent", "");
+      list.setAttribute("tabindex", "0");
+      list.setAttribute("aria-label", "The twelve assessment zones, one card at a time");
+      list.addEventListener("keydown", onListKey);
+
+      bar = document.createElement("div");
+      bar.className = "deck__bar";
+
+      function arrow(dir, label) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "deck__btn";
+        b.setAttribute("aria-label", label);
+        b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="'
+          + (dir < 0 ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7") + '"/></svg>';
+        b.addEventListener("click", function () { goTo(current + dir); });
+        return b;
+      }
+      prevBtn = arrow(-1, "Previous zone");
+      nextBtn = arrow(1, "Next zone");
+
+      var dotWrap = document.createElement("div");
+      dotWrap.className = "deck__dots";
+      dots = zones.map(function (z, i) {
+        var d = document.createElement("button");
+        d.type = "button";
+        d.className = "deck__dot";
+        var t = z.querySelector(".zone__t");
+        d.setAttribute("aria-label", "Zone " + (i + 1) + (t ? ": " + t.textContent : ""));
+        d.addEventListener("click", function () { goTo(i); });
+        dotWrap.appendChild(d);
+        return d;
+      });
+
+      bar.appendChild(prevBtn);
+      bar.appendChild(dotWrap);
+      bar.appendChild(nextBtn);
+      list.parentNode.insertBefore(bar, list.nextSibling);
+
+      pts.forEach(function (g, i) {
+        var t = zones[i].querySelector(".zone__t");
+        g.setAttribute("role", "button");
+        g.setAttribute("tabindex", "0");
+        g.setAttribute("aria-label", "Zone " + (i + 1) + (t ? ": " + t.textContent : ""));
+        g.addEventListener("click", onPointActivate);
+        g.addEventListener("keydown", onPointKey);
+      });
+
+      /* Whichever card overlaps the centre band is the active one. */
+      if (window.IntersectionObserver) {
+        io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (!en.isIntersecting) { return; }
+            var i = zones.indexOf(en.target);
+            if (i > -1) { light(i); }
+          });
+        }, { root: list, rootMargin: "0px -45% 0px -45%", threshold: 0 });
+        zones.forEach(function (z) { io.observe(z); });
+      }
+
+      light(0);
+    }
+
+    function teardown() {
+      if (!bar) { return; }
+      document.documentElement.classList.remove("js-deck");
+      if (io) { io.disconnect(); io = null; }
+
+      list.removeAttribute("data-lenis-prevent");
+      list.removeAttribute("tabindex");
+      list.removeAttribute("aria-label");
+      list.removeEventListener("keydown", onListKey);
+      list.scrollLeft = 0;
+
+      pts.forEach(function (g) {
+        g.removeAttribute("role");
+        g.removeAttribute("tabindex");
+        g.removeAttribute("aria-label");
+        g.removeEventListener("click", onPointActivate);
+        g.removeEventListener("keydown", onPointKey);
+      });
+
+      bar.parentNode.removeChild(bar);
+      bar = prevBtn = nextBtn = null;
+      dots = [];
+      reset();
+    }
+
+    function sync() { if (mq.matches) { build(); } else { teardown(); } }
+    sync();
+    if (mq.addEventListener) { mq.addEventListener("change", sync); }
+    else if (mq.addListener) { mq.addListener(sync); }
+
+    return { light: light, reset: reset, isDeck: function () { return !!bar; } };
   }());
 
   /* ---------- before I arrive ---------- */
@@ -1125,6 +1544,18 @@ main,.foot{position:relative;z-index:1}
     f.loading = "lazy";                 /* it sits well below the fold */
     f.setAttribute("allow", "payment");
     mount.appendChild(f);
+
+    /* Way out of the iframe. Styled and shown on mobile only, where the embed is
+       capped to the viewport and scrolling it is fiddly on a touch screen. */
+    if (b.acuity) {
+      var out = document.createElement("a");
+      out.className = "micro sched__out";
+      out.href = b.acuity;
+      out.target = "_blank";
+      out.rel = "noopener";
+      out.textContent = "Open the scheduler in a new tab";
+      mount.parentNode.appendChild(out);
+    }
 
     if (b.acuityJs) {
       var sc = document.createElement("script");
@@ -1522,45 +1953,36 @@ window.addEventListener("DOMContentLoaded", function () {
      nothing you have already been through goes dark again. */
   (function assessmentIgnition() {
     var section = document.getElementById("assessment");
-    var readout = document.getElementById("assessReadout");
-    if (!section) { return; }
+    var ctl = window.CRAssess;
+    if (!section || !ctl) { return; }
 
-    var pts   = Array.prototype.slice.call(section.querySelectorAll(".apt"));
     var zones = Array.prototype.slice.call(section.querySelectorAll(".zone"));
-    if (pts.length < 2 || zones.length !== pts.length) { return; }
+    if (zones.length < 2) { return; }
 
-    var current = -1;
-    function lightTo(i) {
-      if (i === current) { return; }
-      current = i;
-      pts.forEach(function (p, n)   { p.classList.toggle("is-lit", n <= i); });
-      zones.forEach(function (z, n) { z.classList.toggle("is-lit", n === i); });
-      if (readout) {
-        var z = zones[i];
-        var name = z ? z.querySelector(".zone__t").textContent : "";
-        readout.innerHTML = "<b>" + ("0" + (i + 1)).slice(-2) + "</b><span>" + name + "</span>";
-      }
-    }
-
-    zones.forEach(function (zone, i) {
-      ScrollTrigger.create({
-        trigger: zone,
-        start: "top 72%",
-        end: "bottom 34%",
-        onToggle: function (self) { if (self.isActive) { lightTo(i); } }
+    /* Desktop only. Below 900px the deck owns these same zones and points —
+       running both would fight over is-lit. matchMedia tears this down on the
+       way past the breakpoint, and the deck's own listener builds itself. */
+    gsap.matchMedia().add("(min-width:900px)", function () {
+      var triggers = zones.map(function (zone, i) {
+        return ScrollTrigger.create({
+          trigger: zone,
+          start: "top 72%",
+          end: "bottom 34%",
+          onToggle: function (self) { if (self.isActive) { ctl.light(i); } }
+        });
       });
-    });
 
-    /* Leaving the section upward resets it so the ritual replays on the way back. */
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top bottom",
-      onLeaveBack: function () {
-        current = -1;
-        pts.forEach(function (p)   { p.classList.remove("is-lit"); });
-        zones.forEach(function (z) { z.classList.remove("is-lit"); });
-        if (readout) { readout.innerHTML = "<b>12</b><span>points, every first visit</span>"; }
-      }
+      /* Leaving the section upward resets it so the ritual replays on the way back. */
+      triggers.push(ScrollTrigger.create({
+        trigger: section,
+        start: "top bottom",
+        onLeaveBack: function () { ctl.reset(); }
+      }));
+
+      return function () {
+        triggers.forEach(function (t) { t.kill(); });
+        ctl.reset();
+      };
     });
   }());
 
