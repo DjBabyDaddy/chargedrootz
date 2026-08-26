@@ -143,7 +143,7 @@
    restrained, defined watermark. It stays beneath content and never takes focus. */
 .site-watermark{
   position:fixed;z-index:0;top:50%;left:50%;
-  width:clamp(20rem,58vw,48rem);aspect-ratio:1;
+  width:clamp(20rem,69.6vw,57.6rem);aspect-ratio:1;
   display:grid;place-items:center;
   pointer-events:none;opacity:0;visibility:hidden;
   transform:translate(-50%,-50%);
@@ -151,9 +151,16 @@
 }
 .site-watermark__mark{
   width:100%;height:100%;object-fit:contain;
-  opacity:.88;transform:scale(.9);
-  filter:drop-shadow(0 0 44px rgba(218,62,27,.18));
+  opacity:.94;transform:scale(.9);
+  filter:drop-shadow(0 0 56px rgba(218,62,27,.26));
   will-change:transform;
+}
+.site-watermark::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(128deg,transparent 35%,rgba(242,233,220,.42) 49%,rgba(232,194,26,.24) 55%,transparent 69%);
+  -webkit-mask:url("assets/img/logo-alpha-768.png") center/contain no-repeat;
+  mask:url("assets/img/logo-alpha-768.png") center/contain no-repeat;
+  mix-blend-mode:screen;opacity:.62;
 }
 main,.foot{position:relative;z-index:1}
 
@@ -1408,7 +1415,7 @@ window.addEventListener("DOMContentLoaded", function () {
     if (!mark || !markArt) { return; }
 
     gsap.to(mark, {
-      autoAlpha: .18,
+      autoAlpha: .22,
       ease: "none",
       scrollTrigger: {
         trigger: ".hero",
